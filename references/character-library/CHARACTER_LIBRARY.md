@@ -2,7 +2,7 @@
 
 Panduan ini berlaku untuk **setiap skill dan sesi** yang membuat gambar, video, storyboard, atau prompt yang memuat karakter proyek LYLA. Ini mencakup `pixar-animation-video`, `pixar-style-ad`, `claymation-ad`, `gemini-omni-flash`, `caption-video`, `generate-youtube-thumbnail`, dan skill image-ad.
 
-Status: 14 master sheet dan 2 logo Arsein sudah terdaftar. **Disetujui pemilik:** Rico, Lila, Bimo, Tika, Piko; Fasha, Kania; dan Maya tanpa pita (kanonik). **Lainnya `identified`, termasuk kedua logo.** Sebelum sebuah karakter dipakai, cek `library.json` atau jalankan skrip pemeriksa.
+Status: 14 master sheet dan 2 logo Arsein sudah terdaftar. **Disetujui pemilik:** Rico, Lila, Bimo, Tika, Piko; Fasha, Kania; Maya tanpa pita (kanonik); dan kedua logo Arsein. **Lainnya `identified`.** Sebelum sebuah karakter dipakai, cek `library.json` atau jalankan skrip pemeriksa.
 
 ## 0. Keputusan pemilik dan routing proyek
 
@@ -43,8 +43,9 @@ Persetujuan yang tercatat saat ini:
 | Rico & Friends: sheet grup dan Rico solo | Rico, Lila, Bimo, Tika, Piko | pemilik menetapkan kelimanya sebagai karakter resmi |
 | LYLA-Education: sheet Fasha & Kania | Fasha, Kania | keputusan final 4 |
 | The-Last-Letter: sheet Maya & Ren, Full Cast | Maya (tanpa pita) | keputusan final 2; diverifikasi visual |
+| Arsein-Research: logo kotak/bertumpuk dan logo horizontal | logo utama dan logo alternatif | pemilik menyetujui keduanya sebagai aset resmi |
 
-Menunggu persetujuan: Lyla, Lilo, Aisyah, Mama Aisyah, seluruh Zeno Family, Arsein (Lila, Raka, Naya, Bimo, Tika), Ren dan karakter lain The Last Letter, Lady Aradena, serta **kedua logo Arsein**.
+Menunggu persetujuan: Lyla, Lilo, Aisyah, Mama Aisyah, seluruh Zeno Family, Arsein (Lila, Raka, Naya, Bimo, Tika), Ren dan karakter lain The Last Letter, Lady Aradena.
 
 ## 2. Aturan wajib untuk semua skill
 
@@ -149,7 +150,7 @@ Aturan aset brand:
 3. **Logo di dalam master character sheet** adalah bagian dari sheet itu, bukan file logo. Jangan di-crop menjadi aset logo.
 4. **Pilih varian sesuai fungsi**, dan jangan menebak: tanyakan pemilik jika tidak jelas logo mana yang cocok untuk sebuah penggunaan.
 5. **Format:** PNG/SVG dengan latar transparan disarankan untuk logo. Upload lewat web GitHub tidak terpengaruh aturan ignore. Untuk `git add` lokal gunakan `-f`.
-6. **Pemakaian saat generate (keputusan pemilik):** logo utama = versi kotak/bertumpuk, **default**. Logo alternatif = versi memanjang/horizontal, boleh dipilih bila lebih sesuai dengan komposisi. Keduanya aset terpisah. Tipe sudah dikonfirmasi pemilik, tetapi **keduanya belum `approved`**.
+6. **Pemakaian saat generate (keputusan pemilik):** logo utama = versi kotak/bertumpuk, **default**. Logo alternatif = versi memanjang/horizontal, boleh dipilih bila lebih sesuai dengan komposisi. Keduanya aset terpisah. Keduanya sudah **disetujui pemilik (`approved`)** sebagai aset resmi.
 7. Gate: `./scripts/check-character-library.sh Arsein-Research --brand` (logo utama) atau `--brand --logo alternate`; exit 0 hanya jika logo berstatus `approved` dan filenya ada.
 
 ## 5. Alur setelah Anda mengunggah gambar

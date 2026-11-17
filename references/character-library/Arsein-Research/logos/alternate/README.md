@@ -1,6 +1,6 @@
 # Arsein Research — logo alternatif
 
-**Status: 1 file terdaftar (`identified`, belum `approved`).**
+**Status: 1 file terdaftar, `approved` (disetujui pemilik sebagai aset resmi).**
 - `arsein-research__logo-alternate-horizontal__v1.jpeg`
 
 Logo alternatif = versi memanjang/horizontal. Dipilih hanya bila lebih sesuai dengan komposisi. Overlay file asli di post-produksi.

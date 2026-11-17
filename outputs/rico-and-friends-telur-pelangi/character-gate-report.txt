@@ -1,0 +1,23 @@
+project                assets appr.chars plan | brand  ok | notes
+Rico-and-Friends            2          5    2 |     0   0 | 
+
+CHARACTER PASS: Rico-and-Friends:Rico
+  LOCK: Copy Rico EXACTLY from the attached master character sheet (Rico-and-Friends/rico-and-friends__group__master-sheet__v1.png; Rico-and-Friends/rico-and-friends__rico__master-sheet__v1.png): same face, hair, outfit, colors, proportions and signature features. Do not redesign, restyle, add accessories or change colors.
+  REF : references/character-library/Rico-and-Friends/rico-and-friends__group__master-sheet__v1.png
+  REF : references/character-library/Rico-and-Friends/rico-and-friends__rico__master-sheet__v1.png
+
+CHARACTER PASS: Rico-and-Friends:Lila
+  LOCK: Copy Lila EXACTLY from the attached master character sheet (Rico-and-Friends/rico-and-friends__group__master-sheet__v1.png): same face, hair, outfit, colors, proportions and signature features. Do not redesign, restyle, add accessories or change colors.
+  REF : references/character-library/Rico-and-Friends/rico-and-friends__group__master-sheet__v1.png
+
+CHARACTER PASS: Rico-and-Friends:Bimo
+  LOCK: Copy Bimo EXACTLY from the attached master character sheet (Rico-and-Friends/rico-and-friends__group__master-sheet__v1.png): same face, hair, outfit, colors, proportions and signature features. Do not redesign, restyle, add accessories or change colors.
+  REF : references/character-library/Rico-and-Friends/rico-and-friends__group__master-sheet__v1.png
+
+CHARACTER PASS: Rico-and-Friends:Tika
+  LOCK: Copy Tika EXACTLY from the attached master character sheet (Rico-and-Friends/rico-and-friends__group__master-sheet__v1.png): same face, hair, outfit, colors, proportions and signature features. Do not redesign, restyle, add accessories or change colors.
+  REF : references/character-library/Rico-and-Friends/rico-and-friends__group__master-sheet__v1.png
+
+CHARACTER PASS: Rico-and-Friends:Piko
+  LOCK: Copy Piko EXACTLY from the attached master character sheet (Rico-and-Friends/rico-and-friends__group__master-sheet__v1.png): same face, hair, outfit, colors, proportions and signature features. Do not redesign, restyle, add accessories or change colors.
+  REF : references/character-library/Rico-and-Friends/rico-and-friends__group__master-sheet__v1.png

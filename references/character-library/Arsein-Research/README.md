@@ -1,6 +1,6 @@
 # Arsein Research — character references
 
-**Status: 1 master sheet dan 2 logo terdaftar. Karakter disetujui: belum ada. Terdaftar tetapi belum disetujui: Bimo, Lila, Naya, Raka, Tika.** Sumber kebenaran: [../library.json](../library.json).
+**Status: 1 master sheet dan 2 logo terdaftar. Kedua logo disetujui pemilik (`approved`).** Karakter disetujui: belum ada. Terdaftar tetapi belum disetujui: Bimo, Lila, Naya, Raka, Tika. Sumber kebenaran: [../library.json](../library.json).
 
 **Cakupan:** seluruh master karakter dan aset visual brand Arsein Research disimpan di folder ini, dengan pencatatan terpisah.
 
@@ -15,7 +15,7 @@
 
 **Karakter tidak boleh tertukar:** Lila, Bimo, dan Tika di Arsein adalah karakter **berbeda** dari Lila, Bimo, dan Tika di Rico-and-Friends. Selalu gunakan `Arsein-Research:<Nama>`.
 
-**Status logo:** tipe (utama/alternatif) sudah dikonfirmasi pemilik, tetapi **belum disetujui (`approved`)**. Kedua file berlatar (bukan transparan) dan punya garis hitam tipis di tepi atas; tidak dimodifikasi.
+**Status logo:** kedua logo **disetujui pemilik (`approved`)** sebagai aset resmi: bertumpuk = utama, horizontal = alternatif. Kedua file berlatar (bukan transparan) dan punya garis hitam tipis di tepi atas; tidak dimodifikasi.
 
 ## File terdaftar
 
@@ -29,8 +29,8 @@
 
 | File | Tipe | Status |
 |------|------|--------|
-| `arsein-research__logo-primary__v1.jpeg` | `logo_primary` | `identified` (tipe dikonfirmasi pemilik) |
-| `arsein-research__logo-alternate-horizontal__v1.jpeg` | `logo_alternate` | `identified` (tipe dikonfirmasi pemilik) |
+| `arsein-research__logo-primary__v1.jpeg` | `logo_primary` | `approved` |
+| `arsein-research__logo-alternate-horizontal__v1.jpeg` | `logo_alternate` | `approved` |
 
 
 ## Aturan (ringkas; lengkap di [../CHARACTER_LIBRARY.md](../CHARACTER_LIBRARY.md))

@@ -25,7 +25,8 @@
       "FINAL (2026-11-17) The-Last-Letter / Maya: canonical (official) design is Maya WITHOUT hair tie or ribbon. If sheets differ, the no-ribbon design is the primary reference. Keep face, hair, outfit, colors, proportions and signature features per the master sheet.",
       "FINAL (2026-11-17) The-Last-Letter and LYLA-Anime-Universe are one universe; shared characters and story links allowed; no new characters or design changes without owner approval.",
       "FINAL (2026-11-17) LYLA-Education: Fasha and Kania are official characters; their master sheet stays in LYLA-Education/ and they must not be placed in general LYLA.",
-      "FINAL (2026-11-17) Approval rule: never change original images, never delete or replace master files, never set 'approved' except for assets the owner clearly approved; keep hashes and origin notes."
+      "FINAL (2026-11-17) Approval rule: never change original images, never delete or replace master files, never set 'approved' except for assets the owner clearly approved; keep hashes and origin notes.",
+      "APPROVED (2026-11-17) Arsein-Research logos: stacked/square logo = official primary logo; horizontal logo = official alternate logo. Image files unchanged."
     ]
   },
   "projects": {
@@ -401,18 +402,19 @@
           "type": "logo_primary",
           "kind": "stacked lockup",
           "version": 1,
-          "status": "identified",
+          "status": "approved",
           "uploaded_at": "2026-11-17",
-          "approved_by": null,
-          "approved_at": null,
+          "approved_by": "owner",
+          "approved_at": "2026-11-17",
           "sha256": "78806814d4d7f90b07f3c644ad78ba9e1f3144aa4191f15923ee1cbd065e8d76",
-          "notes": "Stacked lockup (AR monogram, wordmark, tagline). Type confirmed by owner (final decision 1). Off-white background and a thin black strip along the top edge; not a transparent file. Not modified. Approval status: not yet approved (type confirmation is not approval).",
+          "notes": "Stacked lockup (AR monogram, wordmark, tagline). Type confirmed by owner (final decision 1). Off-white background and a thin black strip along the top edge; not a transparent file. Not modified.",
           "origin": {
             "channel": "owner upload via GitHub",
             "original_name": "IMG_6865.jpeg",
             "upload_commit": "da7e0a5"
           },
-          "type_confirmed_by_owner": true
+          "type_confirmed_by_owner": true,
+          "approval_basis": "Owner decision (chat, 2026-11-17): approved as official logo utama (versi kotak/bertumpuk)."
         },
         {
           "file": "Arsein-Research/logos/alternate/arsein-research__logo-alternate-horizontal__v1.jpeg",
@@ -420,18 +422,19 @@
           "type": "logo_alternate",
           "kind": "horizontal lockup",
           "version": 1,
-          "status": "identified",
+          "status": "approved",
           "uploaded_at": "2026-11-17",
-          "approved_by": null,
-          "approved_at": null,
+          "approved_by": "owner",
+          "approved_at": "2026-11-17",
           "sha256": "0934ba130327a066249e4297f6a21b0d035e24c239da3438814494155a2955fa",
-          "notes": "Horizontal lockup. Type confirmed by owner (final decision 1). Textured beige background and a black strip along the top edge; low-resolution (1179x413), not a transparent file. Not modified. Approval status: not yet approved (type confirmation is not approval).",
+          "notes": "Horizontal lockup. Type confirmed by owner (final decision 1). Textured beige background and a black strip along the top edge; low-resolution (1179x413), not a transparent file. Not modified.",
           "origin": {
             "channel": "owner upload via GitHub",
             "original_name": "IMG_6864.jpeg",
             "upload_commit": "da7e0a5"
           },
-          "type_confirmed_by_owner": true
+          "type_confirmed_by_owner": true,
+          "approval_basis": "Owner decision (chat, 2026-11-17): approved as official logo alternatif (versi memanjang/horizontal)."
         }
       ],
       "planned_brand_assets": [],

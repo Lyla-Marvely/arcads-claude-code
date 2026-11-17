@@ -84,7 +84,19 @@ def lock_text(char: dict) -> str:
     return f"{char['name']} ({'; '.join(parts)})"
 
 
-def validate(project: dict) -> list[str]:
+def repo_root(start: Path) -> Path:
+    for d in [start.resolve(), *start.resolve().parents]:
+        if (d / "CLAUDE.md").is_file() and (d / "references").is_dir():
+            return d
+    return Path.cwd()
+
+
+def sheet_path(root: Path, ref: str) -> Path:
+    """master_sheet / reference_sheet may be a repo-relative path; free text descriptions never resolve."""
+    return root / ref
+
+
+def validate(project: dict, root: Path | None = None) -> list[str]:
     problems: list[str] = []
     ratios = project.get("ratios", ["9:16", "16:9"])
     bad = [r for r in ratios if r not in SUPPORTED_RATIOS]
@@ -92,6 +104,15 @@ def validate(project: dict) -> list[str]:
         problems.append(f"unsupported ratio(s) {bad}; supported: {sorted(SUPPORTED_RATIOS)}")
     chars = {c["id"]: c for c in project.get("characters", [])}
     sets = {s["id"]: s for s in project.get("settings", [])}
+    if root is not None:
+        for c in chars.values():
+            for ref in ([c["master_sheet"]] if c.get("master_sheet") else []):
+                if not sheet_path(root, ref).is_file():
+                    problems.append(f"character '{c['id']}': master_sheet file not found on disk: {ref} (never plan with a sheet that does not exist)")
+        for sc in project.get("scenes", []):
+            ref = sc.get("reference_sheet")
+            if ref and not sheet_path(root, ref).is_file():
+                problems.append(f"{sc.get('id','?')}: reference_sheet file not found on disk: {ref}")
     if not project.get("scenes"):
         problems.append("no scenes defined")
     seen = set()
@@ -146,13 +167,29 @@ def build_image_prompt(project, sc, ratio, chars, sets) -> str:
 def ref_plan(sc, chars=None) -> list[str]:
     plan = ["img1 = this scene's approved storyboard still (same ratio)"]
     master = next((chars[c] for c in sc.get("characters", []) if chars and chars[c].get("master_sheet")), None)
-    if master:
+    if sc.get("reference_sheet"):
+        plan.append(f"img2 = MASTER sheet {sc['reference_sheet']} — owner-approved file, never regenerated")
+    elif master:
         plan.append(f"img2 = {master['name']} MASTER character sheet ({master['master_sheet']}) — user-supplied, never regenerated")
     else:
         plan.append("img2 = character turnaround/lock sheet (same characters as this scene)")
     if sc.get("continuity_from"):
         plan.append(f"img3 = approved still of {sc['continuity_from']} (continuity anchor)")
     return plan
+
+
+def still_refs(sc, chars) -> list[str]:
+    """Reference files for the STILL (image model; gpt-image-2 accepts max 5)."""
+    refs = []
+    if sc.get("reference_sheet"):
+        refs.append(sc["reference_sheet"])
+    for c in sc.get("characters", []):
+        m = chars[c].get("master_sheet")
+        if m and m not in refs:
+            refs.append(m)
+    if sc.get("continuity_from"):
+        refs.append(f"<approved still of {sc['continuity_from']}, same ratio>")
+    return refs
 
 
 def build_seedance_prompt(project, sc, ratio, chars, sets) -> str:
@@ -198,7 +235,7 @@ def main() -> None:
     args = ap.parse_args()
 
     project = json.loads(args.project.read_text(encoding="utf-8"))
-    problems = validate(project)
+    problems = validate(project, repo_root(args.project))
     if problems:
         print("Validation problems:", file=sys.stderr)
         for p in problems:
@@ -241,11 +278,15 @@ def main() -> None:
 
     md.append("## Scenes\n")
     for sc in project["scenes"]:
-        n_img_refs = len(sc.get("characters", [])) + (1 if sc.get("continuity_from") else 0)
-        entry = {"id": sc["id"], "image_reference_files": n_img_refs, "beat": sc.get("beat"), "duration": sc["duration"],
+        sr = still_refs(sc, chars)
+        n_img_refs = len(sr)
+        if n_img_refs > GPT_IMAGE_MAX_REFS:
+            print(f"WARNING: {sc['id']} needs {n_img_refs} still references (gpt-image-2 max {GPT_IMAGE_MAX_REFS})", file=sys.stderr)
+        entry = {"id": sc["id"], "still_reference_files": sr, "image_reference_files": n_img_refs, "beat": sc.get("beat"), "duration": sc["duration"],
                  "vo": sc.get("vo", ""), "reference_plan": ref_plan(sc, chars), "ratios": {}}
         md.append(f"### {sc['id']} — {sc.get('beat', '')} ({sc['duration']}s)\n")
-        md.append(f"**VO:** {sc.get('vo', '—')}\n\n**Reference plan:** " + "; ".join(ref_plan(sc, chars)) + "\n")
+        md.append(f"**VO:** {sc.get('vo', '—')}\n\n**Video reference plan (Seedance, max 3):** " + "; ".join(ref_plan(sc, chars)) +
+                  "\n\n**Still reference files (gpt-image-2, max 5):** " + "; ".join(f"`{x}`" for x in sr) + "\n")
         for r in ratios:
             ip = build_image_prompt(project, sc, r, chars, sets)
             sp = build_seedance_prompt(project, sc, r, chars, sets)

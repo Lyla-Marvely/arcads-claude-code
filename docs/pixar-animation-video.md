@@ -68,6 +68,7 @@ Each scene gets its own still and clip per ratio (re-framed, not cropped), so co
 | Field | Effect |
 |-------|--------|
 | `characters[].master_sheet` | User-supplied character sheet. The builder skips the turnaround prompt and plans it as `img2` (never regenerated). |
+| `scenes[].reference_sheet` | Repo-relative path of a master sheet to use as `img2` for that scene (e.g. a group sheet for multi-character scenes). The builder fails if the file does not exist on disk, as it does for `characters[].master_sheet`. It also lists the still reference files per scene (gpt-image-2 max 5). |
 | `characters[].short_lock` | Compact lock used in video prompts (identity is carried by reference images). |
 | `style_lock_video`, `settings[].video_lock` | Shorter style/setting text for video prompts. |
 | `continuity_lock`, `continuity_lock_video`, `scenes[].continuity_notes` | Global and per-scene continuity lines appended to prompts. |

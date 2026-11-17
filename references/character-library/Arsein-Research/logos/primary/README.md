@@ -1,6 +1,6 @@
 # Arsein Research — logo utama
 
-**Status: 1 file terdaftar (`identified`, belum `approved`).**
+**Status: 1 file terdaftar, `approved` (disetujui pemilik sebagai aset resmi).**
 - `arsein-research__logo-primary__v1.jpeg`
 
 Logo utama = versi kotak/bertumpuk. **Default untuk generasi.** Overlay file asli di post-produksi.

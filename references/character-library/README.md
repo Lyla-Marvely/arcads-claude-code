@@ -2,7 +2,7 @@
 
 Katalog master character sheet dan aset brand untuk seluruh proyek LYLA. Aturan pemakaian: [CHARACTER_LIBRARY.md](CHARACTER_LIBRARY.md). Registri mesin-baca (sumber kebenaran): [library.json](library.json).
 
-> **Status saat ini:** 14 master character sheet dan 2 logo Arsein Research sudah diunggah, diverifikasi (hash tercatat), dan terdaftar. **Disetujui pemilik:** Rico, Lila, Bimo, Tika, Piko (Rico-and-Friends), Fasha dan Kania (LYLA-Education), dan Maya tanpa pita rambut sebagai desain kanonik (The-Last-Letter). **Semua yang lain masih `identified` (menunggu persetujuan)**, termasuk kedua logo Arsein. Folder `LYLA/` masih kosong.
+> **Status saat ini:** 14 master character sheet dan 2 logo Arsein Research sudah diunggah, diverifikasi (hash tercatat), dan terdaftar. **Disetujui pemilik:** Rico, Lila, Bimo, Tika, Piko (Rico-and-Friends), Fasha dan Kania (LYLA-Education), Maya tanpa pita rambut sebagai desain kanonik (The-Last-Letter), serta **kedua logo Arsein Research** (utama: kotak/bertumpuk; alternatif: horizontal). **Yang lain masih `identified` (menunggu persetujuan).** Folder `LYLA/` masih kosong.
 
 ## Proyek
 

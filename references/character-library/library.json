@@ -1,0 +1,15 @@
+{
+  "schema": 1,
+  "doc": "CHARACTER_LIBRARY.md",
+  "note": "Registry of character master sheets. An asset is official ONLY when status is 'approved'. Only the project owner may set 'approved'. Empty 'assets' means nothing has been uploaded/registered yet.",
+  "status_values": ["uploaded", "identified", "approved", "deprecated"],
+  "projects": {
+    "LYLA":               { "folder": "LYLA",               "assets": [] },
+    "LYLA-Education":     { "folder": "LYLA-Education",     "assets": [] },
+    "Rico-and-Friends":   { "folder": "Rico-and-Friends",   "assets": [] },
+    "Zeno-Family":        { "folder": "Zeno-Family",        "assets": [] },
+    "Arsein-Research":    { "folder": "Arsein-Research",    "assets": [] },
+    "The-Last-Letter":    { "folder": "The-Last-Letter",    "assets": [] },
+    "LYLA-Anime-Universe":{ "folder": "LYLA-Anime-Universe","assets": [] }
+  }
+}

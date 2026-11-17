@@ -33,6 +33,8 @@ Narrative Pixar-style animated shorts: **idea → script → storyboard → char
 8. **No on-screen text inside generated media.** Captions are added in post (caption-video skill). Narration is generated externally (ElevenLabs) and overlaid; do not rely on in-prompt narrator lines. Trim clips to VO length per the dead-space rule in the pixar-style-ad guide.
 9. **Original characters only.** Do not name or reproduce existing Pixar/Disney characters, logos or scenes. "Pixar-style" describes a look, not licensed IP; say that if the user asks for a named franchise character.
 
+10. **Character library gate.** For any LYLA-project character, follow `references/character-library/CHARACTER_LIBRARY.md`: set `characters[].master_sheet` to the real file path from that project's folder, run `./scripts/check-character-library.sh <Project-Folder>` before Phase 4, and stop paid steps if it exits non-zero. Characters invented for a story (friends, extras) are "PROPOSED", not official; prefer the project's official cast from its master sheets and never redesign them.
+
 ## API requirements (verify, don't assume)
 
 Documented in `skills/arcads-external-api/reference.md`:
@@ -52,7 +54,7 @@ Documented in `skills/arcads-external-api/reference.md`:
 ## Workflow
 
 ### Phase 0 — Brief + preflight
-Ask once (skip what the user already gave): audience/platform, total length (default 45–60 s), tone, language of VO (default: the user's language), theme/moral, any must-have character, whether VO/music/captions are wanted. Then run `check-requirements.sh` and tell the user the result (ready / blocked / what's unverified).
+Ask once (skip what the user already gave): audience/platform, total length (default 45–60 s), tone, language of VO (default: the user's language), theme/moral, any must-have character, whether VO/music/captions are wanted. Then run `check-requirements.sh` and, for LYLA-project characters, `./scripts/check-character-library.sh <Project-Folder>`; tell the user the result (ready / blocked / what's unverified).
 
 ### Phase 1 — Story ideas
 Give **3–5 ideas** (logline, protagonist, want, obstacle, ending, why it suits 3D animation). Follow [story-to-script.md](prompting/story-to-script.md). Recommend one; user picks.

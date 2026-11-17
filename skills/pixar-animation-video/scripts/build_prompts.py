@@ -58,6 +58,28 @@ def neg(project: dict, base: str) -> str:
     return f"{base} {extra}" if extra else base
 
 
+def scale_line(project: dict, sc: dict, video: bool = False) -> str:
+    sl = project.get("scale_lock")
+    items = sc.get("scale_items")
+    if not sl or not items:
+        return ""
+    def val(k):
+        v = sl["values"][k]
+        if video:  # compact for video prompts: drop parenthetical text and "about "
+            v = re.sub(r"\s*\(.*?\)", "", v).replace("about ", "")
+        return v
+    parts = "; ".join(f"{k} {val(k)}" for k in items if k in sl["values"])
+    if video:
+        return f"SCALE LOCK (Rico = 1.0, fixed in every scene) — {parts}.\n"
+    return f"SCALE LOCK (relative to {sl.get('unit', 'the lead character')}; identical in every scene) — {parts}.\n"
+
+
+def reference_note_line(project: dict, video: bool = False) -> str:
+    n = (project.get("reference_note_video") if video else None) or project.get("reference_note", "")
+    n = n.strip()
+    return f"{n}\n" if n else ""
+
+
 def neg_video(project: dict) -> str:
     extra = (project.get("extra_negative_video") or project.get("extra_negative", "")).strip()
     return f"{VIDEO_NEGATIVE} {extra}" if extra else VIDEO_NEGATIVE
@@ -124,6 +146,10 @@ def validate(project: dict, root: Path | None = None) -> list[str]:
         d = sc.get("duration")
         if not isinstance(d, int) or not (SEEDANCE_DURATION[0] <= d <= SEEDANCE_DURATION[1]):
             problems.append(f"{sid}: duration must be an integer {SEEDANCE_DURATION[0]}-{SEEDANCE_DURATION[1]}s (got {d!r})")
+        mx = project.get("max_characters_per_clip")
+        if mx and len(sc.get("characters", [])) > mx and not (sc.get("optional") and sc.get("exception_reason")):
+            problems.append(f"{sid}: {len(sc['characters'])} characters in one clip exceeds max_characters_per_clip={mx} "
+                            f"(split the scene, or mark it optional with an exception_reason)")
         for cid in sc.get("characters", []):
             if cid not in chars:
                 problems.append(f"{sid}: unknown character id '{cid}'")
@@ -157,9 +183,11 @@ def build_image_prompt(project, sc, ratio, chars, sets) -> str:
         f"{cast}\n"
         f"SETTING LOCK — {sets[sc['setting']]['lock']}.\n"
         f"SCENE — {sc['shot']}. {sc['action']}.\n"
+        f"{scale_line(project, sc)}"
         f"{continuity_line(project, sc)}"
         f"Characters must match the attached reference image(s) exactly: same proportions, "
         f"colors, outfit and facial features.\n"
+        f"{reference_note_line(project)}"
         f"{neg(project, IMAGE_NEGATIVE)}"
     )
 
@@ -204,11 +232,13 @@ def build_seedance_prompt(project, sc, ratio, chars, sets) -> str:
     return (
         f"3D animated film aesthetic, image-to-video animation, {dur} seconds, {ratio}.\n"
         f"Reference use: {refs}.\n"
+        f"{reference_note_line(project, video=True)}"
         f"Subject: {cast}\n"
         f"Setting: {setting_text}.\n"
         f"Action (0-{dur}s): {sc['action']}. One primary motion, smooth and readable.\n"
         f"Camera: {sc['shot']}; {sc['camera']}.\n"
         f"Style: {style}.\n"
+        f"{scale_line(project, sc, video=True)}"
         f"{continuity_line(project, sc, video=True)}"
         f"Constraints: characters and setting stay visually identical to the references for the whole clip. "
         f"{neg_video(project)}"
@@ -284,7 +314,7 @@ def main() -> None:
             print(f"WARNING: {sc['id']} needs {n_img_refs} still references (gpt-image-2 max {GPT_IMAGE_MAX_REFS})", file=sys.stderr)
         entry = {"id": sc["id"], "still_reference_files": sr, "image_reference_files": n_img_refs, "beat": sc.get("beat"), "duration": sc["duration"],
                  "vo": sc.get("vo", ""), "reference_plan": ref_plan(sc, chars), "ratios": {}}
-        md.append(f"### {sc['id']} — {sc.get('beat', '')} ({sc['duration']}s)\n")
+        md.append(f"### {sc['id']} — {sc.get('beat', '')} ({sc['duration']}s)" + (" — OPTIONAL (not in the baseline)" if sc.get("optional") else "") + "\n")
         md.append(f"**VO:** {sc.get('vo', '—')}\n\n**Video reference plan (Seedance, max 3):** " + "; ".join(ref_plan(sc, chars)) +
                   "\n\n**Still reference files (gpt-image-2, max 5):** " + "; ".join(f"`{x}`" for x in sr) + "\n")
         for r in ratios:
@@ -300,16 +330,24 @@ def main() -> None:
                       f"**Video prompt (Gemini Omni Flash — only if available, see SKILL.md):**\n\n```\n{op}\n```\n")
         result["scenes"].append(entry)
 
-    n_scenes, n_ratios = len(project["scenes"]), len(ratios)
+    base = [s_ for s_ in project["scenes"] if not s_.get("optional")]
+    opt = [s_ for s_ in project["scenes"] if s_.get("optional")]
+    n_scenes, n_ratios = len(base), len(ratios)
     summary = {
         "turnaround_images": sum(1 for c in project["characters"] if not c.get("master_sheet")),
         "scene_stills": n_scenes * n_ratios,
         "scene_clips": n_scenes * n_ratios,
-        "total_scene_seconds_per_ratio": sum(s["duration"] for s in project["scenes"]),
+        "total_scene_seconds_per_ratio": sum(s_["duration"] for s_ in base),
+        "optional_scenes_not_counted": [s_["id"] for s_ in opt],
+        "optional_extra_stills_and_clips": len(opt) * n_ratios,
+        "max_characters_in_any_baseline_clip": max(len(s_.get("characters", [])) for s_ in base),
         "note": "Counts only. Credit cost is NOT computed here; present it to the user as an estimate "
                 "from logs/arcads-api.jsonl or MASTER_CONTEXT.md and confirm in the Arcads platform.",
     }
     result["request_summary"] = summary
+    if project.get("qa_checks"):
+        result["qa_checks"] = project["qa_checks"]
+        md.append("## QA checklist (apply to every still and clip)\n\n" + "\n".join(f"- [ ] {q}" for q in project["qa_checks"]) + "\n")
     md.append("## Request count (before any generation)\n\n" + "\n".join(f"- {k}: {v}" for k, v in summary.items()) + "\n")
 
     (out / "prompts.json").write_text(json.dumps(result, indent=2, ensure_ascii=False), encoding="utf-8")

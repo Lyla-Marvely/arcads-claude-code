@@ -1,100 +1,143 @@
-# Rico & Friends — "Telur Pelangi" (pack offline)
+# Rico & Friends — "Telur Pelangi" (revisi 2, pack offline)
 
-**Status: persiapan saja. Belum ada gambar atau video yang dibuat. Tidak ada API yang dipanggil.**
-Sumber kebenaran: `project.json`. Prompt lengkap: `prompts/prompt-pack.md` dan `prompts/prompts.json`. Bukti gate karakter: `character-gate-report.txt`.
+**Status: persiapan saja. Belum ada gambar atau video yang dibuat. Tidak ada API yang dipanggil. Menunggu pemeriksaan dan persetujuan Anda.**
+Sumber kebenaran: `project.json`. Prompt lengkap: `prompts/prompt-pack.md` (dibaca manusia) dan `prompts/prompts.json`. Bukti gate karakter: `character-gate-report.txt`.
 
-## 1. Karakter (lima karakter resmi, disetujui pemilik)
+## 0. Revisi 2: keputusan Anda dan penerapannya
 
-Semua dari `references/character-library/Rico-and-Friends/` dan lulus `check-character-library.sh` (PASS untuk kelimanya; Pip ditolak karena tidak terdaftar). Pack ini **tidak mengarang atribut visual**: lock hanya memuat yang tertulis atau terlihat di master sheet, sisanya "persis seperti sheet".
+| # | Keputusan | Penerapan di pack |
+|---|-----------|-------------------|
+| 1 | Ukuran Rico mengikuti master sheet referensi scene; ukuran konsisten antar scene dalam satu episode | Setiap scene punya sheet referensi sendiri (S01: sheet Rico solo; S02–S07: sheet grup). **Kunci skala relatif** (bagian 5) dimasukkan ke setiap prompt dan berlaku sama di semua scene. Angka absolut cm tidak dipakai karena kedua sheet berbeda. |
+| 2 | Pecah klip bila lima karakter berisiko mengubah wajah/desain; konsistensi di atas jumlah klip | Adegan lima karakter dipecah menjadi **6 klip dengan maksimal 3 karakter per klip** (divalidasi builder). Penilaian risiko ada di bagian 4. Klip grup lima karakter hanya **opsional (S07)**. |
+| 3 | Telur boleh jadi pusat cerita, tetap objek, tidak menetas, tidak jadi karakter | Telur hanya objek: tanpa wajah, mata, mulut, atau anggota tubuh; tidak bergerak sendiri; tidak menetas, retak, atau berubah (dikunci di prompt, negative, dan QA). |
+| 4 | Tidak ada lencana atau tulisan LYLA MARVELY | Prompt melarang lencana, logo, watermark, dan teks apa pun, serta memerintahkan sheet dipakai **hanya untuk tampilan karakter**. Nama lencana sengaja **tidak** ditulis di prompt (agar tidak memancing model). Ada butir QA khusus untuk menolak hasil yang memuatnya. |
+| 5 | Pertahankan lima karakter resmi | Rico, Lila, Bimo, Tika, Piko; semuanya lulus gate. Tidak ada karakter lain, termasuk Pip dan Moss. |
+| 6 | Belum ada generasi berbayar | Tidak ada panggilan API. Semua offline. |
 
-| ID | Spesies (menurut sheet) | Ciri khas yang dikunci (menurut sheet) | Sheet referensi |
-|----|-------------------------|------------------------------------------|-----------------|
-| `Rico-and-Friends:Rico` | bayi dinosaurus fantasi | badan turquoise, perut krem, mata amber, **tiga tonjolan jingga**, 3 jari kaki, ekor pendek melengkung | sheet Rico solo + sheet grup |
-| `Rico-and-Friends:Lila` | bayi triceratops | merah muda, tiga tanduk, frill merah muda | sheet grup |
-| `Rico-and-Friends:Bimo` | bayi triceratops | kuning, tiga tanduk, frill kuning | sheet grup |
-| `Rico-and-Friends:Tika` | bayi brachiosaurus | ungu, leher panjang, motif bintik | sheet grup |
-| `Rico-and-Friends:Piko` | bayi pterodactyl | biru, sayap lebar, jambul biru | sheet grup |
+Perubahan dari revisi 1: 3 klip (10 detik) menjadi 6 klip (4–8 detik), penataan panggung per scene, kunci skala, catatan referensi anti-lencana, checklist QA.
 
-Pip dan Moss tidak ada di pack ini. Tidak ada karakter pengganti dan tidak ada karakter baru. Lila, Bimo, dan Tika di sini berbeda dari karakter bernama sama di Arsein-Research.
+## 1. Karakter (disetujui pemilik, lulus gate)
 
-**Objek cerita:** Telur Pelangi adalah "Objek Utama" pada sheet Rico solo (cangkang pelangi iridescent). Tampilannya tidak diubah dan telur **tidak menetas** (agar tidak lahir karakter baru).
+| ID | Spesies (menurut sheet) | Ciri khas yang dikunci (menurut sheet) |
+|----|-------------------------|-----------------------------------------|
+| `Rico-and-Friends:Rico` | bayi dinosaurus fantasi | badan turquoise, perut krem, mata amber, **tiga tonjolan jingga**, 3 jari kaki, ekor pendek melengkung |
+| `Rico-and-Friends:Lila` | bayi triceratops | merah muda, tiga tanduk, frill merah muda |
+| `Rico-and-Friends:Bimo` | bayi triceratops | kuning, tiga tanduk, frill kuning |
+| `Rico-and-Friends:Tika` | bayi brachiosaurus | ungu, leher panjang, motif bintik |
+| `Rico-and-Friends:Piko` | bayi pterodactyl | biru, sayap lebar, jambul biru |
 
-## 2. Ide cerita (dipilih: A)
+Lock hanya memuat yang tertulis atau terlihat di sheet; sisanya "persis seperti sheet". Pip dan Moss tidak ada. Prompt tiap klip **hanya menyebut karakter yang hadir di klip itu**; sudah dipindai: 0 nama karakter yang absen muncul di prompt mana pun.
 
-| | Ide | Inti |
-|--|-----|------|
-| **A** | **Telur Pelangi** — Rico menemukan Telur Pelangi; sahabatnya datang satu per satu, dan mereka sepakat menjaganya bersama. | persahabatan, menjaga hal berharga |
-| B | **Hutan Penuh Bunga** — Piko memandu semua sahabat menemukan bunga paling warna-warni. | kebersamaan, rasa ingin tahu |
-| C | **Berlomba ke Batu Berlumut** — para sahabat berlomba lalu memutuskan sampai bersama. | sportivitas |
+## 2. Cerita (konsep disetujui)
 
-Dipilih A: satu lokasi, memakai objek resmi dari sheet, memperlihatkan kelima karakter, tanpa perlu menciptakan karakter baru.
+Rico menemukan Telur Pelangi di hutan. Sahabatnya datang satu per satu (Piko, lalu Lila dan Bimo, lalu Tika). Mereka sepakat menjaga telur bersama-sama. Telur tetap sebuah objek yang bersinar; ia tidak menetas.
 
-## 3. Script (30 detik, VO Bahasa Indonesia)
+## 3. Script dan VO (30 detik, Bahasa Indonesia)
 
-| Scene | Durasi | Aksi | VO |
-|-------|--------|------|----|
-| **S01 · Hook** | 10 s | Hutan cerah. Rico mengintip dari balik batu berlumut, melihat Telur Pelangi berkilau di antara bunga, matanya melebar, lalu ia melangkah mendekat dengan penasaran. Sinar matahari menyorot tiga tonjolan jingganya. | "Pagi itu di hutan, Rico menemukan sebuah telur pelangi yang berkilau." (11 kata) |
-| **S02 · Berkumpul** | 10 s | Piko meluncur dari atas dan melayang dekat telur. Lila dan Bimo datang dari kiri dan kanan. Leher panjang Tika turun ke dalam frame. Kelimanya berkumpul mengelilingi telur dengan takjub. | "Satu per satu, para sahabat datang. Mereka sepakat, telur ini harus dijaga bersama." (13 kata) |
-| **S03 · Resolusi** | 10 s | Kilau pelangi telur makin terang dan menyinari wajah para sahabat. Mereka saling tersenyum; Rico menoleh ke teman-temannya dengan bahagia. Shot menahan di grup (susunan seperti "Pose Grup Referensi" di sheet grup). | "Karena sahabat sejati selalu menjaga hal berharga, bersama-sama." (8 kata) |
+| Klip | Waktu | Aksi | VO |
+|------|-------|------|----|
+| **S01 hook** | 0–8 s | Rico mengintip dari balik batu berlumut, melihat telur berkilau di antara bunga, matanya melebar, lalu melangkah mendekat. Sinar matahari menyorot tiga tonjolan jingganya. | "Pagi itu di hutan, Rico menemukan sebuah telur pelangi yang berkilau." (11 kata) |
+| **S02 datang 1** | 8–12 s | Piko meluncur dari atas dan melayang dekat telur; Rico menatapnya gembira. | "Piko terbang menghampiri." (3) |
+| **S03 datang 2** | 12–16 s | Lila dan Bimo masuk dari kanan dan berhenti di samping telur; Rico tersenyum pada mereka. | "Lila dan Bimo menyusul." (4) |
+| **S04 datang 3** | 16–20 s | Leher panjang Tika turun dari atas; ia menatap telur, Rico mendongak sambil tersenyum. | "Tika pun datang." (3) |
+| **S05 kilau 1** | 20–25 s | Kilau pelangi telur makin terang menyinari wajah Rico, Lila, Bimo; mereka saling tersenyum. | "Mereka sepakat, telur ini harus dijaga bersama." (7) |
+| **S06 kilau 2** | 25–30 s | Kilau menyinari Rico, Piko, Tika yang tersenyum; Rico menoleh gembira; kamera mundur pelan dan menahan 1 detik. | "Karena sahabat sejati selalu menjaga hal berharga, bersama-sama." (8) |
+| *S07 opsional* | +4 s | Susunan grup lima karakter seperti "Pose Grup Referensi" di sheet grup, nyaris tanpa gerakan. Hanya bila lolos QA (lihat bawah). | — |
 
-VO 8–13 kata per 10 detik, jauh di bawah batas 2,5 kata/detik. Akan ada jeda panjang; opsi: tambah satu kalimat pendek per scene, atau pakai musik/ambient.
+VO jauh di bawah batas 2,5 kata/detik, jadi akan ada jeda. Opsi: tambah kalimat pendek, atau musik/ambient.
 
-## 4. Storyboard
+## 4. Storyboard dan penilaian risiko
 
-| # | Dur | Karakter | Shot | Kamera | Kilau telur |
-|---|-----|----------|------|--------|-------------|
-| S01 | 10 s | Rico | wide establishing → medium Rico mengintip dari batu | push-in pelan, tanpa cut | lembut |
-| S02 | 10 s | Rico, Piko, Lila, Bimo, Tika | medium-wide di sekitar telur | hampir statis, drift pelan ke kanan | lembut |
-| S03 | 10 s | kelimanya | wide, susunan seperti pose grup di sheet | pull-back halus + hold 1 detik | makin terang |
+| Klip | Dur | Karakter (jumlah) | Shot | Kamera |
+|------|-----|-------------------|------|--------|
+| S01 | 8 s | Rico (1) | wide establishing → medium Rico mengintip dari batu | push-in pelan |
+| S02 | 4 s | Rico, Piko (2) | medium two-shot di telur: Rico kiri, Piko melayang kanan-atas | statis, dorong sangat halus |
+| S03 | 4 s | Rico, Lila, Bimo (3) | medium three-shot: Rico kiri telur, Lila dan Bimo kanan | statis |
+| S04 | 4 s | Rico, Tika (2) | tight medium two-shot: Tika di atas dan belakang telur | statis, dorong sangat pelan |
+| S05 | 5 s | Rico, Lila, Bimo (3) | medium three-shot seperti S03 | statis, dorong sangat pelan |
+| S06 | 5 s | Rico, Piko, Tika (3) | medium-wide: Piko kanan-atas, leher Tika di belakang telur | pull-back halus + hold 1 detik |
+| S07 (opsional) | 4 s | kelimanya (5) | wide statis, susunan pose grup | locked-off |
+
+**Mengapa dipecah:** pada generasi video Arcads/Seedance, referensi dibatasi 3 gambar per klip, sedangkan lima karakter berbeda bergerak bersamaan adalah kondisi yang paling rentan mengubah wajah dan ciri khas. Karena Anda memprioritaskan konsistensi, **tidak ada klip baseline dengan lebih dari 3 karakter** (builder menolak jika dilanggar). Rasa "berkumpul" dibangun lewat montase klip dengan satu karakter inti (Rico) di semua klip sebagai jangkar.
+
+**S07 (lima karakter)** tetap opsional dan tidak dihitung: dirender hanya jika still-nya lolos QA untuk kelima karakter; jika tidak, dilewati. Gerakannya sengaja nyaris nol untuk membatasi drift.
 
 Keluaran: **9:16 dan 16:9**, masing-masing diframing ulang (bukan crop).
 
-## 5. Continuity lock (berlaku semua scene)
+## 5. Kunci skala (konsisten antar scene)
 
-1. Semua karakter disalin **persis** dari master sheet: warna, wajah, mata, spike/tanduk/frill/leher/sayap.
-2. Rico: badan turquoise, perut krem, mata amber, tiga tonjolan jingga di kepala, tanpa spike lebih atau kurang.
-3. Skala relatif seperti perbandingan ukuran di sheet grup: Tika tertinggi, Rico lebih tinggi dari Bimo dan Lila, Bimo ≈ Lila, Piko bertubuh paling kecil dengan sayap lebar.
-4. Telur Pelangi: tampilan sama seperti di sheet Rico, ukuran dan posisi sama (di petak bunga di samping batu berlumut), **tidak menetas, retak, atau berubah bentuk**.
-5. Hutan yang sama di setiap scene, cahaya emas dari kiri kamera, tanpa perubahan waktu.
-6. Hanya lima karakter ini; tidak ada makhluk lain.
-7. Satu shot kontinu per klip, tanpa cut.
-8. Antar scene: S02 mulai dari posisi telur akhir S01; S03 mulai dari posisi akhir S02.
+Relatif terhadap tinggi Rico = 1,0. Rasio diturunkan dari angka di master sheet: sheet Rico solo (telur ±50 cm vs Rico ±40 cm) dan perbandingan ukuran di sheet grup (Tika ±1,1; Rico ±0,8; Bimo ±0,7; Lila ±0,7; Piko ±0,6).
 
-## 6. Negative prompt
+| Objek/karakter | Rasio (di prompt) | Perhitungan |
+|----------------|-------------------|-------------|
+| Rico | 1,0 | acuan |
+| Telur Pelangi | ± 1,25 (sedikit lebih tinggi dari Rico) | 50 / 40, sheet Rico solo |
+| Tika | ± 1,4 (tertinggi) | 1,1 / 0,8, sheet grup |
+| Bimo, Lila | ± 0,9 | 0,7 / 0,8, sheet grup |
+| Piko | ± 0,75 (tubuh terkecil, sayap lebar) | 0,6 / 0,8, sheet grup (di sheet tertulis "tinggi terbang") |
 
-**Gambar:** tidak fotorealistik, bukan live-action, bukan anime, bukan 2D/cel-shaded/ilustrasi datar; tanpa jari berlebih, fitur menyatu/meleleh, properti cacat, karakter tambahan, teks, caption, subtitle, watermark, logo. **Plus:** jangan mendesain ulang karakter mana pun (warna, wajah, mata, spike/tanduk/frill/leher/sayap persis sheet); tidak ada spike atau tanduk lebih/kurang; tidak ada karakter atau bayi dinosaurus baru; telur tidak menetas/retak/berubah; tanpa aksesori tambahan; tanpa logo, lencana, atau teks dari master sheet.
+Sheet Rico solo dan sheet grup **berbeda dalam ukuran absolut Rico** (±40 cm vs ±0,8 m), sehingga pack hanya memakai rasio, dan rasio itu tetap di semua scene. Rasio telur diambil dari sheet Rico solo; rasio teman dari sheet grup. Angka ini adalah turunan saya; mohon dikonfirmasi.
 
-**Video:** tidak live-action/fotorealistik, tidak anime/2D, tanpa karakter tambahan, anggota tubuh tambahan, morphing/meleleh, perubahan kostum/warna, scene cut, lompatan cahaya, teks/caption/watermark. **Plus:** tanpa spike/tanduk lebih atau kurang, tanpa karakter baru, telur tidak menetas.
+## 6. Penataan panggung (per scene, hanya karakter yang hadir)
 
-Arcads tidak punya field `negativePrompt` terpisah; negatif ditulis di dalam teks prompt.
+Telur di tengah, di petak bunga di samping batu berlumut. Rico selalu di **kiri** telur menghadapnya. Lila dan Bimo di kanan. Tika menunduk dari atas dan belakang telur. Piko melayang di kanan-atas. Cahaya emas dari kiri kamera, tanpa perubahan waktu.
 
-## 7. Rencana referensi (belum dijalankan)
+## 7. Continuity lock
 
-| Scene | Still (gpt-image-2, maks 5) | Klip (Seedance 2.0, maks 3) |
-|-------|-----------------------------|-----------------------------|
-| S01 | sheet Rico solo | img1 = still S01, img2 = sheet Rico solo |
-| S02 | sheet grup, sheet Rico solo, still S01 | img1 = still S02, img2 = sheet grup, img3 = still S01 |
-| S03 | sheet grup, sheet Rico solo, still S02 | img1 = still S03, img2 = sheet grup, img3 = still S02 |
+1. Semua karakter disalin persis dari master sheet (warna, wajah, mata, ciri khas); Rico dengan tiga tonjolan jingga.
+2. Kunci skala tidak berubah antar scene.
+3. Telur: tampilan sama (cangkang pelangi iridescent), ukuran dan posisi sama; hanya objek.
+4. Hutan dan arah cahaya sama; satu shot kontinu per klip.
+5. Antar klip: posisi dan tingkat kilau telur dilanjutkan dari akhir klip sebelumnya.
 
-Still dibuat per rasio (9:16 dan 16:9) dan klip memakai still dengan rasio yang sama. Path presigned hanya sekali pakai, jadi file diunggah ulang untuk setiap panggilan. Sheet asli tidak pernah dibuat ulang atau diubah.
+## 8. Negative prompt
 
-## 8. Jumlah request jika nanti disetujui (hitungan, bukan biaya)
+**Gambar:** tidak fotorealistik, bukan live-action, bukan anime, bukan 2D/cel-shaded/ilustrasi datar; tanpa jari berlebih, fitur menyatu, properti cacat, karakter tambahan, teks, caption, watermark, logo. **Plus:** jangan mendesain ulang karakter; tidak ada fitur lebih, kurang, atau berubah; tanpa karakter atau bayi dinosaurus baru; tanpa aksesori; **tanpa lencana, logo, watermark, atau teks apa pun**; telur hanya objek (tanpa wajah, mata, mulut, anggota tubuh; tidak bergerak sendiri; tidak menetas, retak, atau menjadi karakter).
 
-- Sheet karakter baru: **0** (semua memakai master sheet resmi).
-- Still: **6** (3 scene × 2 rasio). Klip: **6**. Total durasi 30 detik per rasio.
+**Video:** tidak live-action/fotorealistik, tidak anime/2D, tanpa karakter tambahan, anggota tubuh tambahan, morphing, perubahan warna, scene cut, lompatan cahaya, teks/caption/watermark. **Plus:** tanpa karakter baru; tanpa lencana, logo, atau teks; telur tanpa wajah atau anggota tubuh.
+
+Arcads tidak punya field `negativePrompt`; negatif ditulis di dalam teks prompt.
+
+## 9. Rencana referensi (belum dijalankan)
+
+| Klip | Still (gpt-image-2, maks 5) | Video (Seedance 2.0, maks 3) |
+|------|-----------------------------|------------------------------|
+| S01 | sheet Rico solo | img1 still S01, img2 sheet Rico solo |
+| S02–S06, S07 | sheet grup, sheet Rico solo, still klip sebelumnya | img1 still klip, img2 sheet grup, img3 still klip sebelumnya |
+
+Still dibuat per rasio, dan klip memakai still dengan rasio yang sama. Path presigned hanya sekali pakai, jadi file diunggah ulang untuk setiap panggilan.
+
+**Risiko lencana:** sheet grup memuat lencana dan teks. Aturan library mewajibkan sheet dilampirkan di setiap panggilan, jadi mitigasinya ada di prompt (sheet hanya untuk tampilan karakter) dan di QA. **Alternatif yang lebih aman, tetapi menyimpang dari aturan library:** untuk video, hanya pakai still yang sudah disetujui (bersih dari lencana) sebagai referensi, dan sheet hanya untuk still. Tidak saya terapkan tanpa persetujuan Anda.
+
+## 10. Checklist QA (setiap still dan klip)
+
+- [ ] Wajah, mata, warna, dan penanda cocok dengan sheet (bandingkan berdampingan).
+- [ ] Rico: tepat tiga tonjolan jingga di kepala, badan turquoise, perut krem, mata amber.
+- [ ] Lila dan Bimo: tiga tanduk dan frill berwarna benar; Tika: leher panjang dan bintik; Piko: sayap lebar dan jambul biru.
+- [ ] Skala sesuai kunci di semua scene (Rico 1,0; telur ±1,25; Tika tertinggi; Piko terkecil).
+- [ ] Telur: tampilan, ukuran, dan posisi sama; tanpa wajah atau anggota tubuh; tidak bergerak sendiri, menetas, atau retak.
+- [ ] **Tidak ada lencana, logo, watermark, atau teks; khususnya tidak ada lencana atau tulisan "LYLA MARVELY"** (tolak dan ulangi).
+- [ ] Hanya karakter yang tercantum untuk klip itu (maks 3).
+- [ ] Penataan panggung dan arah layar sesuai.
+- [ ] Rasio benar (9:16 atau 16:9), disusun terpisah.
+- [ ] Maks 2 retry per aset, lalu tanya Anda. Jika klip ramai bermasalah, **pecah shot, jangan retry terus**.
+
+## 11. Jumlah request jika disetujui (hitungan, bukan biaya)
+
+- Sheet karakter baru: **0**.
+- Baseline: **12 still** (6 klip × 2 rasio) + **12 klip** = **24 request**, dua kali lipat revisi 1 (12 request) karena pemecahan klip. Total 30 detik per rasio.
+- Opsional S07: +2 still +2 klip.
 - Biaya credit **tidak** dihitung di sini. Konfirmasikan harga di platform Arcads sebelum generasi.
-- Prompt Seedance: S01 243 kata, S02/S03 299 kata (lima karakter), sedikit di atas target 260 dari panduan. `reference.md` tidak mencatat batas panjang prompt.
+- Prompt Seedance 282–316 kata (S07 344), sedikit di atas target 260 dari panduan (bukan batas API yang terdokumentasi).
 
-## 9. Hal yang perlu keputusan Anda
+## 12. Menunggu keputusan Anda
 
-1. **Ukuran Rico tidak konsisten antar sheet:** sheet Rico solo menyatakan ±40 cm (telur ±50 cm), sedangkan sheet grup menyatakan Rico ±0,8 m (Tika ±1,1 m, Bimo dan Lila ±0,7 m, Piko ±0,6 m). Pack memakai **urutan relatif** dari sheet grup dan tidak memasukkan angka. Ukuran telur relatif terhadap Rico sengaja tidak dikunci karena kedua sheet bertentangan. Mana yang berlaku?
-2. **Lima karakter dalam satu klip 10 detik (S02, S03) berisiko drift.** Jika hasil bermasalah, saya sarankan memecah S02 menjadi dua klip (Piko dan Tika datang, lalu Lila dan Bimo datang). Itu menambah request, jadi tidak saya lakukan tanpa persetujuan.
-3. **Telur Pelangi** dipakai sebagai properti dari sheet Rico. Apakah boleh dipakai sebagai pusat cerita?
-4. **Lencana "LYLA MARVELY"** ada di sheet grup. Pack melarangnya muncul di hasil.
+1. **Setujui kunci skala** (bagian 5), atau berikan rasio lain.
+2. **S07 (grup lima karakter, opsional):** masukkan ke rencana atau lewati?
+3. **VO jarang dan klip pendek:** tambah kalimat atau musik/ambient?
+4. **Video bebas-sheet** (alternatif bagian 9) untuk mengurangi risiko lencana: dipakai atau tetap sesuai aturan library?
+5. Persetujuan cerita, script, dan storyboard revisi ini.
 
-## 10. Sebelum generasi berbayar
+## 13. Sebelum generasi berbayar
 
-1. `.env` Arcads dan `PRODUCT_ID` (sekarang **BLOCKED**: `.env` tidak ada di sesi ini; `check-requirements.sh` belum bisa memverifikasi autentikasi, akses model, atau saldo).
-2. Persetujuan cerita, script, dan storyboard ini.
-3. Konfirmasi estimasi credit dan jawaban pertanyaan di atas.
-4. Setiap still disetujui sebelum menjadi referensi klip.
+`.env` Arcads dan `PRODUCT_ID` belum ada di sesi ini (`check-requirements.sh` = **BLOCKED**), jadi autentikasi, akses model, dan saldo belum terverifikasi. Konfirmasi estimasi credit, dan setiap still disetujui sebelum menjadi referensi klip.

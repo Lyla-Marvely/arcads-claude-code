@@ -1,27 +1,28 @@
 {
-  "title": "Rico & Friends — Telur Pelangi",
-  "logline": "Rico menemukan Telur Pelangi yang berkilau di hutan; satu per satu sahabatnya datang, dan mereka sepakat menjaganya bersama-sama.",
+  "title": "Rico & Friends — Telur Pelangi (rev. 2)",
+  "logline": "Rico menemukan Telur Pelangi; sahabatnya datang satu per satu, dan mereka sepakat menjaganya bersama-sama. Telur tetap sebuah objek.",
   "ratios": [
     "9:16",
     "16:9"
   ],
   "style_lock": "Pixar-style 3D animated feature film look, soft golden sunlight, lush magical fantasy forest, vibrant saturated colors, glossy detailed scales and skin, large expressive eyes with catchlights, shallow depth of field with creamy bokeh",
   "style_lock_video": "Pixar-style 3D animated film look, soft golden sunlight, vibrant fantasy forest",
-  "extra_negative": "Do not redesign any character: keep each character's colors, face, eyes and spikes, horns, frill, neck and wings exactly as the master sheets; no extra or missing spikes or horns; no new characters or new baby dinosaurs; the egg must not hatch, crack or change; no accessories added; no logos, badges or text copied from the master sheets.",
-  "extra_negative_video": "No extra or missing spikes or horns; no new characters; the egg never hatches.",
+  "extra_negative": "Do not redesign any character: keep each character's colors, face, eyes and distinguishing features exactly as the master sheets; no extra, missing or changed features; no new characters or new baby dinosaurs; no accessories added; no badge, logo, watermark or text of any kind anywhere in the frame; the Rainbow Egg is only an object: it has no face, eyes, mouth or limbs, never moves by itself, never hatches or cracks and never turns into a character.",
+  "extra_negative_video": "No new characters; no badge, logo or text; the egg has no face or limbs.",
   "continuity_lock": [
-    "every character is copied EXACTLY from the attached master sheets: same colors, faces, eyes and spikes, horns, frill, neck and wings",
-    "Rico keeps his turquoise body, cream belly, amber eyes and orange spikes (three orange head spikes) exactly as on his sheet",
-    "relative scale as on the group sheet size comparison: Tika tallest, Rico taller than Bimo and Lila, Bimo and Lila similar, Piko the smallest body with wide wings",
-    "the Rainbow Egg looks exactly as on Rico's sheet (iridescent rainbow shell), keeps the same size and the same spot in the flower bed by the mossy rock in every scene, and never hatches, cracks or changes shape",
+    "every character is copied EXACTLY from the attached master sheets: same colors, faces, eyes and distinguishing features",
+    "Rico keeps his turquoise body, cream belly, amber eyes and three orange head spikes exactly as on his sheet",
+    "the SCALE LOCK ratios never change between scenes",
+    "the Rainbow Egg looks exactly as on Rico's sheet (iridescent rainbow shell), keeps the same size and the same spot in the flower bed beside the mossy rock in every scene; it is only an object and never hatches, cracks, moves by itself or becomes a character",
     "same clearing in every scene, warm golden daylight from camera-left, no time-of-day change",
-    "only these five characters appear, no other creatures",
-    "no scene cuts inside a clip; each clip is one continuous shot"
+    "only the characters listed for the scene appear, no other creatures",
+    "no scene cuts inside a clip; each clip is one continuous shot",
+    "Rico is always on the left of the egg, facing it"
   ],
   "continuity_lock_video": [
-    "all five exactly as the master sheets, Rico with three orange head spikes",
-    "Tika tallest, Piko smallest body",
-    "same egg, same spot, never hatches"
+    "characters exactly as the master sheets, Rico with three orange head spikes",
+    "egg: same look, size and spot, only an object, never hatches",
+    "Rico left of the egg; one continuous shot"
   ],
   "characters": [
     {
@@ -98,7 +99,7 @@
     {
       "id": "s01",
       "beat": "hook",
-      "duration": 10,
+      "duration": 8,
       "setting": "forest-clearing",
       "characters": [
         "rico"
@@ -107,53 +108,202 @@
       "action": "Rico peeks over the mossy rock, spots the Rainbow Egg shimmering in the flowers, his amber eyes go wide, then he steps out toward it with curious steps as sunlight catches his orange spikes",
       "camera": "slow, steady push in, no cuts",
       "vo": "Pagi itu di hutan, Rico menemukan sebuah telur pelangi yang berkilau.",
+      "scale_items": [
+        "Rico",
+        "Rainbow Egg"
+      ],
       "continuity_notes": [
-        "Rico enters the frame behind the rock, left of the egg"
+        "Rico enters on the left of the egg"
       ]
     },
     {
       "id": "s02",
-      "beat": "gathering",
-      "duration": 10,
+      "beat": "arrival 1",
+      "duration": 4,
       "setting": "forest-clearing",
       "characters": [
         "rico",
-        "piko",
-        "lila",
-        "bimo",
-        "tika"
+        "piko"
       ],
-      "shot": "medium-wide shot of the clearing around the egg",
-      "action": "Piko glides in from above and hovers near the egg, Lila and Bimo walk in from left and right, Tika's long neck lowers into frame, and all five gather around the Rainbow Egg with wonder",
-      "camera": "gentle, nearly static framing with a very slow drift to the right",
-      "vo": "Satu per satu, para sahabat datang. Mereka sepakat, telur ini harus dijaga bersama.",
+      "shot": "medium two-shot at the egg: Rico on the left of the egg, Piko hovering above and to the right",
+      "action": "Piko glides in from above and hovers near the egg while Rico looks up at her with delight",
+      "camera": "static framing with a very gentle push in",
+      "vo": "Piko terbang menghampiri.",
+      "scale_items": [
+        "Rico",
+        "Piko",
+        "Rainbow Egg"
+      ],
       "reference_sheet": "references/character-library/Rico-and-Friends/rico-and-friends__group__master-sheet__v1.png",
       "continuity_from": "s01",
       "continuity_notes": [
-        "egg in the same spot as the end of s01"
+        "the egg is in the same spot as in s01",
+        "Piko hovers above-right of the egg"
       ]
     },
     {
       "id": "s03",
-      "beat": "resolution",
-      "duration": 10,
+      "beat": "arrival 2",
+      "duration": 4,
+      "setting": "forest-clearing",
+      "characters": [
+        "rico",
+        "lila",
+        "bimo"
+      ],
+      "shot": "medium three-shot: Rico on the left of the egg, Lila and Bimo on its right",
+      "action": "Lila and Bimo walk in from frame-right and stop beside the egg, looking at it with wonder while Rico smiles at them",
+      "camera": "static framing",
+      "vo": "Lila dan Bimo menyusul.",
+      "scale_items": [
+        "Rico",
+        "Lila",
+        "Bimo",
+        "Rainbow Egg"
+      ],
+      "reference_sheet": "references/character-library/Rico-and-Friends/rico-and-friends__group__master-sheet__v1.png",
+      "continuity_from": "s02",
+      "continuity_notes": [
+        "Lila and Bimo stand on the right of the egg"
+      ]
+    },
+    {
+      "id": "s04",
+      "beat": "arrival 3",
+      "duration": 4,
+      "setting": "forest-clearing",
+      "characters": [
+        "rico",
+        "tika"
+      ],
+      "shot": "tight medium two-shot: Rico on the left of the egg, Tika's head and long neck above and behind it",
+      "action": "Tika's long neck lowers into the frame from above and she gazes at the egg while Rico looks up at her, smiling",
+      "camera": "static framing with a very slow push in",
+      "vo": "Tika pun datang.",
+      "scale_items": [
+        "Rico",
+        "Tika",
+        "Rainbow Egg"
+      ],
+      "reference_sheet": "references/character-library/Rico-and-Friends/rico-and-friends__group__master-sheet__v1.png",
+      "continuity_from": "s03",
+      "continuity_notes": [
+        "Tika's head is above and behind the egg"
+      ]
+    },
+    {
+      "id": "s05",
+      "beat": "glow 1",
+      "duration": 5,
+      "setting": "forest-clearing",
+      "characters": [
+        "rico",
+        "lila",
+        "bimo"
+      ],
+      "shot": "medium three-shot: Rico on the left of the egg, Lila and Bimo on its right",
+      "action": "the egg's rainbow shimmer glows brighter and warmly lights the faces of Rico, Lila and Bimo, who smile at each other",
+      "camera": "static framing with a very slow push in",
+      "vo": "Mereka sepakat, telur ini harus dijaga bersama.",
+      "scale_items": [
+        "Rico",
+        "Lila",
+        "Bimo",
+        "Rainbow Egg"
+      ],
+      "reference_sheet": "references/character-library/Rico-and-Friends/rico-and-friends__group__master-sheet__v1.png",
+      "continuity_from": "s04",
+      "continuity_notes": [
+        "Lila and Bimo on the right of the egg",
+        "the egg glows brighter but keeps its shape and size"
+      ]
+    },
+    {
+      "id": "s06",
+      "beat": "glow 2",
+      "duration": 5,
       "setting": "forest-clearing",
       "characters": [
         "rico",
         "piko",
-        "lila",
-        "bimo",
         "tika"
       ],
-      "shot": "wide shot of all five friends in a group arrangement like the Pose Grup Referensi on the group master sheet, around the egg",
-      "action": "the egg's rainbow shimmer glows brighter and lights the friends' faces, they smile at each other, Rico looks around happily; the shot holds on the group",
+      "shot": "medium-wide shot: Rico on the left of the egg, Piko hovering above-right, Tika's neck lowered behind the egg",
+      "action": "the egg's shimmer glows softly on Rico, Piko and Tika as they smile, and Rico looks around happily",
       "camera": "slow, smooth pull back, ending on a one-second hold",
       "vo": "Karena sahabat sejati selalu menjaga hal berharga, bersama-sama.",
+      "scale_items": [
+        "Rico",
+        "Piko",
+        "Tika",
+        "Rainbow Egg"
+      ],
       "reference_sheet": "references/character-library/Rico-and-Friends/rico-and-friends__group__master-sheet__v1.png",
-      "continuity_from": "s02",
+      "continuity_from": "s05",
       "continuity_notes": [
-        "same positions as the end of s02"
+        "Piko hovers above-right, Tika's neck is lowered behind the egg",
+        "same glow level as the end of s05"
       ]
+    },
+    {
+      "id": "s07",
+      "beat": "optional group hold",
+      "duration": 4,
+      "setting": "forest-clearing",
+      "characters": [
+        "rico",
+        "lila",
+        "bimo",
+        "tika",
+        "piko"
+      ],
+      "shot": "wide static group shot: the five friends arranged like the Pose Grup Referensi on the group master sheet, around the egg",
+      "action": "almost no movement: the egg glows softly and the friends smile and blink gently",
+      "camera": "locked-off static framing, four-second hold",
+      "vo": "",
+      "scale_items": [
+        "Rico",
+        "Lila",
+        "Bimo",
+        "Tika",
+        "Piko",
+        "Rainbow Egg"
+      ],
+      "reference_sheet": "references/character-library/Rico-and-Friends/rico-and-friends__group__master-sheet__v1.png",
+      "continuity_from": "s06",
+      "continuity_notes": [
+        "same positions as the end of s06, arranged like the group sheet",
+        "same glow level as the end of s06"
+      ],
+      "optional": true,
+      "exception_reason": "final group payoff; near-static to limit identity drift; render only if every character passes QA in the approved still, otherwise skip"
     }
-  ]
+  ],
+  "max_characters_per_clip": 3,
+  "reference_note": "Reference sheets contain badges, titles, labels and text panels. Use them ONLY for each character's appearance. Never reproduce any badge, logo, title, label, text or sheet layout in the output.",
+  "scale_lock": {
+    "unit": "Rico's height",
+    "basis": "Ratios derived from the master sheets: Rico solo sheet (egg 50 cm vs Rico 40 cm) and the group sheet size comparison (Tika 1.1, Rico 0.8, Bimo 0.7, Lila 0.7, Piko 0.6). Absolute sizes differ between the two sheets, so only ratios are used, and they never change between scenes.",
+    "values": {
+      "Rico": "1.0",
+      "Rainbow Egg": "about 1.25 (a bit taller than Rico)",
+      "Tika": "about 1.4 (the tallest)",
+      "Bimo": "about 0.9",
+      "Lila": "about 0.9",
+      "Piko": "about 0.75 (the smallest body, wide wings)"
+    }
+  },
+  "qa_checks": [
+    "Identity: faces, eyes, colors and markings match the master sheets (compare side by side).",
+    "Rico has exactly three orange head spikes plus the same turquoise body, cream belly and amber eyes.",
+    "Lila and Bimo: three horns and the right frill color; Tika: long neck and spots; Piko: wide wings and blue crest.",
+    "Scale lock: ratios match in every scene (Rico 1.0, egg about 1.25, Tika tallest, Piko smallest). No size drift between scenes.",
+    "Egg: same look, size and spot; no face, eyes or limbs; never moves by itself, hatches or cracks.",
+    "No badge, logo, watermark or text of any kind; in particular NO 'LYLA MARVELY' badge or lettering (reject and retry if it appears).",
+    "Only the characters listed for the scene appear (max 3 per clip); no other creatures.",
+    "Stage layout and screen direction match the continuity lock.",
+    "Correct aspect ratio (9:16 or 16:9), composed separately, not cropped.",
+    "Max 2 retries per asset, then ask the owner. Consistency beats clip count: split the shot instead of retrying a crowded one."
+  ],
+  "reference_note_video": "Reference sheets contain badges and text: use them only for character appearance; never reproduce any badge, logo or text."
 }

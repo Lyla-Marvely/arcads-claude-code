@@ -69,6 +69,11 @@ Each scene gets its own still and clip per ratio (re-framed, not cropped), so co
 |-------|--------|
 | `characters[].master_sheet` | User-supplied character sheet. The builder skips the turnaround prompt and plans it as `img2` (never regenerated). |
 | `scenes[].reference_sheet` | Repo-relative path of a master sheet to use as `img2` for that scene (e.g. a group sheet for multi-character scenes). The builder fails if the file does not exist on disk, as it does for `characters[].master_sheet`. It also lists the still reference files per scene (gpt-image-2 max 5). |
+| `max_characters_per_clip` | Builder rejects any scene with more characters (unless `optional: true` with an `exception_reason`). Use it to protect character consistency. |
+| `scenes[].optional` + `exception_reason` | Optional scene, excluded from baseline totals and request counts (reported separately). |
+| `scale_lock` + `scenes[].scale_items` | Relative sizes (e.g. Rico = 1.0) written into every prompt so sizes do not drift between scenes; the compact form is used for video. |
+| `reference_note`, `reference_note_video` | Tells the model to use reference sheets for appearance only, never to copy badges, logos or text. |
+| `qa_checks` | Checklist copied into the prompt pack. |
 | `characters[].short_lock` | Compact lock used in video prompts (identity is carried by reference images). |
 | `style_lock_video`, `settings[].video_lock` | Shorter style/setting text for video prompts. |
 | `continuity_lock`, `continuity_lock_video`, `scenes[].continuity_notes` | Global and per-scene continuity lines appended to prompts. |

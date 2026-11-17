@@ -2,7 +2,7 @@
 
 Panduan ini berlaku untuk **setiap skill dan sesi** yang membuat gambar, video, storyboard, atau prompt yang memuat karakter proyek LYLA. Ini mencakup `pixar-animation-video`, `pixar-style-ad`, `claymation-ad`, `gemini-omni-flash`, `caption-video`, `generate-youtube-thumbnail`, dan skill image-ad.
 
-Status: folder sudah ada; **gambar belum diunggah**. Sebelum sebuah karakter dipakai, cek `library.json`.
+Status: 14 master sheet dan 2 logo Arsein sudah diunggah dan terdaftar sebagai `identified`; **belum ada yang `approved`**. Sebelum sebuah karakter dipakai, cek `library.json`.
 
 ## 0. Keputusan pemilik dan routing proyek
 
@@ -15,7 +15,7 @@ Status: folder sudah ada; **gambar belum diunggah**. Sebelum sebuah karakter dip
 
 Aturan khusus:
 - **LYLA ≠ LYLA-Education.** Jangan mencampur keduanya. Lyla dengan label "Maskot LYLA Education" memakai sheet di `LYLA-Education/`.
-- **Rico & Friends:** karakter resmi hanya Rico, Lila, Bimo, Tika, Piko (deklarasi pemilik; desain diverifikasi dari sheet setelah diunggah). **Pip dan Moss bukan karakter resmi** dan tidak boleh dipakai. **Jangan membuat karakter pengganti**, jangan mengubah desain yang ada. Ejaan tertulis **Rico**; gambar sheet tidak diedit.
+- **Rico & Friends:** karakter resmi hanya Rico, Lila, Bimo, Tika, Piko (deklarasi pemilik; desain diverifikasi dari sheet setelah diunggah). **Pip dan Moss bukan karakter resmi** dan tidak boleh dipakai. **Jangan membuat karakter pengganti**, jangan mengubah desain yang ada. Ejaan tertulis **Rico**, sama dengan sheet yang diunggah; gambar tidak diedit.
 - Daftar `official_characters` di `library.json` adalah deklarasi pemilik. Detail visualnya tetap hanya dari sheet `approved`; sebelum itu, jangan menuliskan atribut visual apa pun.
 - `planned_sheets` di `library.json` adalah rencana, bukan bukti ketersediaan.
 

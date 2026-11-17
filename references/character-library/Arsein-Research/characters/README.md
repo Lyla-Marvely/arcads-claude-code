@@ -1,6 +1,6 @@
 # Arsein Research — master character sheet
 
-**Status: kosong. Belum ada file di folder ini.** Menunggu unggahan dari pemilik proyek.
+**Status: 1 file terdaftar (`identified`); 0 approved.** 
 
 Isi: master character sheet karakter Arsein Research. Dicatat di `assets` pada library.json (bagian karakter).
 

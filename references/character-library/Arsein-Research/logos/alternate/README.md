@@ -1,6 +1,6 @@
 # Arsein Research — logo alternatif
 
-**Status: kosong. Belum ada file di folder ini.** Menunggu unggahan dari pemilik proyek.
+**Status: 1 file terdaftar (`identified`); 0 approved.** Tipe primary vs alternate diusulkan asisten; menunggu konfirmasi pemilik.
 
 Isi: logo alternatif ARSEIN RESEARCH (varian horizontal/vertikal/ikon/monokrom dan sebagainya, sebagaimana diunggah pemilik). Dicatat di `brand_assets` (type `logo_alternate`).
 

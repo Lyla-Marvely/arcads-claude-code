@@ -1,8 +1,12 @@
 # LYLA Anime Universe — character references
 
-**Status: kosong. Belum ada master character sheet di folder ini.** Menunggu unggahan dari pemilik proyek.
+**Status: 1 master character sheet terdaftar (`identified`); 0 approved.** Sumber kebenaran: [../library.json](../library.json).
 
 Isi folder ini hanya boleh berupa master character sheet proyek **LYLA Anime Universe** yang diunggah pemilik. Status resmi/tidaknya ada di [../library.json](../library.json), bukan di file ini.
+
+**File terdaftar:**
+
+- `lyla-anime-universe__lady-aradena__master-sheet__v1.jpeg` — Lady Aradena — status `identified`
 
 Aturan (ringkas, lengkap di [../CHARACTER_LIBRARY.md](../CHARACTER_LIBRARY.md)):
 

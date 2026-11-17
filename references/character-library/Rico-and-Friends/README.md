@@ -1,6 +1,6 @@
 # Rico & Friends — character references
 
-**Status: kosong. Belum ada master character sheet di folder ini.** Menunggu unggahan dan verifikasi dari pemilik proyek.
+**Status: 2 master character sheet terdaftar (`identified`); 0 approved.** Sumber kebenaran: [../library.json](../library.json).
 
 **Cakupan (keputusan pemilik):** serial Rico & Friends.
 
@@ -10,7 +10,12 @@ Isi folder ini hanya boleh berupa master character sheet proyek **Rico & Friends
 
 **Bukan karakter resmi:** Pip dan Moss. Jangan dipakai. **Jangan membuat karakter pengganti** dan jangan mengubah desain karakter yang ada. Jika cerita butuh peran lain, gunakan salah satu dari lima karakter resmi atau tanyakan pemilik.
 
-**Ejaan:** gunakan "Rico". Gambar sheet mungkin bertuliskan "Riko"; jangan diedit.
+**Ejaan:** gunakan "Rico". Sheet yang diunggah bertuliskan "Rico"; jangan diedit.
+
+**File terdaftar:**
+
+- `rico-and-friends__group__master-sheet__v1.png` — Rico, Lila, Bimo, Tika, Piko — status `identified`
+- `rico-and-friends__rico__master-sheet__v1.png` — Rico — status `identified`
 
 Aturan (ringkas, lengkap di [../CHARACTER_LIBRARY.md](../CHARACTER_LIBRARY.md)):
 

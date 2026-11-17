@@ -2,23 +2,23 @@
 
 Katalog master character sheet untuk seluruh proyek LYLA. Aturan pemakaian ada di [CHARACTER_LIBRARY.md](CHARACTER_LIBRARY.md). Registri mesin-baca ada di [library.json](library.json).
 
-> **Status saat ini: folder dan dokumentasi sudah disiapkan. Belum ada gambar master character sheet di repository ini.** Pemilik proyek akan mengunggah sekitar 14 gambar secara terpisah lewat GitHub. Tabel di bawah hanya menjadi benar setelah gambar benar-benar ada dan terdaftar di `library.json`.
+> **Status saat ini: 14 master character sheet dan 2 logo Arsein Research sudah diunggah dan terdaftar di `library.json` dengan status `identified`. Belum ada satu pun yang `approved`** (hanya pemilik yang dapat menyetujui), sehingga gate generasi berbayar masih GAGAL untuk semua proyek. Folder `LYLA/` masih kosong.
 
 ## Proyek
 
-| Folder | Cakupan (keputusan pemilik) | Gambar di repo | Approved | Rencana sheet (belum diunggah) |
+| Folder | Cakupan (keputusan pemilik) | Sheet di repo | Approved | Rencana sheet (sudah masuk) |
 |--------|-----------------------------|:--------------:|:--------:|:------------------------------:|
 | [LYLA/](LYLA/) | LYLA Marvely dan konten brand LYLA secara umum | 0 | 0 | 0 |
-| [LYLA-Education/](LYLA-Education/) | Semua konten pendidikan: maskot edukasi, worksheet, serial edukasi (termasuk perilaku anak dan parenting) | 0 | 0 | 5 |
-| [Rico-and-Friends/](Rico-and-Friends/) | Serial Rico & Friends. Karakter resmi: Rico, Lila, Bimo, Tika, Piko | 0 | 0 | 2 |
-| [Zeno-Family/](Zeno-Family/) | The Zeno Family | 0 | 0 | 1 |
-| [Arsein-Research/](Arsein-Research/) | Arsein Research: master karakter **dan seluruh aset brand** (logo utama, logo alternatif, aset pendukung) — dicatat terpisah, lihat bawah | 0 | 0 | 1 |
-| [The-Last-Letter/](The-Last-Letter/) | The Last Letter | 0 | 0 | 4 |
-| [LYLA-Anime-Universe/](LYLA-Anime-Universe/) | LYLA Anime Universe | 0 | 0 | 1 |
+| [LYLA-Education/](LYLA-Education/) | Semua konten pendidikan: maskot edukasi, worksheet, serial edukasi (termasuk perilaku anak dan parenting) | 5 | 0 | 5 |
+| [Rico-and-Friends/](Rico-and-Friends/) | Serial Rico & Friends. Karakter resmi: Rico, Lila, Bimo, Tika, Piko | 2 | 0 | 2 |
+| [Zeno-Family/](Zeno-Family/) | The Zeno Family | 1 | 0 | 1 |
+| [Arsein-Research/](Arsein-Research/) | Arsein Research: master karakter **dan seluruh aset brand** (logo utama, logo alternatif, aset pendukung) — dicatat terpisah, lihat bawah | 1 | 0 | 1 |
+| [The-Last-Letter/](The-Last-Letter/) | The Last Letter | 4 | 0 | 4 |
+| [LYLA-Anime-Universe/](LYLA-Anime-Universe/) | LYLA Anime Universe | 1 | 0 | 1 |
 
-**Aset brand Arsein Research:** logo utama 0, logo alternatif 0, aset pendukung 0 (belum diunggah). Dicatat di `brand_assets`, terpisah dari master karakter. Lihat [Arsein-Research/README.md](Arsein-Research/README.md) dan bagian 4b di CHARACTER_LIBRARY.md.
+**Aset brand Arsein Research:** logo utama 1 dan logo alternatif 1 (tipe diusulkan, menunggu konfirmasi pemilik), aset pendukung 0 (belum diunggah); semuanya `identified`, 0 approved. Dicatat di `brand_assets`, terpisah dari master karakter. Lihat [Arsein-Research/README.md](Arsein-Research/README.md) dan bagian 4b di CHARACTER_LIBRARY.md.
 
-"Rencana sheet" adalah niat yang dicatat di `library.json` (`planned_sheets`), **bukan file dan bukan aset**. Total 14 sheet direncanakan. Folder `LYLA/` belum punya rencana sheet. Sheet Lyla yang bertuliskan "Maskot LYLA Education" ditempatkan di `LYLA-Education/`.
+"Rencana sheet" (`planned_sheets` di `library.json`) adalah niat awal pemilik; kini seluruh 14 rencana sudah ada filenya dan terdaftar sebagai aset. Folder `LYLA/` belum punya rencana sheet. Sheet Lyla yang bertuliskan "Maskot LYLA Education" ditempatkan di `LYLA-Education/`.
 
 ## Keputusan pemilik (dicatat 2026-11-17)
 
@@ -26,7 +26,7 @@ Katalog master character sheet untuk seluruh proyek LYLA. Aturan pemakaian ada d
 2. Master sheet **Lyla (solo)** dan **Lyla & Lilo** yang bertuliskan "Maskot LYLA Education" ditempatkan di **LYLA-Education**.
 3. **Aisyah** dan **Mama Aisyah** masuk **LYLA-Education** (serial edukasi perilaku anak dan parenting).
 4. **Rico & Friends:** karakter resmi hanya **Rico, Lila, Bimo, Tika, Piko**. **Pip dan Moss bukan karakter resmi.** Dilarang membuat karakter pengganti atau mengubah desain karakter yang ada.
-5. **Ejaan:** gunakan **Rico**, sesuai nama proyek Rico & Friends. Gambar sheet mungkin bertuliskan "Riko"; gambar tidak diedit, dan dokumen/prompt memakai "Rico".
+5. **Ejaan:** gunakan **Rico**, sesuai nama proyek Rico & Friends. Sheet yang diunggah kini bertuliskan "Rico"; gambar tidak diedit, dan dokumen/prompt memakai "Rico".
 
 > Rencana penempatan **Fasha & Kania** ("Seri Edukasi LYLA | Dunia Sekolah") di LYLA-Education adalah kesimpulan dari judul sheet dan cakupan LYLA-Education, bukan keputusan eksplisit. Mohon konfirmasi saat identifikasi.
 

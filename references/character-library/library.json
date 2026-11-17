@@ -17,7 +17,7 @@
       "Sheets titled 'Maskot LYLA Education' (Lyla solo, Lyla & Lilo) belong in LYLA-Education.",
       "Aisyah and Mama Aisyah belong in LYLA-Education (educational series about child behavior and parenting).",
       "Rico-and-Friends official characters: Rico, Lila, Bimo, Tika, Piko. Pip and Moss are NOT official. Do not create replacement characters or alter existing designs.",
-      "Project/dinosaur name spelling is 'Rico' (the sheet images may read 'Riko'; do not edit the images).",
+      "Project/dinosaur name spelling is 'Rico' (the uploaded sheets read 'Rico'; do not edit the images).",
       "Arsein-Research stores ALL brand visual assets (master character sheet, primary logo, alternate logos, supporting assets); logos/brand assets are recorded separately from master characters. Do not alter original designs or create new assets.",
       "Logos inside a master character sheet stay part of that sheet; they are not extracted as logo files."
     ]
@@ -41,34 +41,108 @@
           "original_name": "IMG_6836.jpeg",
           "content": "Lyla (solo), titled 'Maskot LYLA Education'",
           "basis": "owner decision 1",
-          "state": "not uploaded"
+          "state": "uploaded; registered as 'identified' (see assets)"
         },
         {
           "original_name": "IMG_6838.jpeg",
           "content": "Lyla & Lilo, titled 'Maskot LYLA Education' (attached twice in chat; one file)",
           "basis": "owner decision 1",
-          "state": "not uploaded"
+          "state": "uploaded; registered as 'identified' (see assets)"
         },
         {
           "original_name": "IMG_6839.jpeg",
           "content": "Aisyah",
           "basis": "owner decision 2",
-          "state": "not uploaded"
+          "state": "uploaded; registered as 'identified' (see assets)"
         },
         {
           "original_name": "IMG_6840.jpeg",
           "content": "Mama Aisyah",
           "basis": "owner decision 2",
-          "state": "not uploaded"
+          "state": "uploaded; registered as 'identified' (see assets)"
         },
         {
           "original_name": "IMG_6841.jpeg",
           "content": "Fasha & Kania, titled 'Seri Edukasi LYLA | Dunia Sekolah'",
           "basis": "inferred from title + owner decision 1 scope; owner to confirm",
-          "state": "not uploaded"
+          "state": "uploaded; registered as 'identified' (see assets)"
         }
       ],
-      "assets": []
+      "assets": [
+        {
+          "file": "LYLA-Education/lyla-education__lyla__master-sheet__v1.jpeg",
+          "original_name": "IMG_6836.jpeg",
+          "characters": [
+            "Lyla"
+          ],
+          "version": 1,
+          "status": "identified",
+          "uploaded_at": "2026-11-17",
+          "approved_by": null,
+          "approved_at": null,
+          "sha256": "51a855cc5d471532a7665ba77bd74febbd6a42a5db72f24c24c60805f7d0a8db",
+          "notes": "Sheet titled \"Maskot LYLA Education\" (owner decision 1)."
+        },
+        {
+          "file": "LYLA-Education/lyla-education__lyla-lilo__master-sheet__v1.jpeg",
+          "original_name": "IMG_6838.jpeg",
+          "characters": [
+            "Lyla",
+            "Lilo"
+          ],
+          "version": 1,
+          "status": "identified",
+          "uploaded_at": "2026-11-17",
+          "approved_by": null,
+          "approved_at": null,
+          "sha256": "5542bd68d43286e14e5cae1e2fa44e45a577565def44911c1c55061f671ad8db",
+          "notes": "Sheet titled \"Maskot LYLA Education\" (owner decision 1). Attached twice in chat; one file."
+        },
+        {
+          "file": "LYLA-Education/lyla-education__aisyah__master-sheet__v1.jpeg",
+          "original_name": "IMG_6839.jpeg",
+          "characters": [
+            "Aisyah"
+          ],
+          "version": 1,
+          "status": "identified",
+          "uploaded_at": "2026-11-17",
+          "approved_by": null,
+          "approved_at": null,
+          "sha256": "8a4c4a2f9757911dcfa1179863f2eb48dad93698a1ee335e6213c4c31153c8ff",
+          "notes": "Owner decision 2."
+        },
+        {
+          "file": "LYLA-Education/lyla-education__mama-aisyah__master-sheet__v1.jpeg",
+          "original_name": "IMG_6840.jpeg",
+          "characters": [
+            "Mama Aisyah",
+            "Aisyah"
+          ],
+          "version": 1,
+          "status": "identified",
+          "uploaded_at": "2026-11-17",
+          "approved_by": null,
+          "approved_at": null,
+          "sha256": "b4d1e8da59bc4b5189e29de73b15f149cfb1191ef80f35b86165cea3254cb0a5",
+          "notes": "Owner decision 2. Sheet also shows Aisyah beside Mama Aisyah."
+        },
+        {
+          "file": "LYLA-Education/lyla-education__fasha-kania__master-sheet__v1.jpeg",
+          "original_name": "IMG_6841.jpeg",
+          "characters": [
+            "Fasha",
+            "Kania"
+          ],
+          "version": 1,
+          "status": "identified",
+          "uploaded_at": "2026-11-17",
+          "approved_by": null,
+          "approved_at": null,
+          "sha256": "46373dc51fd523a625caac8c4bcf3984fc3e51f2e65df17cb4a57286aa3442f5",
+          "notes": "Titled \"Seri Edukasi LYLA | Dunia Sekolah\". Placement in LYLA-Education inferred from title and scope; owner to confirm."
+        }
+      ]
     },
     "Rico-and-Friends": {
       "folder": "Rico-and-Friends",
@@ -89,16 +163,49 @@
           "original_name": "IMG_6842.jpeg",
           "content": "Group master sheet (Rico & Friends)",
           "basis": "project name on sheet",
-          "state": "not uploaded"
+          "state": "uploaded; registered as 'identified' (see assets)"
         },
         {
           "original_name": "IMG_6843.jpeg",
           "content": "Rico solo master sheet",
           "basis": "project name on sheet",
-          "state": "not uploaded"
+          "state": "uploaded; registered as 'identified' (see assets)"
         }
       ],
-      "assets": []
+      "assets": [
+        {
+          "file": "Rico-and-Friends/rico-and-friends__group__master-sheet__v1.png",
+          "original_name": "70057205-262E-49C6-BE2E-6FEB595CF355.png",
+          "characters": [
+            "Rico",
+            "Lila",
+            "Bimo",
+            "Tika",
+            "Piko"
+          ],
+          "version": 1,
+          "status": "identified",
+          "uploaded_at": "2026-11-17",
+          "approved_by": null,
+          "approved_at": null,
+          "sha256": "5086eb30e3847dee69f093c378a22fd544d542c176c8ab5dc5868c4a3ca50c3d",
+          "notes": "Group sheet; the five official characters. Carries a \"LYLA MARVELY\" badge. Names on sheet read \"Rico\"."
+        },
+        {
+          "file": "Rico-and-Friends/rico-and-friends__rico__master-sheet__v1.png",
+          "original_name": "AE22086E-D30D-4777-B5AF-CFB124FF0002.png",
+          "characters": [
+            "Rico"
+          ],
+          "version": 1,
+          "status": "identified",
+          "uploaded_at": "2026-11-17",
+          "approved_by": null,
+          "approved_at": null,
+          "sha256": "da65e037310a441fd6b2d035f21ff20dc65f2b7af72be4eca692e52597386a53",
+          "notes": "Rico solo sheet; name on sheet reads \"Rico\"."
+        }
+      ]
     },
     "Zeno-Family": {
       "folder": "Zeno-Family",
@@ -110,10 +217,27 @@
           "original_name": "IMG_6844.jpeg",
           "content": "The Zeno Family (Papa Don, Mama Kira, Zeno)",
           "basis": "title on sheet",
-          "state": "not uploaded"
+          "state": "uploaded; registered as 'identified' (see assets)"
         }
       ],
-      "assets": []
+      "assets": [
+        {
+          "file": "Zeno-Family/zeno-family__family__master-sheet__v1.jpeg",
+          "original_name": "IMG_6844.jpeg",
+          "characters": [
+            "Papa Don",
+            "Mama Kira",
+            "Zeno"
+          ],
+          "version": 1,
+          "status": "identified",
+          "uploaded_at": "2026-11-17",
+          "approved_by": null,
+          "approved_at": null,
+          "sha256": "14d5dabdfff6555091871d640cd6d548c0e673e5e4e0a51ad197a57e45f86f61",
+          "notes": ""
+        }
+      ]
     },
     "Arsein-Research": {
       "folder": "Arsein-Research",
@@ -125,17 +249,63 @@
           "original_name": "IMG_6845.jpeg",
           "content": "Arsein Research team sheet",
           "basis": "title on sheet",
-          "state": "not uploaded"
+          "state": "uploaded; registered as 'identified' (see assets)"
         }
       ],
-      "assets": [],
+      "assets": [
+        {
+          "file": "Arsein-Research/characters/arsein-research__team__master-sheet__v1.jpeg",
+          "original_name": "IMG_6845.jpeg",
+          "characters": [
+            "Lila",
+            "Raka",
+            "Naya",
+            "Bimo",
+            "Tika"
+          ],
+          "version": 1,
+          "status": "identified",
+          "uploaded_at": "2026-11-17",
+          "approved_by": null,
+          "approved_at": null,
+          "sha256": "beca7d0fe951319b7ad094e3f9b07c6ec43e0b691ec25f1cad54152ecb591f1c",
+          "notes": "Team sheet. Character names Lila, Bimo and Tika are DIFFERENT characters from the Rico-and-Friends dinosaurs; never mix. The header logo on this sheet differs from the logos in logos/ and is not treated as a logo file."
+        }
+      ],
       "layout": {
         "characters": "characters/",
         "logo_primary": "logos/primary/",
         "logo_alternate": "logos/alternate/",
         "supporting": "brand-assets/"
       },
-      "brand_assets": [],
+      "brand_assets": [
+        {
+          "file": "Arsein-Research/logos/primary/arsein-research__logo-primary__v1.jpeg",
+          "original_name": "IMG_6865.jpeg",
+          "type": "logo_primary",
+          "kind": "stacked lockup",
+          "version": 1,
+          "status": "identified",
+          "uploaded_at": "2026-11-17",
+          "approved_by": null,
+          "approved_at": null,
+          "sha256": "78806814d4d7f90b07f3c644ad78ba9e1f3144aa4191f15923ee1cbd065e8d76",
+          "notes": "Stacked lockup (AR monogram, wordmark, tagline). TYPE PROPOSED by assistant (primary vs alternate); owner to confirm. Off-white background and a thin black strip along the top edge; not a transparent file. Not modified."
+        },
+        {
+          "file": "Arsein-Research/logos/alternate/arsein-research__logo-alternate-horizontal__v1.jpeg",
+          "original_name": "IMG_6864.jpeg",
+          "type": "logo_alternate",
+          "kind": "horizontal lockup",
+          "version": 1,
+          "status": "identified",
+          "uploaded_at": "2026-11-17",
+          "approved_by": null,
+          "approved_at": null,
+          "sha256": "0934ba130327a066249e4297f6a21b0d035e24c239da3438814494155a2955fa",
+          "notes": "Horizontal lockup. TYPE PROPOSED by assistant (primary vs alternate); owner to confirm. Textured beige background and a black strip along the top edge; low-resolution (1179x413), not a transparent file. Not modified."
+        }
+      ],
       "planned_brand_assets": []
     },
     "The-Last-Letter": {
@@ -148,28 +318,99 @@
           "original_name": "IMG_6846.jpeg",
           "content": "Maya & Ren",
           "basis": "title on sheet",
-          "state": "not uploaded"
+          "state": "uploaded; registered as 'identified' (see assets)"
         },
         {
           "original_name": "IMG_6847.jpeg",
           "content": "Full cast",
           "basis": "title on sheet",
-          "state": "not uploaded"
+          "state": "uploaded; registered as 'identified' (see assets)"
         },
         {
           "original_name": "IMG_6848.jpeg",
           "content": "Maya solo",
           "basis": "title on sheet",
-          "state": "not uploaded"
+          "state": "uploaded; registered as 'identified' (see assets)"
         },
         {
           "original_name": "IMG_6850.jpeg",
           "content": "Supporting characters",
           "basis": "title on sheet",
-          "state": "not uploaded"
+          "state": "uploaded; registered as 'identified' (see assets)"
         }
       ],
-      "assets": []
+      "assets": [
+        {
+          "file": "The-Last-Letter/the-last-letter__maya-ren__master-sheet__v1.jpeg",
+          "original_name": "IMG_6846.jpeg",
+          "characters": [
+            "Maya",
+            "Ren"
+          ],
+          "version": 1,
+          "status": "identified",
+          "uploaded_at": "2026-11-17",
+          "approved_by": null,
+          "approved_at": null,
+          "sha256": "9b93c620c75aa8dd36fcc86de6f1f6e0d82cb12694254125726ef58612c077ff",
+          "notes": ""
+        },
+        {
+          "file": "The-Last-Letter/the-last-letter__full-cast__master-sheet__v1.jpeg",
+          "original_name": "IMG_6847.jpeg",
+          "characters": [
+            "Maya",
+            "Ren",
+            "Sora",
+            "Kai",
+            "Hana",
+            "Prof. Arata",
+            "Kazuki"
+          ],
+          "version": 1,
+          "status": "identified",
+          "uploaded_at": "2026-11-17",
+          "approved_by": null,
+          "approved_at": null,
+          "sha256": "3bd2cccb1c59b4a7571f35d35a318786dbf260a8950159be4fe61c9f33fbc3d3",
+          "notes": ""
+        },
+        {
+          "file": "The-Last-Letter/the-last-letter__maya__master-sheet__v1.jpeg",
+          "original_name": "IMG_6848.jpeg",
+          "characters": [
+            "Maya"
+          ],
+          "version": 1,
+          "status": "identified",
+          "uploaded_at": "2026-11-17",
+          "approved_by": null,
+          "approved_at": null,
+          "sha256": "45c44e924df6cd77c67b70b58901ed61a99e8d0f4d03ed1c0ba4e114be253a91",
+          "notes": "Maya appears in three sheets (this one, maya-ren, full-cast). This sheet appears to show a hair bow that the other two do not; owner to confirm which Maya design is canonical."
+        },
+        {
+          "file": "The-Last-Letter/the-last-letter__supporting-cast__master-sheet__v1.jpeg",
+          "original_name": "IMG_6850.jpeg",
+          "characters": [
+            "Yuki",
+            "Takumi",
+            "Mrs. Emi",
+            "Rika",
+            "Noah",
+            "Haruto",
+            "Mr. Kurosawa",
+            "Ayame"
+          ],
+          "version": 1,
+          "status": "identified",
+          "uploaded_at": "2026-11-17",
+          "approved_by": null,
+          "approved_at": null,
+          "sha256": "769d13902e6836cc11f434595d05d12cc5550b6ffb8b231f27175ad2beb3d3a2",
+          "notes": ""
+        }
+      ]
     },
     "LYLA-Anime-Universe": {
       "folder": "LYLA-Anime-Universe",
@@ -181,10 +422,25 @@
           "original_name": "IMG_6849.jpeg",
           "content": "Lady Aradena",
           "basis": "'LYLA Anime Universe' on sheet",
-          "state": "not uploaded"
+          "state": "uploaded; registered as 'identified' (see assets)"
         }
       ],
-      "assets": []
+      "assets": [
+        {
+          "file": "LYLA-Anime-Universe/lyla-anime-universe__lady-aradena__master-sheet__v1.jpeg",
+          "original_name": "IMG_6849.jpeg",
+          "characters": [
+            "Lady Aradena"
+          ],
+          "version": 1,
+          "status": "identified",
+          "uploaded_at": "2026-11-17",
+          "approved_by": null,
+          "approved_at": null,
+          "sha256": "96184680d99e33c83f6579ed3e82c510aea408143d59e946470097d294e2a128",
+          "notes": "Titled \"LYLA Anime Universe\". Sheet describes her as a woman from the past who knows Maya (The Last Letter); owner to confirm whether this universe includes The Last Letter characters."
+        }
+      ]
     }
   },
   "brand_asset_types": {

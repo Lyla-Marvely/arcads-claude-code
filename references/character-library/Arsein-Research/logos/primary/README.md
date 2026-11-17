@@ -1,6 +1,6 @@
 # Arsein Research — logo utama
 
-**Status: kosong. Belum ada file di folder ini.** Menunggu unggahan dari pemilik proyek.
+**Status: 1 file terdaftar (`identified`); 0 approved.** Tipe primary vs alternate diusulkan asisten; menunggu konfirmasi pemilik.
 
 Isi: logo utama ARSEIN RESEARCH. Dicatat di `brand_assets` (type `logo_primary`), terpisah dari master karakter.
 

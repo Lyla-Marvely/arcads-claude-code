@@ -1,8 +1,12 @@
 # Zeno Family — character references
 
-**Status: kosong. Belum ada master character sheet di folder ini.** Menunggu unggahan dari pemilik proyek.
+**Status: 1 master character sheet terdaftar (`identified`); 0 approved.** Sumber kebenaran: [../library.json](../library.json).
 
 Isi folder ini hanya boleh berupa master character sheet proyek **Zeno Family** yang diunggah pemilik. Status resmi/tidaknya ada di [../library.json](../library.json), bukan di file ini.
+
+**File terdaftar:**
+
+- `zeno-family__family__master-sheet__v1.jpeg` — Papa Don, Mama Kira, Zeno — status `identified`
 
 Aturan (ringkas, lengkap di [../CHARACTER_LIBRARY.md](../CHARACTER_LIBRARY.md)):
 

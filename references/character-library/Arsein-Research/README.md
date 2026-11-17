@@ -1,6 +1,6 @@
 # Arsein Research — aset visual brand dan karakter
 
-**Status: kosong. Belum ada gambar atau aset di folder ini.** Menunggu unggahan dari pemilik proyek.
+**Status: 1 master character sheet dan 2 logo terdaftar (semuanya `identified`); 0 approved.** Belum ada aset pendukung. Sumber kebenaran: [../library.json](../library.json).
 
 Folder ini menyimpan **seluruh aset visual brand ARSEIN RESEARCH**, bukan hanya logo, dengan pencatatan yang dipisah:
 
@@ -18,3 +18,15 @@ Aturan penting:
 - Logo di dalam gambar master character sheet adalah bagian dari sheet itu. Ia **tidak** diambil sebagai file logo terpisah.
 - Pada gambar/video hasil generasi, logo **tidak** ditulis ulang oleh model AI (teks logo hampir selalu rusak). Logo asli ditempelkan di post-produksi.
 - Hanya aset berstatus `approved` yang resmi.
+
+**Master character sheet:**
+
+- `arsein-research__team__master-sheet__v1.jpeg` — Lila, Raka, Naya, Bimo, Tika — status `identified`
+
+**Logo utama (tipe diusulkan, menunggu konfirmasi pemilik):**
+
+- `arsein-research__logo-primary__v1.jpeg` — stacked lockup — status `identified`
+
+**Logo alternatif (tipe diusulkan, menunggu konfirmasi pemilik):**
+
+- `arsein-research__logo-alternate-horizontal__v1.jpeg` — horizontal lockup — status `identified`

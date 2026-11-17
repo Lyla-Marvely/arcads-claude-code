@@ -1,0 +1,233 @@
+{
+  "project": "Rico-and-Friends",
+  "note": "Boxes (x0,y0,x1,y1 in sheet pixels) were measured by eye on the approved master sheets. Sprites are derived working copies; the original sheets are never modified. Rico comes from his solo sheet (large, many poses). The friends come from the group sheet's size-comparison panel, the cleanest and largest art of them on the sheet; the parts of Bimo and Lila that Rico covers in that panel are simply absent. Because they are all cut from the same panel they keep the proportions the sheet draws (the renderer uses the panel heights as the proportion reference; no numbers are written into prompts).",
+  "sheets": {
+    "solo": "references/character-library/Rico-and-Friends/rico-and-friends__rico__master-sheet__v1.png",
+    "group": "references/character-library/Rico-and-Friends/rico-and-friends__group__master-sheet__v1.png"
+  },
+  "sprites": [
+    {
+      "id": "rico_front",
+      "character": "Rico",
+      "sheet": "solo",
+      "box": [
+        722,
+        54,
+        852,
+        282
+      ]
+    },
+    {
+      "id": "rico_34front",
+      "character": "Rico",
+      "sheet": "solo",
+      "box": [
+        880,
+        54,
+        1018,
+        282
+      ]
+    },
+    {
+      "id": "rico_side",
+      "character": "Rico",
+      "sheet": "solo",
+      "box": [
+        1022,
+        60,
+        1196,
+        282
+      ]
+    },
+    {
+      "id": "rico_jump",
+      "character": "Rico",
+      "sheet": "solo",
+      "box": [
+        526,
+        560,
+        640,
+        708
+      ]
+    },
+    {
+      "id": "rico_run",
+      "character": "Rico",
+      "sheet": "solo",
+      "box": [
+        672,
+        560,
+        815,
+        708
+      ]
+    },
+    {
+      "id": "rico_wave",
+      "character": "Rico",
+      "sheet": "solo",
+      "box": [
+        862,
+        574,
+        975,
+        716
+      ]
+    },
+    {
+      "id": "rico_sit",
+      "character": "Rico",
+      "sheet": "solo",
+      "box": [
+        1032,
+        586,
+        1145,
+        716
+      ]
+    },
+    {
+      "id": "rico_peek",
+      "character": "Rico",
+      "sheet": "solo",
+      "box": [
+        1178,
+        592,
+        1335,
+        718
+      ]
+    },
+    {
+      "id": "rico_surprised",
+      "character": "Rico",
+      "sheet": "solo",
+      "box": [
+        1372,
+        580,
+        1490,
+        716
+      ]
+    },
+    {
+      "id": "tika_size_panel",
+      "character": "Tika",
+      "sheet": "group",
+      "box": [
+        75,
+        795,
+        200,
+        980
+      ],
+      "bg_xy": [
+        240,
+        800
+      ]
+    },
+    {
+      "id": "rico_size_panel",
+      "character": "Rico",
+      "sheet": "group",
+      "box": [
+        190,
+        855,
+        250,
+        975
+      ],
+      "role": "reference_only"
+    },
+    {
+      "id": "bimo_size_panel",
+      "character": "Bimo",
+      "sheet": "group",
+      "box": [
+        264,
+        870,
+        333,
+        975
+      ],
+      "bg_xy": [
+        240,
+        800
+      ],
+      "min_part": 0.6
+    },
+    {
+      "id": "lila_size_panel",
+      "character": "Lila",
+      "sheet": "group",
+      "box": [
+        344,
+        875,
+        422,
+        975
+      ],
+      "bg_xy": [
+        240,
+        800
+      ],
+      "min_part": 0.6
+    },
+    {
+      "id": "piko_size_panel",
+      "character": "Piko",
+      "sheet": "group",
+      "box": [
+        352,
+        782,
+        480,
+        865
+      ],
+      "bg_xy": [
+        240,
+        800
+      ]
+    },
+    {
+      "id": "rainbow_egg",
+      "character": "Rico",
+      "sheet": "solo",
+      "box": [
+        625,
+        790,
+        805,
+        1010
+      ],
+      "grabcut_rect": [
+        14,
+        16,
+        164,
+        192
+      ],
+      "note": "Rainbow Egg: the object shown on Rico's sheet ('Objek Utama'). Cut with GrabCut; the egg is never altered or animated into a creature."
+    },
+    {
+      "id": "rico_size_solo",
+      "character": "Rico",
+      "sheet": "solo",
+      "box": [
+        1012,
+        828,
+        1118,
+        988
+      ],
+      "bg_xy": [
+        1000,
+        822
+      ],
+      "role": "reference_only"
+    },
+    {
+      "id": "egg_size_solo",
+      "character": "Rico",
+      "sheet": "solo",
+      "box": [
+        1108,
+        818,
+        1252,
+        992
+      ],
+      "bg_xy": [
+        1000,
+        822
+      ],
+      "role": "reference_only"
+    }
+  ]
+}

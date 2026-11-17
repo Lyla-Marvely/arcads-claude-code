@@ -1,0 +1,81 @@
+{
+ "name": "rico-telur-pelangi",
+ "spec": "skills/zero-cost-shorts/templates/rico-telur-pelangi.json",
+ "out_dir": "outputs/zero-cost/rico-and-friends/final",
+ "scenes": [
+  "s01",
+  "s02",
+  "s03",
+  "s04",
+  "s05",
+  "s06"
+ ],
+ "lines": "outputs/zero-cost/rico-and-friends/audio/lines.json",
+ "vo_dir": "outputs/zero-cost/rico-and-friends/audio/vo",
+ "music": "outputs/zero-cost/rico-and-friends/audio/music.wav",
+ "ambient": "outputs/zero-cost/rico-and-friends/audio/ambient.wav",
+ "qa_python": "/tmp/claude-0/-home-user-arcads-claude-code/140255c3-3db1-56dc-9a1e-e812a6f36bc1/scratchpad/ocrvenv/bin/python",
+ "caption_font": "Baloo 2",
+ "sfx": [
+  {
+   "scene": "s01",
+   "at": 0.1,
+   "file": "outputs/zero-cost/rico-and-friends/audio/sfx/rustle.wav"
+  },
+  {
+   "scene": "s01",
+   "at": 2.4,
+   "file": "outputs/zero-cost/rico-and-friends/audio/sfx/chime.wav"
+  },
+  {
+   "scene": "s01",
+   "at": 3.4,
+   "file": "outputs/zero-cost/rico-and-friends/audio/sfx/footsteps.wav"
+  },
+  {
+   "scene": "s02",
+   "at": 0.2,
+   "file": "outputs/zero-cost/rico-and-friends/audio/sfx/whoosh.wav"
+  },
+  {
+   "scene": "s02",
+   "at": 2.6,
+   "file": "outputs/zero-cost/rico-and-friends/audio/sfx/chirp.wav"
+  },
+  {
+   "scene": "s03",
+   "at": 0.1,
+   "file": "outputs/zero-cost/rico-and-friends/audio/sfx/footsteps_short.wav"
+  },
+  {
+   "scene": "s04",
+   "at": 0.1,
+   "file": "outputs/zero-cost/rico-and-friends/audio/sfx/footsteps_short.wav"
+  },
+  {
+   "scene": "s04",
+   "at": 2.0,
+   "file": "outputs/zero-cost/rico-and-friends/audio/sfx/rustle.wav"
+  },
+  {
+   "scene": "s04",
+   "at": 3.1,
+   "file": "outputs/zero-cost/rico-and-friends/audio/sfx/chirp.wav"
+  },
+  {
+   "scene": "s05",
+   "at": 0.0,
+   "file": "outputs/zero-cost/rico-and-friends/audio/sfx/swell.wav"
+  },
+  {
+   "scene": "s06",
+   "at": 1.4,
+   "file": "outputs/zero-cost/rico-and-friends/audio/sfx/chirp.wav"
+  },
+  {
+   "scene": "s06",
+   "at": 3.9,
+   "file": "outputs/zero-cost/rico-and-friends/audio/sfx/chime.wav"
+  }
+ ]
+}

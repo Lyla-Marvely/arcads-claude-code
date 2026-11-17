@@ -1,28 +1,39 @@
 {
-  "title": "Rico & Friends — Telur Pelangi (rev. 2)",
-  "logline": "Rico menemukan Telur Pelangi; sahabatnya datang satu per satu, dan mereka sepakat menjaganya bersama-sama. Telur tetap sebuah objek.",
+  "title": "Rico & Friends — Telur Pelangi (final)",
+  "logline": "Rico finds a magical Rainbow Egg; friends arrive one by one, and together they promise to keep it safe. The egg stays a still object.",
+  "vo_language": "en",
+  "silent_characters": true,
+  "forbidden_prompt_terms": [
+    "Pip",
+    "Moss",
+    "LYLA MARVELY",
+    "Marvely"
+  ],
   "ratios": [
     "9:16",
     "16:9"
   ],
+  "max_characters_per_clip": 3,
   "style_lock": "Pixar-style 3D animated feature film look, soft golden sunlight, lush magical fantasy forest, vibrant saturated colors, glossy detailed scales and skin, large expressive eyes with catchlights, shallow depth of field with creamy bokeh",
   "style_lock_video": "Pixar-style 3D animated film look, soft golden sunlight, vibrant fantasy forest",
-  "extra_negative": "Do not redesign any character: keep each character's colors, face, eyes and distinguishing features exactly as the master sheets; no extra, missing or changed features; no new characters or new baby dinosaurs; no accessories added; no badge, logo, watermark or text of any kind anywhere in the frame; the Rainbow Egg is only an object: it has no face, eyes, mouth or limbs, never moves by itself, never hatches or cracks and never turns into a character.",
-  "extra_negative_video": "No new characters; no badge, logo or text; the egg has no face or limbs.",
+  "reference_note": "Reference sheets are identity references only. They show several characters, backgrounds, panels, dividers, labels, badges, logos and text. Use ONLY the characters named in this prompt, and only for their appearance. Do not reproduce any other character, background, layout, panel, divider, label, badge, logo or text.",
+  "reference_note_video": "Reference sheets are for character appearance only: use only the characters named here; never reproduce any sheet layout, panel, badge, logo or text.",
+  "extra_negative": "Do not redesign any character; no different face or eye shape; no different head shape or body proportions; no wrong colors; no missing original features; no extra limbs; no duplicate characters; no unauthorized characters or creatures; no badge, logo, watermark, text, panel, divider, label, reference-sheet layout or reference-sheet background; the Rainbow Egg is a still object: no hatching, no cracks, no face, no limbs, no self-movement, never a living creature; no unwanted camera cuts, flicker, morphing or inconsistent backgrounds.",
+  "extra_negative_video": "No different face, eye shape, head shape, body proportions or colors; no missing original features; no duplicate or unauthorized characters; no badge, logo, watermark, text or sheet layout; the Rainbow Egg is a still object: no hatching, cracks, face, limbs or self-movement; no flicker or inconsistent background.",
   "continuity_lock": [
-    "every character is copied EXACTLY from the attached master sheets: same colors, faces, eyes and distinguishing features",
-    "Rico keeps his turquoise body, cream belly, amber eyes and three orange head spikes exactly as on his sheet",
-    "the SCALE LOCK ratios never change between scenes",
-    "the Rainbow Egg looks exactly as on Rico's sheet (iridescent rainbow shell), keeps the same size and the same spot in the flower bed beside the mossy rock in every scene; it is only an object and never hatches, cracks, moves by itself or becomes a character",
+    "every character is copied EXACTLY from the attached master sheets: same face and eye shape, same head shape, same body shape, same colors, same proportions and distinguishing features; nothing added and nothing removed",
+    "Rico keeps the turquoise body, cream belly, amber eyes and three orange head spikes exactly as on the Rico sheet",
+    "relative sizes never change between scenes: each character's size relative to the others, and the Rainbow Egg's size relative to Rico, stay exactly as on the master sheets and as in the previous approved still",
+    "the Rainbow Egg looks exactly as on the Rico sheet (iridescent rainbow shell), keeps the same size and the same spot in the flower bed beside the mossy rock in every scene; it is only a still object and never hatches, cracks, grows a face or limbs, or moves by itself",
+    "Rico is always on the left of the egg, facing it",
     "same clearing in every scene, warm golden daylight from camera-left, no time-of-day change",
-    "only the characters listed for the scene appear, no other creatures",
-    "no scene cuts inside a clip; each clip is one continuous shot",
-    "Rico is always on the left of the egg, facing it"
+    "only the characters listed for the scene appear, no other creatures, no duplicates",
+    "no scene cuts inside a clip; each clip is one continuous shot"
   ],
   "continuity_lock_video": [
-    "characters exactly as the master sheets, Rico with three orange head spikes",
-    "egg: same look, size and spot, only an object, never hatches",
-    "Rico left of the egg; one continuous shot"
+    "characters exactly as the master sheets, nothing added or removed; relative sizes as in the approved still",
+    "egg: same look, size and spot, a still object",
+    "Rico left of the egg"
   ],
   "characters": [
     {
@@ -37,7 +48,8 @@
         "spikes": "three orange head spikes plus the orange spikes and dots shown on the sheet, same count, positions, size and hue",
         "feet_tail": "three toes and a short curved tail, as on the sheet"
       },
-      "short_lock": "Rico, exactly as in the master sheet (turquoise body, cream belly, amber eyes, three orange head spikes)"
+      "short_lock": "Rico, exactly as in the master sheet (turquoise body, cream belly, amber eyes, three orange head spikes)",
+      "negative_features": "No extra, missing or recolored orange spikes; no change to the amber eyes."
     },
     {
       "id": "lila",
@@ -49,7 +61,8 @@
         "species": "baby triceratops, as on the sheet",
         "features": "pink body, three horns and a light-pink frill, exactly as the sheet"
       },
-      "short_lock": "Lila, exactly as in the master sheet (pink baby triceratops, three horns, light-pink frill)"
+      "short_lock": "Lila, exactly as in the master sheet (pink baby triceratops, three horns, light-pink frill)",
+      "negative_features": "No extra or missing horns; no change to the frill."
     },
     {
       "id": "bimo",
@@ -61,7 +74,8 @@
         "species": "baby triceratops, as on the sheet",
         "features": "yellow body, three horns and a yellow frill, exactly as the sheet"
       },
-      "short_lock": "Bimo, exactly as in the master sheet (yellow baby triceratops, three horns, yellow frill)"
+      "short_lock": "Bimo, exactly as in the master sheet (yellow baby triceratops, three horns, yellow frill)",
+      "negative_features": "No extra or missing horns; no change to the frill."
     },
     {
       "id": "tika",
@@ -73,7 +87,8 @@
         "species": "baby brachiosaurus, as on the sheet",
         "features": "purple body, long neck and spotted pattern, exactly as the sheet"
       },
-      "short_lock": "Tika, exactly as in the master sheet (purple baby brachiosaurus, long neck, spots)"
+      "short_lock": "Tika, exactly as in the master sheet (purple baby brachiosaurus, long neck, spots)",
+      "negative_features": "No change to the long neck or the spots."
     },
     {
       "id": "piko",
@@ -85,15 +100,51 @@
         "species": "baby pterodactyl, as on the sheet",
         "features": "blue body, wide wings and a blue crest, exactly as the sheet"
       },
-      "short_lock": "Piko, exactly as in the master sheet (blue baby pterodactyl, wide wings, blue crest)"
+      "short_lock": "Piko, exactly as in the master sheet (blue baby pterodactyl, wide wings, blue crest)",
+      "negative_features": "No extra or missing wings; no change to the blue crest."
     }
   ],
   "settings": [
     {
       "id": "forest-clearing",
-      "lock": "sunlit magical forest clearing, soft golden daylight through tall trees from camera-left, lush grass and colorful wildflowers in pink, purple and blue, a large mossy rock at center, the Rainbow Egg resting in a flower bed beside the rock, a small red-capped mushroom house with a softly lit window far away in the soft-focus background, warm and cozy",
-      "video_lock": "sunlit fantasy forest clearing, golden light from camera-left, mossy rock, Rainbow Egg in flowers beside it"
+      "lock": "sunlit forest clearing, soft golden daylight through tall trees from camera-left, lush grass and colorful wildflowers in pink, purple and blue, a large mossy rock at center, the Rainbow Egg resting in a flower bed beside the rock, warm and cozy; an original clean scene",
+      "video_lock": "sunlit forest clearing, golden light from camera-left, mossy rock, Rainbow Egg in a flower bed beside it"
     }
+  ],
+  "audio": {
+    "vo_language": "ALL audible speech is English only. No Indonesian anywhere in the audible track. Characters do not speak; there is no character dialogue.",
+    "narrator": "One consistent English narrator for all six clips: warm, friendly, upbeat children's-story storyteller; clear, natural, neutral international English; moderate, unhurried pace; smiling tone; simple words. The same voice and the same voice settings for every line; never switch voices between clips.",
+    "music": "Cheerful, warm, playful instrumental music for children (for example light marimba, ukulele and glockenspiel with soft pizzicato strings); gentle upbeat tempo; one continuous 30-second bed under all six clips; instrumental only, with no vocals or lyrics; a soft, warm resolving ending on the final hold.",
+    "music_prompt": "Cheerful, warm, playful instrumental children's music, light marimba, ukulele and glockenspiel with soft pizzicato strings, gentle upbeat tempo, friendly and magical, no vocals, no lyrics, 30 seconds, soft warm resolving ending.",
+    "ambient": "Soft forest ambience as one continuous bed under all six clips: gentle breeze, rustling leaves, a few distant birds; quiet and never harsh.",
+    "sfx_style": "Light, soft, kid-friendly effects synced to the visible action: footsteps on grass, leaf and flower rustle, soft wing flaps, small bird chirps and a magical shimmer or chime for the egg. Nothing loud or sharp. The egg makes only a shimmer, never a voice, heartbeat, tapping or cracking sound.",
+    "mix": [
+      "The voice-over is always the loudest element. Duck the music and ambient under every VO line so the music never covers the voice-over.",
+      "No empty audio: the music bed and the ambient bed run continuously across all six clips (render each as ONE 30-second track, not per clip), with VO and SFX layered on top. Cross-fade clip joins by 0.1 to 0.2 s.",
+      "Start each VO line about 0.25 s after its clip starts and keep it inside the clip. If a clip is longer than its VO by more than about 0.5 s, trim the clip to VO + 0.5 s instead of leaving dead air (the repo's no-dead-space rule), then re-time the music and ambient to the trimmed total.",
+      "The egg shimmer rises through S05 and settles gently in S06.",
+      "Verify by listening: no speech other than the English narrator, no stray voices, no non-English words."
+    ],
+    "production": [
+      "Video clips: generate silent (Arcads Seedance `audioEnabled: false`, as in the repo's pipeline) so no stray voices or non-English speech can appear; all audio is added in post.",
+      "VO: one ElevenLabs voice for all lines. The repo script shared/skills/pixar-style-ad/scripts/generate-vo-elevenlabs.sh defaults to a warm American male voice ('Brian'; override with ELEVENLABS_VOICE_ID). The voice choice is for the owner to approve. It needs the owner's own ElevenLabs key; this pack does not request or change any key.",
+      "Music: an instrumental bed. The repo script generate-music-elevenlabs.sh composes from a text prompt (same key requirement), or use a licensed track of your choice.",
+      "SFX: no sound-effects generator is documented in this repo. Use a licensed SFX library or the editor, following the per-clip cues. Not generated or verified here.",
+      "Final mix per aspect ratio with ffmpeg (see shared/skills/pixar-style-ad/scripts/final-assembly.sh for the repo's mixing approach)."
+    ]
+  },
+  "qa_checks": [
+    "Identity: face shape, eye shape, head shape, body shape and colors match the master sheets (compare side by side).",
+    "Original features are present and nothing is added: Rico has exactly three orange head spikes, turquoise body, cream belly, amber eyes; Lila and Bimo keep their horns and frill; Tika keeps the long neck and spots; Piko keeps the wide wings and blue crest.",
+    "Relative sizes match the master sheets and the previous approved still; no size change between scenes.",
+    "Egg: same look, size and spot; no face, no limbs, no self-movement, no cracks, never hatches or becomes a creature.",
+    "No badge, logo, watermark, text, divider, panel or reference-sheet layout or background; in particular NO 'LYLA MARVELY' badge or lettering (reject and retry if it appears).",
+    "Only the characters listed for the clip appear (max 3); no absent character, no duplicates, no other creature.",
+    "Staging and screen direction match the continuity lock (Rico on the left of the egg).",
+    "Correct aspect ratio (9:16 or 16:9), composed separately, never cropped.",
+    "Each clean still is checked and approved BEFORE it is used for its video; the video starts from the approved still.",
+    "Audio: all speech is English; one consistent narrator; no stray voices; music never covers the VO; no silent gaps; SFX match the action.",
+    "Max 2 retries per asset, then ask the owner. Consistency beats clip count: split the shot instead of retrying a crowded one."
   ],
   "scenes": [
     {
@@ -105,12 +156,13 @@
         "rico"
       ],
       "shot": "wide establishing shot of the clearing that slowly pushes in to a medium shot of Rico peeking over the mossy rock",
-      "action": "Rico peeks over the mossy rock, spots the Rainbow Egg shimmering in the flowers, his amber eyes go wide, then he steps out toward it with curious steps as sunlight catches his orange spikes",
+      "action": "Rico peeks over the mossy rock, spots the Rainbow Egg shimmering in the flowers, Rico's amber eyes go wide, then Rico steps out toward the egg with curious steps as sunlight catches the orange spikes",
       "camera": "slow, steady push in, no cuts",
-      "vo": "Pagi itu di hutan, Rico menemukan sebuah telur pelangi yang berkilau.",
-      "scale_items": [
-        "Rico",
-        "Rainbow Egg"
+      "vo": "One sunny morning, deep in the forest, Rico found something magical. A sparkling rainbow egg!",
+      "sfx": [
+        "0-2 s: soft leaf and flower rustle as Rico peeks",
+        "about 2.5 s: gentle magical shimmer chime when the egg is spotted",
+        "5-8 s: soft footsteps on grass as Rico steps toward the egg"
       ],
       "continuity_notes": [
         "Rico enters on the left of the egg"
@@ -126,13 +178,12 @@
         "piko"
       ],
       "shot": "medium two-shot at the egg: Rico on the left of the egg, Piko hovering above and to the right",
-      "action": "Piko glides in from above and hovers near the egg while Rico looks up at her with delight",
+      "action": "Piko glides in from above and hovers near the egg while Rico looks up at Piko with delight",
       "camera": "static framing with a very gentle push in",
-      "vo": "Piko terbang menghampiri.",
-      "scale_items": [
-        "Rico",
-        "Piko",
-        "Rainbow Egg"
+      "vo": "Piko swooped down to see the sparkle!",
+      "sfx": [
+        "0-1.5 s: soft whoosh of gentle wing flaps as Piko glides in",
+        "1.5-4 s: light wing flutter while hovering; quiet egg shimmer continues"
       ],
       "reference_sheet": "references/character-library/Rico-and-Friends/rico-and-friends__group__master-sheet__v1.png",
       "continuity_from": "s01",
@@ -154,12 +205,10 @@
       "shot": "medium three-shot: Rico on the left of the egg, Lila and Bimo on its right",
       "action": "Lila and Bimo walk in from frame-right and stop beside the egg, looking at it with wonder while Rico smiles at them",
       "camera": "static framing",
-      "vo": "Lila dan Bimo menyusul.",
-      "scale_items": [
-        "Rico",
-        "Lila",
-        "Bimo",
-        "Rainbow Egg"
+      "vo": "Lila and Bimo came to see it too!",
+      "sfx": [
+        "0-3 s: light footsteps on grass as Lila and Bimo walk in",
+        "small leaf rustle; quiet egg shimmer continues"
       ],
       "reference_sheet": "references/character-library/Rico-and-Friends/rico-and-friends__group__master-sheet__v1.png",
       "continuity_from": "s02",
@@ -177,13 +226,12 @@
         "tika"
       ],
       "shot": "tight medium two-shot: Rico on the left of the egg, Tika's head and long neck above and behind it",
-      "action": "Tika's long neck lowers into the frame from above and she gazes at the egg while Rico looks up at her, smiling",
+      "action": "Tika's long neck lowers into the frame from above and Tika gazes at the egg while Rico looks up at Tika, smiling",
       "camera": "static framing with a very slow push in",
-      "vo": "Tika pun datang.",
-      "scale_items": [
-        "Rico",
-        "Tika",
-        "Rainbow Egg"
+      "vo": "Tika stretched up high to take a peek!",
+      "sfx": [
+        "0-2 s: soft rustle of leaves above as the neck lowers",
+        "2-4 s: quiet egg shimmer, a small happy bird chirp"
       ],
       "reference_sheet": "references/character-library/Rico-and-Friends/rico-and-friends__group__master-sheet__v1.png",
       "continuity_from": "s03",
@@ -204,12 +252,10 @@
       "shot": "medium three-shot: Rico on the left of the egg, Lila and Bimo on its right",
       "action": "the egg's rainbow shimmer glows brighter and warmly lights the faces of Rico, Lila and Bimo, who smile at each other",
       "camera": "static framing with a very slow push in",
-      "vo": "Mereka sepakat, telur ini harus dijaga bersama.",
-      "scale_items": [
-        "Rico",
-        "Lila",
-        "Bimo",
-        "Rainbow Egg"
+      "vo": "Together, they promised to keep the egg safe.",
+      "sfx": [
+        "0-5 s: magical shimmer rising in a gentle chime swell as the glow brightens",
+        "soft bird chirps in the background"
       ],
       "reference_sheet": "references/character-library/Rico-and-Friends/rico-and-friends__group__master-sheet__v1.png",
       "continuity_from": "s04",
@@ -231,12 +277,10 @@
       "shot": "medium-wide shot: Rico on the left of the egg, Piko hovering above-right, Tika's neck lowered behind the egg",
       "action": "the egg's shimmer glows softly on Rico, Piko and Tika as they smile, and Rico looks around happily",
       "camera": "slow, smooth pull back, ending on a one-second hold",
-      "vo": "Karena sahabat sejati selalu menjaga hal berharga, bersama-sama.",
-      "scale_items": [
-        "Rico",
-        "Piko",
-        "Tika",
-        "Rainbow Egg"
+      "vo": "Good friends always take care of special things, together!",
+      "sfx": [
+        "0-4 s: gentle sustained shimmer, soft bird chirps",
+        "final 1 s hold: a warm resolving chime that fades out gently"
       ],
       "reference_sheet": "references/character-library/Rico-and-Friends/rico-and-friends__group__master-sheet__v1.png",
       "continuity_from": "s05",
@@ -244,66 +288,7 @@
         "Piko hovers above-right, Tika's neck is lowered behind the egg",
         "same glow level as the end of s05"
       ]
-    },
-    {
-      "id": "s07",
-      "beat": "optional group hold",
-      "duration": 4,
-      "setting": "forest-clearing",
-      "characters": [
-        "rico",
-        "lila",
-        "bimo",
-        "tika",
-        "piko"
-      ],
-      "shot": "wide static group shot: the five friends arranged like the Pose Grup Referensi on the group master sheet, around the egg",
-      "action": "almost no movement: the egg glows softly and the friends smile and blink gently",
-      "camera": "locked-off static framing, four-second hold",
-      "vo": "",
-      "scale_items": [
-        "Rico",
-        "Lila",
-        "Bimo",
-        "Tika",
-        "Piko",
-        "Rainbow Egg"
-      ],
-      "reference_sheet": "references/character-library/Rico-and-Friends/rico-and-friends__group__master-sheet__v1.png",
-      "continuity_from": "s06",
-      "continuity_notes": [
-        "same positions as the end of s06, arranged like the group sheet",
-        "same glow level as the end of s06"
-      ],
-      "optional": true,
-      "exception_reason": "final group payoff; near-static to limit identity drift; render only if every character passes QA in the approved still, otherwise skip"
     }
   ],
-  "max_characters_per_clip": 3,
-  "reference_note": "Reference sheets contain badges, titles, labels and text panels. Use them ONLY for each character's appearance. Never reproduce any badge, logo, title, label, text or sheet layout in the output.",
-  "scale_lock": {
-    "unit": "Rico's height",
-    "basis": "Ratios derived from the master sheets: Rico solo sheet (egg 50 cm vs Rico 40 cm) and the group sheet size comparison (Tika 1.1, Rico 0.8, Bimo 0.7, Lila 0.7, Piko 0.6). Absolute sizes differ between the two sheets, so only ratios are used, and they never change between scenes.",
-    "values": {
-      "Rico": "1.0",
-      "Rainbow Egg": "about 1.25 (a bit taller than Rico)",
-      "Tika": "about 1.4 (the tallest)",
-      "Bimo": "about 0.9",
-      "Lila": "about 0.9",
-      "Piko": "about 0.75 (the smallest body, wide wings)"
-    }
-  },
-  "qa_checks": [
-    "Identity: faces, eyes, colors and markings match the master sheets (compare side by side).",
-    "Rico has exactly three orange head spikes plus the same turquoise body, cream belly and amber eyes.",
-    "Lila and Bimo: three horns and the right frill color; Tika: long neck and spots; Piko: wide wings and blue crest.",
-    "Scale lock: ratios match in every scene (Rico 1.0, egg about 1.25, Tika tallest, Piko smallest). No size drift between scenes.",
-    "Egg: same look, size and spot; no face, eyes or limbs; never moves by itself, hatches or cracks.",
-    "No badge, logo, watermark or text of any kind; in particular NO 'LYLA MARVELY' badge or lettering (reject and retry if it appears).",
-    "Only the characters listed for the scene appear (max 3 per clip); no other creatures.",
-    "Stage layout and screen direction match the continuity lock.",
-    "Correct aspect ratio (9:16 or 16:9), composed separately, not cropped.",
-    "Max 2 retries per asset, then ask the owner. Consistency beats clip count: split the shot instead of retrying a crowded one."
-  ],
-  "reference_note_video": "Reference sheets contain badges and text: use them only for character appearance; never reproduce any badge, logo or text."
+  "video_negative_override": "Negative: no character redesign; no different face, eye shape, head shape, proportions or colors; no missing original features; no extra limbs or unsupported features; no duplicate or unauthorized characters; no badge, logo, watermark, text or sheet layout; the Rainbow Egg stays a still object (no hatching, cracks, face, limbs or self-movement); no live-action look; no camera cuts, flicker, morphing or inconsistent background; characters do not speak (no speech or lip-sync)."
 }

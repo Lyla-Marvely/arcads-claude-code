@@ -74,12 +74,24 @@ Each scene gets its own still and clip per ratio (re-framed, not cropped), so co
 | `scale_lock` + `scenes[].scale_items` | Relative sizes (e.g. Rico = 1.0) written into every prompt so sizes do not drift between scenes; the compact form is used for video. |
 | `reference_note`, `reference_note_video` | Tells the model to use reference sheets for appearance only, never to copy badges, logos or text. |
 | `qa_checks` | Checklist copied into the prompt pack. |
+| `vo_language: "en"`, `silent_characters` | Builder rejects Indonesian words/non-English characters in `scenes[].vo`/`dialogue`, and adds a no-speech rule to video prompts. |
+| `forbidden_prompt_terms` | Terms (e.g. unofficial character names, a badge name) that must never appear in a generated prompt; the builder refuses to write the pack if one does. It also refuses any prompt that mentions a character who is not in that scene. |
+| `characters[].negative_features` | Feature negatives added ONLY for characters present in a scene (naming features of absent characters could prime the generator). |
+| `video_negative_override` | One compact negative that replaces the base video negative and `extra_negative_video`. |
+| `audio`, `scenes[].sfx`, `scenes[].vo` | Narrator, music, ambient, SFX and mix direction written into the pack. Speech is produced externally, never inside the video prompt. |
 | `characters[].short_lock` | Compact lock used in video prompts (identity is carried by reference images). |
 | `style_lock_video`, `settings[].video_lock` | Shorter style/setting text for video prompts. |
 | `continuity_lock`, `continuity_lock_video`, `scenes[].continuity_notes` | Global and per-scene continuity lines appended to prompts. |
 | `extra_negative`, `extra_negative_video` | Project-specific negatives (e.g. "never change the three orange spikes"). |
 
 The builder warns when a Seedance prompt exceeds ~260 words (guide target, not a documented API limit).
+
+## Verify a pack before production
+
+```bash
+python3 skills/pixar-animation-video/scripts/verify_pack.py outputs/<slug>
+```
+Runs 13 offline checks (clip count and durations vs the storyboard doc, max characters per clip, only-present-characters, English-only speech, forbidden names, egg-as-object, locks, both ratios, generator readiness, character gate, library integrity, nothing generated) and writes `final-verification-report.md`. Exit 0 only if all pass.
 
 ## Troubleshooting
 

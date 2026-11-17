@@ -69,6 +69,8 @@ Fill `templates/project.example.json` (copy it to `outputs/<slug>/project.json`;
 python3 skills/pixar-animation-video/scripts/build_prompts.py outputs/<slug>/project.json --check   # validate
 python3 skills/pixar-animation-video/scripts/build_prompts.py outputs/<slug>/project.json --out outputs/<slug>/prompts
 ```
+Before calling a pack final, run `python3 skills/pixar-animation-video/scripts/verify_pack.py outputs/<slug>` (13 offline checks, writes `final-verification-report.md`).
+
 This writes `prompt-pack.md` (human-readable) and `prompts.json`: character lock sheets, per-scene image prompts, Seedance + Omni video prompts, per-ratio, plus request counts. **Offline — nothing is generated.** Deliver this pack even if preflight is BLOCKED.
 
 ### Phase 4 — Character lock (paid)

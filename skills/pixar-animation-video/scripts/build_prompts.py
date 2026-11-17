@@ -80,6 +80,37 @@ def reference_note_line(project: dict, video: bool = False) -> str:
     return f"{n}\n" if n else ""
 
 
+def feature_negatives(sc: dict, chars: dict) -> str:
+    """Negatives about a character's own features, only for characters PRESENT in the scene
+    (naming features of absent characters could prime the generator to add them)."""
+    parts = [chars[c]["negative_features"].strip() for c in sc.get("characters", []) if chars[c].get("negative_features")]
+    return " ".join(dict.fromkeys(parts))
+
+
+def image_negative(project: dict, sc: dict, chars: dict) -> str:
+    return " ".join(x for x in (neg(project, IMAGE_NEGATIVE), feature_negatives(sc, chars)) if x)
+
+
+def video_negative(project: dict, sc: dict, chars: dict) -> str:
+    if project.get("video_negative_override"):  # one compact negative replaces base + extra_negative_video
+        return " ".join(x for x in (project["video_negative_override"].strip(), feature_negatives(sc, chars)) if x)
+    silent = "Characters do not speak: no speech, voices or lip-sync." if project.get("silent_characters") else ""
+    return " ".join(x for x in (neg_video(project), feature_negatives(sc, chars), silent) if x)
+
+
+# Indonesian function words that must never appear in spoken lines of an English-language video.
+ID_STOPWORDS = {"yang", "dengan", "untuk", "adalah", "ini", "itu", "pada", "dari", "akan", "mereka", "karena",
+                "bersama", "sahabat", "telur", "pagi", "hutan", "menemukan", "datang", "satu", "para", "pun"}
+
+
+def spoken_lines(project: dict):
+    for sc in project.get("scenes", []):
+        for key in ("vo", "dialogue"):
+            v = sc.get(key)
+            if v:
+                yield sc.get("id", "?"), key, v
+
+
 def neg_video(project: dict) -> str:
     extra = (project.get("extra_negative_video") or project.get("extra_negative", "")).strip()
     return f"{VIDEO_NEGATIVE} {extra}" if extra else VIDEO_NEGATIVE
@@ -135,6 +166,13 @@ def validate(project: dict, root: Path | None = None) -> list[str]:
             ref = sc.get("reference_sheet")
             if ref and not sheet_path(root, ref).is_file():
                 problems.append(f"{sc.get('id','?')}: reference_sheet file not found on disk: {ref}")
+    if project.get("vo_language") == "en":
+        for sid_, key, text in spoken_lines(project):
+            bad_words = sorted({w for w in re.findall(r"[a-zA-Z']+", text.lower()) if w in ID_STOPWORDS})
+            if bad_words:
+                problems.append(f"{sid_}: {key} must be English but contains Indonesian word(s): {', '.join(bad_words)}")
+            if re.search(r"[^\x00-\x7f\u2019\u2014\u2013]", text):
+                problems.append(f"{sid_}: {key} contains unexpected non-English characters")
     if not project.get("scenes"):
         problems.append("no scenes defined")
     seen = set()
@@ -188,7 +226,7 @@ def build_image_prompt(project, sc, ratio, chars, sets) -> str:
         f"Characters must match the attached reference image(s) exactly: same proportions, "
         f"colors, outfit and facial features.\n"
         f"{reference_note_line(project)}"
-        f"{neg(project, IMAGE_NEGATIVE)}"
+        f"{image_negative(project, sc, chars)}"
     )
 
 
@@ -225,9 +263,9 @@ def build_seedance_prompt(project, sc, ratio, chars, sets) -> str:
     cast = " ".join(f"{video_lock_text(chars[c])}." for c in sc.get("characters", []))
     style = project.get("style_lock_video", style)
     setting_text = sets[sc["setting"]].get("video_lock", sets[sc["setting"]]["lock"])
-    refs = "@(img1) is the exact first-frame look; @(img2) is the character lock sheet"
+    refs = "@(img1) is the exact first-frame look; @(img2) is the character sheet"
     if sc.get("continuity_from"):
-        refs += f"; @(img3) is the previous scene ({sc['continuity_from']}) for continuity"
+        refs += f"; @(img3) is the previous scene ({sc['continuity_from']})"
     dur = sc["duration"]
     return (
         f"3D animated film aesthetic, image-to-video animation, {dur} seconds, {ratio}.\n"
@@ -235,13 +273,13 @@ def build_seedance_prompt(project, sc, ratio, chars, sets) -> str:
         f"{reference_note_line(project, video=True)}"
         f"Subject: {cast}\n"
         f"Setting: {setting_text}.\n"
-        f"Action (0-{dur}s): {sc['action']}. One primary motion, smooth and readable.\n"
+        f"Action (0-{dur}s): {sc['action']}.\n"
         f"Camera: {sc['shot']}; {sc['camera']}.\n"
         f"Style: {style}.\n"
         f"{scale_line(project, sc, video=True)}"
         f"{continuity_line(project, sc, video=True)}"
-        f"Constraints: characters and setting stay visually identical to the references for the whole clip. "
-        f"{neg_video(project)}"
+        f"Constraints: identical to the references for the whole clip. "
+        f"{video_negative(project, sc, chars)}"
     )
 
 
@@ -289,7 +327,7 @@ def main() -> None:
     md.append("## Character lock sheet\n")
     if project.get("continuity_lock"):
         md.insert(3, "## Global continuity lock\n\n" + "\n".join(f"- {i}" for i in project["continuity_lock"]) + "\n")
-    md.insert(3, "## Negative prompts\n\n**Image:** " + neg(project, IMAGE_NEGATIVE) + "\n\n**Video:** " + neg_video(project) + "\n")
+    md.insert(3, "## Negative prompts (base + project level; each prompt also gets feature negatives for ONLY the characters present)\n\n**Image:** " + neg(project, IMAGE_NEGATIVE) + "\n\n**Video:** " + neg_video(project) + "\n")
     for c in project["characters"]:
         if c.get("master_sheet"):
             result["characters"].append({"id": c["id"], "lock": lock_text(c), "master_sheet": c["master_sheet"], "turnaround_prompt": None})
@@ -306,6 +344,19 @@ def main() -> None:
         result["characters"].append({"id": c["id"], "lock": lock_text(c), "turnaround_prompt": sheet})
         md.append(f"### {c['name']} (`{c['id']}`)\n\n**Lock:** {lock_text(c)}\n\n**Turnaround prompt:**\n\n```\n{sheet}\n```\n")
 
+    leaks: list[str] = []
+    audio = project.get("audio")
+    if audio:
+        result["audio"] = audio
+        lines = ["## Audio and music direction\n"]
+        for k, label in (("vo_language", "Language of ALL audible speech"), ("narrator", "Narrator"), ("music", "Music"), ("music_prompt", "Music prompt (technical, English)"),
+                         ("ambient", "Ambient"), ("sfx_style", "Sound effects")):
+            if audio.get(k):
+                lines.append(f"- **{label}:** {audio[k]}")
+        for k, label in (("mix", "Mix rules"), ("production", "Production path")):
+            if audio.get(k):
+                lines.append(f"- **{label}:**\n" + "\n".join(f"  - {x}" for x in audio[k]))
+        md.append("\n".join(lines) + "\n")
     md.append("## Scenes\n")
     for sc in project["scenes"]:
         sr = still_refs(sc, chars)
@@ -315,7 +366,10 @@ def main() -> None:
         entry = {"id": sc["id"], "still_reference_files": sr, "image_reference_files": n_img_refs, "beat": sc.get("beat"), "duration": sc["duration"],
                  "vo": sc.get("vo", ""), "reference_plan": ref_plan(sc, chars), "ratios": {}}
         md.append(f"### {sc['id']} — {sc.get('beat', '')} ({sc['duration']}s)" + (" — OPTIONAL (not in the baseline)" if sc.get("optional") else "") + "\n")
-        md.append(f"**VO:** {sc.get('vo', '—')}\n\n**Video reference plan (Seedance, max 3):** " + "; ".join(ref_plan(sc, chars)) +
+        entry["sfx"] = sc.get("sfx", [])
+        if sc.get("sfx"):
+            md.append("**SFX:** " + "; ".join(sc["sfx"]) + "\n")
+        md.append(f"**VO (English):** {sc.get('vo', '—')}\n\n**Video reference plan (Seedance, max 3):** " + "; ".join(ref_plan(sc, chars)) +
                   "\n\n**Still reference files (gpt-image-2, max 5):** " + "; ".join(f"`{x}`" for x in sr) + "\n")
         for r in ratios:
             ip = build_image_prompt(project, sc, r, chars, sets)
@@ -324,12 +378,24 @@ def main() -> None:
             wc = len(sp.split())
             if wc > 260:
                 print(f"WARNING: {sc['id']} {r} Seedance prompt is {wc} words (guide target 100-260); add short_lock / continuity_lock_video / extra_negative_video", file=sys.stderr)
+            for kind, txt in (("image", ip), ("seedance", sp), ("omni", op)):
+                for cid, c_ in chars.items():
+                    if cid not in sc.get("characters", []) and re.search(rf"\b{re.escape(c_['name'])}\b", txt):
+                        leaks.append(f"{sc['id']} {r} {kind}: absent character '{c_['name']}' is mentioned")
+                for term in project.get("forbidden_prompt_terms", []):
+                    if re.search(rf"\b{re.escape(term)}\b", txt, re.I):
+                        leaks.append(f"{sc['id']} {r} {kind}: forbidden term '{term}' appears in a prompt")
             entry["ratios"][r] = {"image_prompt": ip, "seedance_prompt": sp, "omni_prompt": op}
             md.append(f"#### {sc['id']} · {r}\n\n**Image prompt (gpt-image-2 / Nano Banana):**\n\n```\n{ip}\n```\n\n"
                       f"**Video prompt (Seedance 2.0, image-to-video):**\n\n```\n{sp}\n```\n\n"
                       f"**Video prompt (Gemini Omni Flash — only if available, see SKILL.md):**\n\n```\n{op}\n```\n")
         result["scenes"].append(entry)
 
+    if leaks:
+        print("Prompt safety problems (nothing written):", file=sys.stderr)
+        for l_ in leaks:
+            print(f"  - {l_}", file=sys.stderr)
+        sys.exit(3)
     base = [s_ for s_ in project["scenes"] if not s_.get("optional")]
     opt = [s_ for s_ in project["scenes"] if s_.get("optional")]
     n_scenes, n_ratios = len(base), len(ratios)

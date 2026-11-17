@@ -142,7 +142,10 @@ def main() -> None:
                 if need not in ip: lock_bad.append(f"{s['id']} {r}: image lacks {need}")
             if "CONTINUITY LOCK" not in sp: lock_bad.append(f"{s['id']} {r}: video lacks CONTINUITY LOCK")
             if "Negative:" not in sp or "No " not in ip: lock_bad.append(f"{s['id']} {r}: negative missing")
-    add("8", "Character lock, continuity lock, setting lock and negative present in every prompt", not lock_bad, f"issues: {lock_bad or 'none'}")
+    prime = sorted({w for s in scenes for _, _, tx in prompts_of(s["id"]) for w in re.findall(r"\b(outfit|clothing|clothes|costume|accessor\w+)\b", tx, re.I)})
+    if prime:
+        lock_bad.append(f"priming words for features the characters do not have: {prime}")
+    add("8", "Character lock, continuity lock, setting lock and negative present in every prompt (and no wording that could prime clothing or accessories)", not lock_bad, f"issues: {lock_bad or 'none'}")
     # 9 both formats
     fmt_bad = []
     for s in scenes:

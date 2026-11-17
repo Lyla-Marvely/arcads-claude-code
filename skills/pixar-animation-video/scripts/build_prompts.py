@@ -224,7 +224,7 @@ def build_image_prompt(project, sc, ratio, chars, sets) -> str:
         f"{scale_line(project, sc)}"
         f"{continuity_line(project, sc)}"
         f"Characters must match the attached reference image(s) exactly: same proportions, "
-        f"colors, outfit and facial features.\n"
+        f"colors and facial features; nothing added and nothing removed.\n"
         f"{reference_note_line(project)}"
         f"{image_negative(project, sc, chars)}"
     )
@@ -290,7 +290,7 @@ def build_omni_prompt(project, sc, ratio, chars, sets) -> str:
         f"Animate <image> as a Pixar-style 3D animated scene, {sc['duration']}s, {ratio}. "
         f"{names} in {sets[sc['setting']]['id'].replace('-', ' ')}: {sc['action']}. "
         f"{sc['shot']}, {sc['camera']}. Keep {names} identical to the image throughout; "
-        f"same outfit, colors and proportions. One continuous shot. "
+        f"same colors and proportions, nothing added or removed. One continuous shot. "
         f"Don't add text, captions, extra characters or scene cuts."
     )
 

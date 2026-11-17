@@ -79,6 +79,47 @@ Contoh nama: `rico-and-friends__group__master-sheet__v1.jpg` (hanya contoh forma
 
 Entri ditambahkan hanya setelah file benar-benar ada di folder.
 
+## 4b. Aset brand: logo dan visual pendukung (dicatat terpisah dari karakter)
+
+Master karakter dicatat di `assets`. **Logo dan aset brand dicatat di `brand_assets`**, daftar terpisah pada proyek yang sama. Yang satu tidak pernah dihitung sebagai yang lain, dan gate karakter tidak terpengaruh oleh aset brand.
+
+Saat ini diaktifkan untuk **Arsein-Research**, yang menyimpan seluruh identitas visual brand ARSEIN RESEARCH:
+
+| `type` | Isi | Subfolder |
+|--------|-----|-----------|
+| `logo_primary` | logo utama | `Arsein-Research/logos/primary/` |
+| `logo_alternate` | logo alternatif (varian sebagaimana diunggah pemilik) | `Arsein-Research/logos/alternate/` |
+| `supporting` | aset visual pendukung (isi `kind`: palet, pola, ikon, banner, template, foto, dan sebagainya) | `Arsein-Research/brand-assets/` |
+| *(karakter)* | master character sheet | `Arsein-Research/characters/` |
+
+Entri `brand_assets`:
+
+```json
+{
+  "file": "Arsein-Research/logos/primary/arsein-research__logo-primary__v1.png",
+  "original_name": "<nama file asli>",
+  "type": "logo_primary",
+  "kind": "",
+  "version": 1,
+  "status": "identified",
+  "uploaded_at": "YYYY-MM-DD",
+  "approved_by": null,
+  "approved_at": null,
+  "sha256": "<hash file>",
+  "notes": ""
+}
+```
+
+Status dan persetujuan memakai aturan yang sama dengan karakter (hanya pemilik yang mengubah ke `approved`).
+
+Aturan aset brand:
+1. **Tidak membuat aset baru dan tidak mengubah desain asli.** Dilarang menggambar ulang, mewarnai ulang, mengubah proporsi/teks, menghapus latar, mengubah ukuran dengan distorsi, atau "membersihkan" logo. Varian baru dari pemilik = file baru.
+2. **Logo tidak ditulis ulang oleh model AI.** Teks dan bentuk logo hampir selalu rusak saat digenerate. Pada gambar/video, buat ruang kosong dan tempelkan file logo asli di post-produksi. Model hanya boleh diberi logo sebagai referensi gaya/warna bila pemilik mengizinkan, dan hasilnya tidak boleh disebut logo resmi.
+3. **Logo di dalam master character sheet** adalah bagian dari sheet itu, bukan file logo. Jangan di-crop menjadi aset logo.
+4. **Pilih varian sesuai fungsi**, dan jangan menebak: tanyakan pemilik jika tidak jelas logo mana yang cocok untuk sebuah penggunaan.
+5. **Format:** PNG/SVG dengan latar transparan disarankan untuk logo. Upload lewat web GitHub tidak terpengaruh aturan ignore. Untuk `git add` lokal gunakan `-f`.
+6. Gate: `./scripts/check-character-library.sh Arsein-Research --brand` (exit 0 hanya jika ada `logo_primary` berstatus `approved` yang filenya ada).
+
 ## 5. Alur setelah Anda mengunggah gambar
 
 1. Anda mengunggah ke GitHub (atau melampirkan di chat) dan bilang "identifikasi dan tempatkan".
@@ -91,7 +132,8 @@ Entri ditambahkan hanya setelah file benar-benar ada di folder.
 
 ```bash
 ./scripts/check-character-library.sh                 # ringkasan semua proyek
-./scripts/check-character-library.sh Rico-and-Friends # gate: exit 0 hanya jika ada aset approved yang filenya ada
+./scripts/check-character-library.sh Rico-and-Friends # gate karakter: exit 0 hanya jika ada master sheet approved yang filenya ada
+./scripts/check-character-library.sh Arsein-Research --brand  # gate brand: exit 0 hanya jika ada logo_primary approved
 ```
 
 Untuk `pixar-animation-video`: isi `characters[].master_sheet` di `project.json` dengan path file dari library (bukan deskripsi), dan jangan mulai Phase 4+ (berbayar) sebelum gate lulus.

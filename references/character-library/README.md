@@ -12,9 +12,11 @@ Katalog master character sheet untuk seluruh proyek LYLA. Aturan pemakaian ada d
 | [LYLA-Education/](LYLA-Education/) | Semua konten pendidikan: maskot edukasi, worksheet, serial edukasi (termasuk perilaku anak dan parenting) | 0 | 0 | 5 |
 | [Rico-and-Friends/](Rico-and-Friends/) | Serial Rico & Friends. Karakter resmi: Rico, Lila, Bimo, Tika, Piko | 0 | 0 | 2 |
 | [Zeno-Family/](Zeno-Family/) | The Zeno Family | 0 | 0 | 1 |
-| [Arsein-Research/](Arsein-Research/) | Arsein Research | 0 | 0 | 1 |
+| [Arsein-Research/](Arsein-Research/) | Arsein Research: master karakter **dan seluruh aset brand** (logo utama, logo alternatif, aset pendukung) — dicatat terpisah, lihat bawah | 0 | 0 | 1 |
 | [The-Last-Letter/](The-Last-Letter/) | The Last Letter | 0 | 0 | 4 |
 | [LYLA-Anime-Universe/](LYLA-Anime-Universe/) | LYLA Anime Universe | 0 | 0 | 1 |
+
+**Aset brand Arsein Research:** logo utama 0, logo alternatif 0, aset pendukung 0 (belum diunggah). Dicatat di `brand_assets`, terpisah dari master karakter. Lihat [Arsein-Research/README.md](Arsein-Research/README.md) dan bagian 4b di CHARACTER_LIBRARY.md.
 
 "Rencana sheet" adalah niat yang dicatat di `library.json` (`planned_sheets`), **bukan file dan bukan aset**. Total 14 sheet direncanakan. Folder `LYLA/` belum punya rencana sheet. Sheet Lyla yang bertuliskan "Maskot LYLA Education" ditempatkan di `LYLA-Education/`.
 

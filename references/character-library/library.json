@@ -1,7 +1,7 @@
 {
   "schema": 1,
   "doc": "CHARACTER_LIBRARY.md",
-  "note": "Registry of character master sheets. An asset is official ONLY when status is 'approved'. Only the project owner may set 'approved'. 'assets' lists files that exist on disk; empty means nothing is uploaded/registered yet. 'planned_sheets' are owner-declared intentions, NOT files and NOT assets.",
+  "note": "Registry of character master sheets. An asset is official ONLY when status is 'approved'. Only the project owner may set 'approved'. 'assets' lists files that exist on disk; empty means nothing is uploaded/registered yet. 'planned_sheets' are owner-declared intentions, NOT files and NOT assets. Brand assets (logos, supporting visuals) are tracked separately under 'brand_assets' and never count toward the character gate.",
   "status_values": [
     "uploaded",
     "identified",
@@ -17,7 +17,9 @@
       "Sheets titled 'Maskot LYLA Education' (Lyla solo, Lyla & Lilo) belong in LYLA-Education.",
       "Aisyah and Mama Aisyah belong in LYLA-Education (educational series about child behavior and parenting).",
       "Rico-and-Friends official characters: Rico, Lila, Bimo, Tika, Piko. Pip and Moss are NOT official. Do not create replacement characters or alter existing designs.",
-      "Project/dinosaur name spelling is 'Rico' (the sheet images may read 'Riko'; do not edit the images)."
+      "Project/dinosaur name spelling is 'Rico' (the sheet images may read 'Riko'; do not edit the images).",
+      "Arsein-Research stores ALL brand visual assets (master character sheet, primary logo, alternate logos, supporting assets); logos/brand assets are recorded separately from master characters. Do not alter original designs or create new assets.",
+      "Logos inside a master character sheet stay part of that sheet; they are not extracted as logo files."
     ]
   },
   "projects": {
@@ -115,7 +117,7 @@
     },
     "Arsein-Research": {
       "folder": "Arsein-Research",
-      "scope": "Arsein Research",
+      "scope": "Arsein Research: master character sheet(s) PLUS the full brand visual identity (primary logo, alternate logos, supporting brand assets)",
       "official_characters": [],
       "not_official": [],
       "planned_sheets": [
@@ -126,7 +128,15 @@
           "state": "not uploaded"
         }
       ],
-      "assets": []
+      "assets": [],
+      "layout": {
+        "characters": "characters/",
+        "logo_primary": "logos/primary/",
+        "logo_alternate": "logos/alternate/",
+        "supporting": "brand-assets/"
+      },
+      "brand_assets": [],
+      "planned_brand_assets": []
     },
     "The-Last-Letter": {
       "folder": "The-Last-Letter",
@@ -176,5 +186,10 @@
       ],
       "assets": []
     }
+  },
+  "brand_asset_types": {
+    "logo_primary": "Main ARSEIN RESEARCH logo (folder logos/primary/)",
+    "logo_alternate": "Alternate logo variants as supplied by the owner (folder logos/alternate/)",
+    "supporting": "Other brand visual assets as supplied by the owner (folder brand-assets/); use the 'kind' field"
   }
 }

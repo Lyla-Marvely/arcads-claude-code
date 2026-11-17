@@ -39,10 +39,9 @@ IMAGE_NEGATIVE = (
 )
 
 VIDEO_NEGATIVE = (
-    "No live-action footage, no photorealistic faces, no anime or 2D look, no flat illustration, "
-    "no extra characters, no extra limbs or fingers, no morphing or melting features, "
-    "no costume or color changes between frames, no scene cuts, no sudden lighting change, "
-    "no on-screen text, no captions, no subtitles, no watermark."
+    "No live-action or photorealistic look, no anime or 2D look, no extra characters, no extra limbs, "
+    "no morphing or melting, no costume or color changes, no scene cuts, no lighting jumps, "
+    "no on-screen text, captions or watermark."
 )
 
 COMPOSITION = {
@@ -54,9 +53,30 @@ COMPOSITION = {
 }
 
 
+def neg(project: dict, base: str) -> str:
+    extra = project.get("extra_negative", "").strip()
+    return f"{base} {extra}" if extra else base
+
+
+def neg_video(project: dict) -> str:
+    extra = (project.get("extra_negative_video") or project.get("extra_negative", "")).strip()
+    return f"{VIDEO_NEGATIVE} {extra}" if extra else VIDEO_NEGATIVE
+
+
+def continuity_line(project: dict, sc: dict, video: bool = False) -> str:
+    base = project.get("continuity_lock_video") if video and project.get("continuity_lock_video") else project.get("continuity_lock", [])
+    items = list(base) + list(sc.get("continuity_notes", []))
+    return ("CONTINUITY LOCK — " + "; ".join(items) + ".\n") if items else ""
+
+
 def die(msg: str) -> None:
     print(f"ERROR: {msg}", file=sys.stderr)
     sys.exit(1)
+
+
+def video_lock_text(char: dict) -> str:
+    """Compact lock for video prompts: the reference images carry identity, so keep it short."""
+    return char.get("short_lock") or lock_text(char)
 
 
 def lock_text(char: dict) -> str:
@@ -116,15 +136,20 @@ def build_image_prompt(project, sc, ratio, chars, sets) -> str:
         f"{cast}\n"
         f"SETTING LOCK — {sets[sc['setting']]['lock']}.\n"
         f"SCENE — {sc['shot']}. {sc['action']}.\n"
+        f"{continuity_line(project, sc)}"
         f"Characters must match the attached reference image(s) exactly: same proportions, "
         f"colors, outfit and facial features.\n"
-        f"{IMAGE_NEGATIVE}"
+        f"{neg(project, IMAGE_NEGATIVE)}"
     )
 
 
-def ref_plan(sc) -> list[str]:
+def ref_plan(sc, chars=None) -> list[str]:
     plan = ["img1 = this scene's approved storyboard still (same ratio)"]
-    plan.append("img2 = character turnaround/lock sheet (same characters as this scene)")
+    master = next((chars[c] for c in sc.get("characters", []) if chars and chars[c].get("master_sheet")), None)
+    if master:
+        plan.append(f"img2 = {master['name']} MASTER character sheet ({master['master_sheet']}) — user-supplied, never regenerated")
+    else:
+        plan.append("img2 = character turnaround/lock sheet (same characters as this scene)")
     if sc.get("continuity_from"):
         plan.append(f"img3 = approved still of {sc['continuity_from']} (continuity anchor)")
     return plan
@@ -132,7 +157,9 @@ def ref_plan(sc) -> list[str]:
 
 def build_seedance_prompt(project, sc, ratio, chars, sets) -> str:
     style = project.get("style_lock", DEFAULT_STYLE_LOCK)
-    cast = " ".join(f"{lock_text(chars[c])}." for c in sc.get("characters", []))
+    cast = " ".join(f"{video_lock_text(chars[c])}." for c in sc.get("characters", []))
+    style = project.get("style_lock_video", style)
+    setting_text = sets[sc["setting"]].get("video_lock", sets[sc["setting"]]["lock"])
     refs = "@(img1) is the exact first-frame look; @(img2) is the character lock sheet"
     if sc.get("continuity_from"):
         refs += f"; @(img3) is the previous scene ({sc['continuity_from']}) for continuity"
@@ -141,12 +168,13 @@ def build_seedance_prompt(project, sc, ratio, chars, sets) -> str:
         f"3D animated film aesthetic, image-to-video animation, {dur} seconds, {ratio}.\n"
         f"Reference use: {refs}.\n"
         f"Subject: {cast}\n"
-        f"Setting: {sets[sc['setting']]['lock']}.\n"
+        f"Setting: {setting_text}.\n"
         f"Action (0-{dur}s): {sc['action']}. One primary motion, smooth and readable.\n"
         f"Camera: {sc['shot']}; {sc['camera']}.\n"
         f"Style: {style}.\n"
+        f"{continuity_line(project, sc, video=True)}"
         f"Constraints: characters and setting stay visually identical to the references for the whole clip. "
-        f"{VIDEO_NEGATIVE}"
+        f"{neg_video(project)}"
     )
 
 
@@ -192,7 +220,16 @@ def main() -> None:
           "Nothing below has been sent to any API.\n"]
 
     md.append("## Character lock sheet\n")
+    if project.get("continuity_lock"):
+        md.insert(3, "## Global continuity lock\n\n" + "\n".join(f"- {i}" for i in project["continuity_lock"]) + "\n")
+    md.insert(3, "## Negative prompts\n\n**Image:** " + neg(project, IMAGE_NEGATIVE) + "\n\n**Video:** " + neg_video(project) + "\n")
     for c in project["characters"]:
+        if c.get("master_sheet"):
+            result["characters"].append({"id": c["id"], "lock": lock_text(c), "master_sheet": c["master_sheet"], "turnaround_prompt": None})
+            md.append(f"### {c['name']} (`{c['id']}`) — MASTER SHEET (design locked)\n\n**Lock:** {lock_text(c)}\n\n"
+                      f"**Master sheet file:** `{c['master_sheet']}`  \n_Supplied by the user. Do NOT generate a new turnaround; "
+                      f"attach this file as a reference (re-upload for every call — presigned paths are one-time use)._\n")
+            continue
         sheet = (
             f"{project.get('style_lock', DEFAULT_STYLE_LOCK)}. Character turnaround sheet on a plain "
             f"soft cream background: front view, 3/4 view, side view and back view of {lock_text(c)}, "
@@ -204,14 +241,18 @@ def main() -> None:
 
     md.append("## Scenes\n")
     for sc in project["scenes"]:
-        entry = {"id": sc["id"], "beat": sc.get("beat"), "duration": sc["duration"],
-                 "vo": sc.get("vo", ""), "reference_plan": ref_plan(sc), "ratios": {}}
+        n_img_refs = len(sc.get("characters", [])) + (1 if sc.get("continuity_from") else 0)
+        entry = {"id": sc["id"], "image_reference_files": n_img_refs, "beat": sc.get("beat"), "duration": sc["duration"],
+                 "vo": sc.get("vo", ""), "reference_plan": ref_plan(sc, chars), "ratios": {}}
         md.append(f"### {sc['id']} — {sc.get('beat', '')} ({sc['duration']}s)\n")
-        md.append(f"**VO:** {sc.get('vo', '—')}\n\n**Reference plan:** " + "; ".join(ref_plan(sc)) + "\n")
+        md.append(f"**VO:** {sc.get('vo', '—')}\n\n**Reference plan:** " + "; ".join(ref_plan(sc, chars)) + "\n")
         for r in ratios:
             ip = build_image_prompt(project, sc, r, chars, sets)
             sp = build_seedance_prompt(project, sc, r, chars, sets)
             op = build_omni_prompt(project, sc, r, chars, sets)
+            wc = len(sp.split())
+            if wc > 260:
+                print(f"WARNING: {sc['id']} {r} Seedance prompt is {wc} words (guide target 100-260); add short_lock / continuity_lock_video / extra_negative_video", file=sys.stderr)
             entry["ratios"][r] = {"image_prompt": ip, "seedance_prompt": sp, "omni_prompt": op}
             md.append(f"#### {sc['id']} · {r}\n\n**Image prompt (gpt-image-2 / Nano Banana):**\n\n```\n{ip}\n```\n\n"
                       f"**Video prompt (Seedance 2.0, image-to-video):**\n\n```\n{sp}\n```\n\n"
@@ -220,7 +261,7 @@ def main() -> None:
 
     n_scenes, n_ratios = len(project["scenes"]), len(ratios)
     summary = {
-        "turnaround_images": len(project["characters"]),
+        "turnaround_images": sum(1 for c in project["characters"] if not c.get("master_sheet")),
         "scene_stills": n_scenes * n_ratios,
         "scene_clips": n_scenes * n_ratios,
         "total_scene_seconds_per_ratio": sum(s["duration"] for s in project["scenes"]),

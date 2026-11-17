@@ -63,6 +63,18 @@ The preflight cannot confirm your Arcads plan, per-model access, or credit balan
 
 Each scene gets its own still and clip per ratio (re-framed, not cropped), so cost is roughly `scenes × ratios` stills plus `scenes × ratios` clips plus character sheets. Generate one ratio first if you want to limit spend, then the second after you approve the look.
 
+## Optional `project.json` fields
+
+| Field | Effect |
+|-------|--------|
+| `characters[].master_sheet` | User-supplied character sheet. The builder skips the turnaround prompt and plans it as `img2` (never regenerated). |
+| `characters[].short_lock` | Compact lock used in video prompts (identity is carried by reference images). |
+| `style_lock_video`, `settings[].video_lock` | Shorter style/setting text for video prompts. |
+| `continuity_lock`, `continuity_lock_video`, `scenes[].continuity_notes` | Global and per-scene continuity lines appended to prompts. |
+| `extra_negative`, `extra_negative_video` | Project-specific negatives (e.g. "never change the three orange spikes"). |
+
+The builder warns when a Seedance prompt exceeds ~260 words (guide target, not a documented API limit).
+
 ## Troubleshooting
 
 | Symptom | Likely cause / fix |

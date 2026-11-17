@@ -1,0 +1,73 @@
+{
+  "title": "Bimo and the Last Cookie",
+  "logline": "A tiny robot vacuum named Bimo discovers a single cookie crumb under the sofa and must decide whether to share it.",
+  "ratios": ["9:16", "16:9"],
+  "style_lock": "Disney-Pixar 3D animated feature film aesthetic, soft volumetric warm lighting, subsurface scattering on skin and fabric, large expressive eyes with multiple catchlights, stylized but believable proportions, rich material detail, shallow depth of field with creamy bokeh, warm cozy palette of cream, butter yellow, dusty pink and soft sage",
+  "characters": [
+    {
+      "id": "bimo",
+      "name": "Bimo",
+      "role": "protagonist",
+      "lock": {
+        "form": "small round robot vacuum, 30 cm wide, matte butter-yellow shell, white rubber bumper ring",
+        "face": "two oversized glossy dark-blue eyes with three catchlights each, thin rounded eyebrow lines that move, no mouth",
+        "signature": "tiny antenna with a pink bobble on top, a small dent on the left side of the shell",
+        "palette": "butter yellow, cream white, dusty pink bobble"
+      }
+    },
+    {
+      "id": "lena",
+      "name": "Lena",
+      "role": "supporting",
+      "lock": {
+        "form": "girl about 8 years old, slightly larger head, soft rounded features",
+        "face": "big warm-brown eyes with multiple catchlights, light freckles across the nose bridge",
+        "hair": "dark curly hair in two puffs tied with mint-green ribbons",
+        "outfit": "mustard-yellow knit cardigan over a white tee, denim shorts, red sneakers"
+      }
+    }
+  ],
+  "settings": [
+    {
+      "id": "living-room",
+      "lock": "sunlit cozy living room, sheer cream curtains, beige sofa with a knitted throw, wooden floor, potted fern in a terracotta pot, golden-hour window light from camera-left"
+    }
+  ],
+  "scenes": [
+    {
+      "id": "s01",
+      "beat": "hook",
+      "duration": 5,
+      "setting": "living-room",
+      "characters": ["bimo"],
+      "shot": "low-angle close-up at floor level",
+      "action": "Bimo rolls out from under the sofa, stops, and his eyes widen as he spots a single cookie crumb",
+      "camera": "static, then a very slow push in",
+      "vo": "Bimo had cleaned this room a thousand times."
+    },
+    {
+      "id": "s02",
+      "beat": "conflict",
+      "duration": 6,
+      "setting": "living-room",
+      "characters": ["bimo", "lena"],
+      "shot": "medium shot, Lena kneeling beside Bimo",
+      "action": "Lena tiptoes in, spots the same crumb, and she and Bimo freeze, staring at each other and at the crumb",
+      "camera": "gentle handheld micro-drift",
+      "vo": "But today, someone else wanted that crumb too.",
+      "continuity_from": "s01"
+    },
+    {
+      "id": "s03",
+      "beat": "resolution",
+      "duration": 6,
+      "setting": "living-room",
+      "characters": ["bimo", "lena"],
+      "shot": "wide shot of both on the floor, crumb between them",
+      "action": "Bimo nudges the crumb toward Lena, she smiles, breaks off a tiny piece and places it on his bumper; they both beam",
+      "camera": "slow pull back",
+      "vo": "So he shared it. And that was the sweetest part.",
+      "continuity_from": "s02"
+    }
+  ]
+}

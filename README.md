@@ -231,6 +231,12 @@ Output is image files. Pair with the `meta-ad-builder` skill to publish as pause
 
 Lock cast sheet → ChatGPT Image 2 storyboard stills (sequential, prior frame as ref for identity lock, max 5 `referenceImages`) → Seedance 2.0 image-to-video per beat → ffmpeg stitch + burn captions. See `shared/skills/pixar-style-ad/prompting/guide.md`.
 
+#### Pixar-style animated story (not an ad) — `pixar-animation-video`
+
+> "Buat video animasi Pixar-style: kasih 3 ide cerita, script, storyboard, dan prompt tiap scene dalam 9:16 dan 16:9"
+
+Story ideas → script → storyboard → character lock sheets → per-scene image + Seedance 2.0 video prompts with negatives and continuity locks, for both 9:16 and 16:9. Runs `skills/pixar-animation-video/scripts/check-requirements.sh` before any generation; the prompt pack is built offline and never claims media exists. See `docs/pixar-animation-video.md`.
+
 #### Claymation / Aardman-style ad
 
 > "Make a claymation ad — sculpted plasticine characters, narrator-driven, 60–115s"

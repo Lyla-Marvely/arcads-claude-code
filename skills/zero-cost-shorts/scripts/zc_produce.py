@@ -54,7 +54,7 @@ def main() -> None:
     print("[2/5] mix audio and assemble")
     sfx = [f"{c['file']}@{starts[c['scene']] + c['at']:.3f}" for c in P.get("sfx", [])]
     base = out / (P["name"] + "_nocaptions.mp4")
-    cmd = [py, HERE / "assemble_final.py", "--clips", *[out / "clips" / f"{s}.mp4" for s in ids], "--vo", *[Path(P["vo_dir"]) / f"{s}.wav" for s in ids],
+    cmd = [py, HERE.parent.parent / "pixar-animation-video/scripts/assemble_final.py", "--clips", *[out / "clips" / f"{s}.mp4" for s in ids], "--vo", *[Path(P["vo_dir"]) / f"{s}.wav" for s in ids],
            "--music", P["music"], "--out", base, "--size", f"{spec['size'][0]}x{spec['size'][1]}", "--fps", str(spec.get("fps", 24))]
     if P.get("ambient"):
         cmd += ["--ambient", P["ambient"]]

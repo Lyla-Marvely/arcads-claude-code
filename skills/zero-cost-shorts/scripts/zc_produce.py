@@ -64,7 +64,7 @@ def main() -> None:
         sys.exit("assembly self-checks FAILED")
 
     print("[3/5] QA: any text, badge or logo in the picture?")
-    qa_py = P.get("qa_python", py)
+    qa_py = str(Path(P.get("qa_python", "~/.cache/zero-cost-shorts/venv-qa/bin/python")).expanduser())
     r = sh([qa_py, HERE.parent.parent / "pixar-animation-video/scripts/qa_text_check.py", "--video", base, "--every", "0.5"])
     if r.returncode != 0:
         sys.exit("QA FAILED: text/badge detected in the picture (captions are added only after this check)")

@@ -14,7 +14,7 @@
  "vo_dir": "outputs/zero-cost/rico-and-friends/audio/vo",
  "music": "outputs/zero-cost/rico-and-friends/audio/music.wav",
  "ambient": "outputs/zero-cost/rico-and-friends/audio/ambient.wav",
- "qa_python": "/tmp/claude-0/-home-user-arcads-claude-code/140255c3-3db1-56dc-9a1e-e812a6f36bc1/scratchpad/ocrvenv/bin/python",
+ "qa_python": "~/.cache/zero-cost-shorts/venv-qa/bin/python",
  "caption_font": "Baloo 2",
  "sfx": [
   {

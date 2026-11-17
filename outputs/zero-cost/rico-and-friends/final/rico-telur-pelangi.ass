@@ -1,0 +1,29 @@
+[Script Info]
+ScriptType: v4.00+
+PlayResX: 720
+PlayResY: 1280
+WrapStyle: 2
+
+[V4+ Styles]
+Format: Name, Fontname, Fontsize, PrimaryColour, SecondaryColour, OutlineColour, BackColour, Bold, Italic, Underline, StrikeOut, ScaleX, ScaleY, Spacing, Angle, BorderStyle, Outline, Shadow, Alignment, MarginL, MarginR, MarginV, Encoding
+Style: Kid,Baloo 2,70,&H00FFFFFF,&H000000FF,&H00502A14,&H64000000,-1,0,0,0,100,100,0,0,1,7,3,8,40,40,210,1
+
+[Events]
+Format: Layer, Start, End, Style, Name, MarginL, MarginR, MarginV, Effect, Text
+Dialogue: 0,0:00:00.25,0:00:01.57,Kid,,0,0,0,,{\fad(60,60)}One sunny morning,
+Dialogue: 0,0:00:01.57,0:00:02.96,Kid,,0,0,0,,{\fad(60,60)}deep in the forest,
+Dialogue: 0,0:00:02.96,0:00:04.42,Kid,,0,0,0,,{\fad(60,60)}Rico found something
+Dialogue: 0,0:00:04.42,0:00:05.01,Kid,,0,0,0,,{\fad(60,60)}magical.
+Dialogue: 0,0:00:05.01,0:00:06.77,Kid,,0,0,0,,{\fad(60,60)}A sparkling rainbow egg!
+Dialogue: 0,0:00:08.25,0:00:09.75,Kid,,0,0,0,,{\fad(60,60)}Piko swooped down to see
+Dialogue: 0,0:00:09.75,0:00:10.50,Kid,,0,0,0,,{\fad(60,60)}the sparkle!
+Dialogue: 0,0:00:12.25,0:00:13.90,Kid,,0,0,0,,{\fad(60,60)}Lila and Bimo came to see
+Dialogue: 0,0:00:13.90,0:00:14.37,Kid,,0,0,0,,{\fad(60,60)}it too!
+Dialogue: 0,0:00:16.25,0:00:17.77,Kid,,0,0,0,,{\fad(60,60)}Tika stretched up high to
+Dialogue: 0,0:00:17.77,0:00:18.50,Kid,,0,0,0,,{\fad(60,60)}take a peek!
+Dialogue: 0,0:00:20.25,0:00:20.76,Kid,,0,0,0,,{\fad(60,60)}Together,
+Dialogue: 0,0:00:20.76,0:00:22.19,Kid,,0,0,0,,{\fad(60,60)}they promised to keep the
+Dialogue: 0,0:00:22.19,0:00:22.71,Kid,,0,0,0,,{\fad(60,60)}egg safe.
+Dialogue: 0,0:00:25.25,0:00:26.66,Kid,,0,0,0,,{\fad(60,60)}Good friends always take
+Dialogue: 0,0:00:26.66,0:00:28.02,Kid,,0,0,0,,{\fad(60,60)}care of special things,
+Dialogue: 0,0:00:28.02,0:00:28.54,Kid,,0,0,0,,{\fad(60,60)}together!

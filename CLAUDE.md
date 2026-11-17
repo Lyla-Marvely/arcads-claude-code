@@ -2,6 +2,7 @@
 
 # Arcads-specific session rules
 
+- **PRODUCTION POLICY — ZERO-COST (owner decision, supersedes the Arcads/Gemini plans below):** produce videos ONLY with free, open-source, local tools via `skills/zero-cost-shorts/`. Do NOT call Arcads or any paid/metered API, do NOT enable billing (Gemini or any), do NOT ask for a card, credit purchase or subscription. If a feature cannot be done free, find a free alternative or say it cannot be done; never ask the owner to pay. Characters = official artwork of APPROVED library characters only.
 - **API:** Arcads external API (`https://external-api.arcads.ai`).
 - **Auth:** HTTP Basic via `ARCADS_BASIC_AUTH` or `ARCADS_API_KEY`. Setup check: `./scripts/check-arcads-env.sh`.
 - **Skill:** `.claude/skills/arcads-external-api/SKILL.md` for API calls, prompts, and polling.

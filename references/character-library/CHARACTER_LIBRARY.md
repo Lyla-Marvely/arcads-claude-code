@@ -4,6 +4,21 @@ Panduan ini berlaku untuk **setiap skill dan sesi** yang membuat gambar, video, 
 
 Status: folder sudah ada; **gambar belum diunggah**. Sebelum sebuah karakter dipakai, cek `library.json`.
 
+## 0. Keputusan pemilik dan routing proyek
+
+| Jika kontennya… | Gunakan folder |
+|-----------------|----------------|
+| LYLA Marvely, konten brand LYLA umum | `LYLA/` |
+| pendidikan, maskot edukasi (Lyla "Maskot LYLA Education", Lilo), worksheet, serial edukasi, serial perilaku anak dan parenting (Aisyah, Mama Aisyah) | `LYLA-Education/` |
+| Rico & Friends | `Rico-and-Friends/` |
+| Zeno Family / Arsein Research / The Last Letter / LYLA Anime Universe | folder dengan nama yang sama |
+
+Aturan khusus:
+- **LYLA ≠ LYLA-Education.** Jangan mencampur keduanya. Lyla dengan label "Maskot LYLA Education" memakai sheet di `LYLA-Education/`.
+- **Rico & Friends:** karakter resmi hanya Rico, Lila, Bimo, Tika, Piko (deklarasi pemilik; desain diverifikasi dari sheet setelah diunggah). **Pip dan Moss bukan karakter resmi** dan tidak boleh dipakai. **Jangan membuat karakter pengganti**, jangan mengubah desain yang ada. Ejaan tertulis **Rico**; gambar sheet tidak diedit.
+- Daftar `official_characters` di `library.json` adalah deklarasi pemilik. Detail visualnya tetap hanya dari sheet `approved`; sebelum itu, jangan menuliskan atribut visual apa pun.
+- `planned_sheets` di `library.json` adalah rencana, bukan bukti ketersediaan.
+
 ## 1. Istilah status
 
 | Status | Arti | Boleh dipakai untuk |

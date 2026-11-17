@@ -33,7 +33,7 @@ Narrative Pixar-style animated shorts: **idea → script → storyboard → char
 8. **No on-screen text inside generated media.** Captions are added in post (caption-video skill). Narration is generated externally (ElevenLabs) and overlaid; do not rely on in-prompt narrator lines. Trim clips to VO length per the dead-space rule in the pixar-style-ad guide.
 9. **Original characters only.** Do not name or reproduce existing Pixar/Disney characters, logos or scenes. "Pixar-style" describes a look, not licensed IP; say that if the user asks for a named franchise character.
 
-10. **Character library gate.** For any LYLA-project character, follow `references/character-library/CHARACTER_LIBRARY.md`: set `characters[].master_sheet` to the real file path from that project's folder, run `./scripts/check-character-library.sh <Project-Folder>` before Phase 4, and stop paid steps if it exits non-zero. Characters invented for a story (friends, extras) are "PROPOSED", not official; prefer the project's official cast from its master sheets and never redesign them.
+10. **Character library gate.** For any LYLA-project character, follow `references/character-library/CHARACTER_LIBRARY.md`: set `characters[].master_sheet` to the real file path from that project's folder, run `./scripts/check-character-library.sh <Project-Folder>` before Phase 4, and stop paid steps if it exits non-zero. Characters invented for a story (friends, extras) are "PROPOSED", not official; prefer the project's official cast from its master sheets and never redesign them. Rico & Friends: official cast is Rico, Lila, Bimo, Tika, Piko only; Pip and Moss are not official; spell the project "Rico".
 
 ## API requirements (verify, don't assume)
 

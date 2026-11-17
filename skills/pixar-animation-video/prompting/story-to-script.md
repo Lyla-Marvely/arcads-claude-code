@@ -41,7 +41,7 @@ Good Pixar-style premises: inanimate/object protagonists with a human-sized want
 ## 4. Script format
 
 ```
-SCENE 03 · 6 s · LOCATION: living-room · CHARACTERS: bimo, lena
+SCENE 03 · 6 s · LOCATION: living-room · CHARACTERS: tobi, lena
 ACTION: one sentence, one primary motion.
 SHOT/CAMERA: medium shot, slow push in.
 VO: "…"  (words: N, max = 2.5 × seconds)

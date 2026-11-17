@@ -1,12 +1,12 @@
 {
-  "title": "Bimo and the Last Cookie",
-  "logline": "A tiny robot vacuum named Bimo discovers a single cookie crumb under the sofa and must decide whether to share it.",
+  "title": "Tobi and the Last Cookie",
+  "logline": "A tiny robot vacuum named Tobi discovers a single cookie crumb under the sofa and must decide whether to share it.",
   "ratios": ["9:16", "16:9"],
   "style_lock": "Disney-Pixar 3D animated feature film aesthetic, soft volumetric warm lighting, subsurface scattering on skin and fabric, large expressive eyes with multiple catchlights, stylized but believable proportions, rich material detail, shallow depth of field with creamy bokeh, warm cozy palette of cream, butter yellow, dusty pink and soft sage",
   "characters": [
     {
-      "id": "bimo",
-      "name": "Bimo",
+      "id": "tobi",
+      "name": "Tobi",
       "role": "protagonist",
       "lock": {
         "form": "small round robot vacuum, 30 cm wide, matte butter-yellow shell, white rubber bumper ring",
@@ -39,20 +39,20 @@
       "beat": "hook",
       "duration": 5,
       "setting": "living-room",
-      "characters": ["bimo"],
+      "characters": ["tobi"],
       "shot": "low-angle close-up at floor level",
-      "action": "Bimo rolls out from under the sofa, stops, and his eyes widen as he spots a single cookie crumb",
+      "action": "Tobi rolls out from under the sofa, stops, and his eyes widen as he spots a single cookie crumb",
       "camera": "static, then a very slow push in",
-      "vo": "Bimo had cleaned this room a thousand times."
+      "vo": "Tobi had cleaned this room a thousand times."
     },
     {
       "id": "s02",
       "beat": "conflict",
       "duration": 6,
       "setting": "living-room",
-      "characters": ["bimo", "lena"],
-      "shot": "medium shot, Lena kneeling beside Bimo",
-      "action": "Lena tiptoes in, spots the same crumb, and she and Bimo freeze, staring at each other and at the crumb",
+      "characters": ["tobi", "lena"],
+      "shot": "medium shot, Lena kneeling beside Tobi",
+      "action": "Lena tiptoes in, spots the same crumb, and she and Tobi freeze, staring at each other and at the crumb",
       "camera": "gentle handheld micro-drift",
       "vo": "But today, someone else wanted that crumb too.",
       "continuity_from": "s01"
@@ -62,9 +62,9 @@
       "beat": "resolution",
       "duration": 6,
       "setting": "living-room",
-      "characters": ["bimo", "lena"],
+      "characters": ["tobi", "lena"],
       "shot": "wide shot of both on the floor, crumb between them",
-      "action": "Bimo nudges the crumb toward Lena, she smiles, breaks off a tiny piece and places it on his bumper; they both beam",
+      "action": "Tobi nudges the crumb toward Lena, she smiles, breaks off a tiny piece and places it on his bumper; they both beam",
       "camera": "slow pull back",
       "vo": "So he shared it. And that was the sweetest part.",
       "continuity_from": "s02"

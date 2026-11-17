@@ -1,15 +1,180 @@
 {
   "schema": 1,
   "doc": "CHARACTER_LIBRARY.md",
-  "note": "Registry of character master sheets. An asset is official ONLY when status is 'approved'. Only the project owner may set 'approved'. Empty 'assets' means nothing has been uploaded/registered yet.",
-  "status_values": ["uploaded", "identified", "approved", "deprecated"],
+  "note": "Registry of character master sheets. An asset is official ONLY when status is 'approved'. Only the project owner may set 'approved'. 'assets' lists files that exist on disk; empty means nothing is uploaded/registered yet. 'planned_sheets' are owner-declared intentions, NOT files and NOT assets.",
+  "status_values": [
+    "uploaded",
+    "identified",
+    "approved",
+    "deprecated"
+  ],
+  "owner_decisions": {
+    "date": "2026-11-17",
+    "summary": [
+      "LYLA and LYLA-Education are two different projects.",
+      "LYLA = LYLA Marvely and general LYLA brand content.",
+      "LYLA-Education = all educational content, educational mascots, worksheets and educational series.",
+      "Sheets titled 'Maskot LYLA Education' (Lyla solo, Lyla & Lilo) belong in LYLA-Education.",
+      "Aisyah and Mama Aisyah belong in LYLA-Education (educational series about child behavior and parenting).",
+      "Rico-and-Friends official characters: Rico, Lila, Bimo, Tika, Piko. Pip and Moss are NOT official. Do not create replacement characters or alter existing designs.",
+      "Project/dinosaur name spelling is 'Rico' (the sheet images may read 'Riko'; do not edit the images)."
+    ]
+  },
   "projects": {
-    "LYLA":               { "folder": "LYLA",               "assets": [] },
-    "LYLA-Education":     { "folder": "LYLA-Education",     "assets": [] },
-    "Rico-and-Friends":   { "folder": "Rico-and-Friends",   "assets": [] },
-    "Zeno-Family":        { "folder": "Zeno-Family",        "assets": [] },
-    "Arsein-Research":    { "folder": "Arsein-Research",    "assets": [] },
-    "The-Last-Letter":    { "folder": "The-Last-Letter",    "assets": [] },
-    "LYLA-Anime-Universe":{ "folder": "LYLA-Anime-Universe","assets": [] }
+    "LYLA": {
+      "folder": "LYLA",
+      "scope": "LYLA Marvely and general LYLA brand content",
+      "official_characters": [],
+      "not_official": [],
+      "planned_sheets": [],
+      "assets": []
+    },
+    "LYLA-Education": {
+      "folder": "LYLA-Education",
+      "scope": "All educational content: educational mascots, worksheets, educational series (incl. child-behavior / parenting series)",
+      "official_characters": [],
+      "not_official": [],
+      "planned_sheets": [
+        {
+          "original_name": "IMG_6836.jpeg",
+          "content": "Lyla (solo), titled 'Maskot LYLA Education'",
+          "basis": "owner decision 1",
+          "state": "not uploaded"
+        },
+        {
+          "original_name": "IMG_6838.jpeg",
+          "content": "Lyla & Lilo, titled 'Maskot LYLA Education' (attached twice in chat; one file)",
+          "basis": "owner decision 1",
+          "state": "not uploaded"
+        },
+        {
+          "original_name": "IMG_6839.jpeg",
+          "content": "Aisyah",
+          "basis": "owner decision 2",
+          "state": "not uploaded"
+        },
+        {
+          "original_name": "IMG_6840.jpeg",
+          "content": "Mama Aisyah",
+          "basis": "owner decision 2",
+          "state": "not uploaded"
+        },
+        {
+          "original_name": "IMG_6841.jpeg",
+          "content": "Fasha & Kania, titled 'Seri Edukasi LYLA | Dunia Sekolah'",
+          "basis": "inferred from title + owner decision 1 scope; owner to confirm",
+          "state": "not uploaded"
+        }
+      ],
+      "assets": []
+    },
+    "Rico-and-Friends": {
+      "folder": "Rico-and-Friends",
+      "scope": "Rico & Friends animated series",
+      "official_characters": [
+        "Rico",
+        "Lila",
+        "Bimo",
+        "Tika",
+        "Piko"
+      ],
+      "not_official": [
+        "Pip",
+        "Moss"
+      ],
+      "planned_sheets": [
+        {
+          "original_name": "IMG_6842.jpeg",
+          "content": "Group master sheet (Rico & Friends)",
+          "basis": "project name on sheet",
+          "state": "not uploaded"
+        },
+        {
+          "original_name": "IMG_6843.jpeg",
+          "content": "Rico solo master sheet",
+          "basis": "project name on sheet",
+          "state": "not uploaded"
+        }
+      ],
+      "assets": []
+    },
+    "Zeno-Family": {
+      "folder": "Zeno-Family",
+      "scope": "The Zeno Family",
+      "official_characters": [],
+      "not_official": [],
+      "planned_sheets": [
+        {
+          "original_name": "IMG_6844.jpeg",
+          "content": "The Zeno Family (Papa Don, Mama Kira, Zeno)",
+          "basis": "title on sheet",
+          "state": "not uploaded"
+        }
+      ],
+      "assets": []
+    },
+    "Arsein-Research": {
+      "folder": "Arsein-Research",
+      "scope": "Arsein Research",
+      "official_characters": [],
+      "not_official": [],
+      "planned_sheets": [
+        {
+          "original_name": "IMG_6845.jpeg",
+          "content": "Arsein Research team sheet",
+          "basis": "title on sheet",
+          "state": "not uploaded"
+        }
+      ],
+      "assets": []
+    },
+    "The-Last-Letter": {
+      "folder": "The-Last-Letter",
+      "scope": "The Last Letter (anime series)",
+      "official_characters": [],
+      "not_official": [],
+      "planned_sheets": [
+        {
+          "original_name": "IMG_6846.jpeg",
+          "content": "Maya & Ren",
+          "basis": "title on sheet",
+          "state": "not uploaded"
+        },
+        {
+          "original_name": "IMG_6847.jpeg",
+          "content": "Full cast",
+          "basis": "title on sheet",
+          "state": "not uploaded"
+        },
+        {
+          "original_name": "IMG_6848.jpeg",
+          "content": "Maya solo",
+          "basis": "title on sheet",
+          "state": "not uploaded"
+        },
+        {
+          "original_name": "IMG_6850.jpeg",
+          "content": "Supporting characters",
+          "basis": "title on sheet",
+          "state": "not uploaded"
+        }
+      ],
+      "assets": []
+    },
+    "LYLA-Anime-Universe": {
+      "folder": "LYLA-Anime-Universe",
+      "scope": "LYLA Anime Universe",
+      "official_characters": [],
+      "not_official": [],
+      "planned_sheets": [
+        {
+          "original_name": "IMG_6849.jpeg",
+          "content": "Lady Aradena",
+          "basis": "'LYLA Anime Universe' on sheet",
+          "state": "not uploaded"
+        }
+      ],
+      "assets": []
+    }
   }
 }

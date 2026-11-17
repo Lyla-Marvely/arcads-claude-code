@@ -48,14 +48,15 @@ if want and want not in projects:
 
 names = [want] if want else list(projects)
 res = {n: inspect(n, projects[n]) for n in names}
-print(f"{'project':22} registered approved  notes")
+print(f"{'project':22} registered approved planned  notes")
 for n, r in res.items():
     notes = []
     if r["missing"]: notes.append(f"MISSING FILES: {len(r['missing'])}")
     if r["bad_hash"]: notes.append(f"HASH MISMATCH: {len(r['bad_hash'])}")
     if r["unregistered"]: notes.append(f"UNREGISTERED IMAGES: {len(r['unregistered'])}")
     if r["registered"] == 0 and not r["unregistered"]: notes.append("empty (nothing uploaded)")
-    print(f"{n:22} {r['registered']:>10} {r['approved']:>8}  {'; '.join(notes)}")
+    planned = len(projects[n].get("planned_sheets", []))
+    print(f"{n:22} {r['registered']:>10} {r['approved']:>8} {planned:>7}  {'; '.join(notes)}")
     for k in ("missing", "bad_hash", "unregistered"):
         for f in r[k]: print(f"    {k}: {f}")
 

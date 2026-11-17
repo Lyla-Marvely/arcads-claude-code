@@ -1,16 +1,21 @@
 # Zeno Family — character references
 
-**Status: 1 master character sheet terdaftar (`identified`); 0 approved.** Sumber kebenaran: [../library.json](../library.json).
+**Status: 1 master sheet terdaftar. Karakter disetujui: belum ada. Terdaftar tetapi belum disetujui: Mama Kira, Papa Don, Zeno.** Sumber kebenaran: [../library.json](../library.json).
 
-Isi folder ini hanya boleh berupa master character sheet proyek **Zeno Family** yang diunggah pemilik. Status resmi/tidaknya ada di [../library.json](../library.json), bukan di file ini.
+**Cakupan:** The Zeno Family. Belum ada karakter yang disetujui.
 
-**File terdaftar:**
+## File terdaftar
 
-- `zeno-family__family__master-sheet__v1.jpeg` — Papa Don, Mama Kira, Zeno — status `identified`
+| File | Karakter (`Proyek:Nama`) | Status | Catatan |
+|------|--------------------------|--------|---------|
+| `zeno-family__family__master-sheet__v1.jpeg` | Papa Don, Mama Kira, Zeno | `identified` |  |
 
-Aturan (ringkas, lengkap di [../CHARACTER_LIBRARY.md](../CHARACTER_LIBRARY.md)):
+✔ = disetujui pemilik. Karakter tanpa ✔ baru `identified`.
 
-- Hanya aset berstatus `approved` yang resmi.
-- Jangan membuat atau mengubah desain karakter. Karakter usulan masuk `proposed/` dan bukan resmi.
-- Jangan campur karakter dari proyek lain di sini.
-- Versi baru = file baru (`v2`), jangan menimpa.
+
+## Aturan (ringkas; lengkap di [../CHARACTER_LIBRARY.md](../CHARACTER_LIBRARY.md))
+
+- Jangan mengubah gambar asli, jangan menghapus atau mengganti file master. Versi baru = file baru (`v2`).
+- Hanya karakter berstatus `approved` yang resmi. Jangan membuat karakter baru atau mengubah desain tanpa persetujuan pemilik.
+- Selalu sebut karakter sebagai `Proyek:Nama`; nama yang sama di proyek lain adalah karakter berbeda.
+- Gunakan character lock: `./scripts/check-character-library.sh <Proyek> --character <Nama>` mencetak lock dan file referensi.

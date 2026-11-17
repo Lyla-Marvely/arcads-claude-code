@@ -1,11 +1,8 @@
 # Arsein Research — logo alternatif
 
-**Status: 1 file terdaftar (`identified`); 0 approved.** Tipe primary vs alternate diusulkan asisten; menunggu konfirmasi pemilik.
+**Status: 1 file terdaftar (`identified`, belum `approved`).**
+- `arsein-research__logo-alternate-horizontal__v1.jpeg`
 
-Isi: logo alternatif ARSEIN RESEARCH (varian horizontal/vertikal/ikon/monokrom dan sebagainya, sebagaimana diunggah pemilik). Dicatat di `brand_assets` (type `logo_alternate`).
+Logo alternatif = versi memanjang/horizontal. Dipilih hanya bila lebih sesuai dengan komposisi. Overlay file asli di post-produksi.
 
-Status resmi/tidaknya ada di [../../../library.json](../../../library.json), bukan di file ini. Aturan lengkap: [CHARACTER_LIBRARY.md](../../../CHARACTER_LIBRARY.md).
-
-- Jangan mengubah, menggambar ulang, mewarnai ulang, atau membuat versi baru dari desain asli.
-- Versi baru dari pemilik = file baru (`v2`); jangan menimpa.
-- Aset hanya resmi jika berstatus `approved` di `library.json`.
+Sumber kebenaran: [library.json](../../../library.json). Jangan mengubah, menggambar ulang, mewarnai ulang, atau menimpa file asli; versi baru = file baru (`v2`).

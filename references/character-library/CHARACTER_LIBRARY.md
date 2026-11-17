@@ -2,34 +2,49 @@
 
 Panduan ini berlaku untuk **setiap skill dan sesi** yang membuat gambar, video, storyboard, atau prompt yang memuat karakter proyek LYLA. Ini mencakup `pixar-animation-video`, `pixar-style-ad`, `claymation-ad`, `gemini-omni-flash`, `caption-video`, `generate-youtube-thumbnail`, dan skill image-ad.
 
-Status: 14 master sheet dan 2 logo Arsein sudah diunggah dan terdaftar sebagai `identified`; **belum ada yang `approved`**. Sebelum sebuah karakter dipakai, cek `library.json`.
+Status: 14 master sheet dan 2 logo Arsein sudah terdaftar. **Disetujui pemilik:** Rico, Lila, Bimo, Tika, Piko; Fasha, Kania; dan Maya tanpa pita (kanonik). **Lainnya `identified`, termasuk kedua logo.** Sebelum sebuah karakter dipakai, cek `library.json` atau jalankan skrip pemeriksa.
 
 ## 0. Keputusan pemilik dan routing proyek
+
+Ringkasan keputusan final ada di [README.md](README.md#keputusan-pemilik-2026-11-17) dan `owner_decisions` di `library.json`.
 
 | Jika kontennya… | Gunakan folder |
 |-----------------|----------------|
 | LYLA Marvely, konten brand LYLA umum | `LYLA/` |
-| pendidikan, maskot edukasi (Lyla "Maskot LYLA Education", Lilo), worksheet, serial edukasi, serial perilaku anak dan parenting (Aisyah, Mama Aisyah) | `LYLA-Education/` |
+| pendidikan, maskot edukasi (Lyla "Maskot LYLA Education", Lilo), worksheet, serial edukasi, perilaku anak/parenting (Aisyah, Mama Aisyah, Fasha, Kania) | `LYLA-Education/` |
 | Rico & Friends | `Rico-and-Friends/` |
-| Zeno Family / Arsein Research / The Last Letter / LYLA Anime Universe | folder dengan nama yang sama |
+| The Last Letter dan LYLA Anime Universe | `The-Last-Letter/` dan `LYLA-Anime-Universe/` (satu universe, lihat 2c) |
+| Zeno Family / Arsein Research | folder dengan nama yang sama |
 
 Aturan khusus:
-- **LYLA ≠ LYLA-Education.** Jangan mencampur keduanya. Lyla dengan label "Maskot LYLA Education" memakai sheet di `LYLA-Education/`.
-- **Rico & Friends:** karakter resmi hanya Rico, Lila, Bimo, Tika, Piko (deklarasi pemilik; desain diverifikasi dari sheet setelah diunggah). **Pip dan Moss bukan karakter resmi** dan tidak boleh dipakai. **Jangan membuat karakter pengganti**, jangan mengubah desain yang ada. Ejaan tertulis **Rico**, sama dengan sheet yang diunggah; gambar tidak diedit.
-- Daftar `official_characters` di `library.json` adalah deklarasi pemilik. Detail visualnya tetap hanya dari sheet `approved`; sebelum itu, jangan menuliskan atribut visual apa pun.
-- `planned_sheets` di `library.json` adalah rencana, bukan bukti ketersediaan.
+- **LYLA ≠ LYLA-Education.** Fasha dan Kania hanya di LYLA-Education; dilarang di LYLA umum (`forbidden_characters`, dicek skrip).
+- **Rico & Friends:** resmi hanya Rico, Lila, Bimo, Tika, Piko. Pip dan Moss bukan karakter resmi, tidak boleh dipakai, tanpa karakter pengganti. Ejaan **Rico**.
+- `official_characters` di `library.json` adalah deklarasi pemilik; atribut visual hanya dari sheet yang disetujui.
+- `planned_sheets` adalah rencana awal, bukan bukti ketersediaan.
 
-## 1. Istilah status
+## 1. Status dan persetujuan
 
-| Status | Arti | Boleh dipakai untuk |
-|--------|------|---------------------|
-| *(tidak terdaftar)* | gambar belum ada di repo | tidak ada — jangan klaim tersedia |
-| `uploaded` | file ada di folder, belum diidentifikasi | tidak ada |
-| `identified` | proyek/karakter sudah diidentifikasi, **belum disetujui pemilik** | hanya diskusi dan draf prompt offline berlabel "UNAPPROVED" |
-| `approved` | disetujui pemilik, **ini karakter resmi** | semua pekerjaan, termasuk generasi berbayar |
+| Status aset | Arti | Boleh dipakai untuk |
+|-------------|------|---------------------|
+| *(tidak terdaftar)* | file belum ada di repo | tidak ada, jangan klaim tersedia |
+| `uploaded` / `identified` | ada dan diidentifikasi, **belum disetujui pemilik** | diskusi dan draf offline berlabel "UNAPPROVED" |
+| `partially_approved` | hanya karakter bertanda `approved` di `characters_status` yang resmi | hanya karakter yang disetujui |
+| `approved` | seluruh karakter di sheet disetujui pemilik | semua pekerjaan, termasuk generasi berbayar |
 | `deprecated` | digantikan versi baru | tidak boleh dipakai |
 
-Hanya pemilik proyek yang boleh mengubah status menjadi `approved`. Claude/agent **tidak pernah** menyetujui sendiri.
+**Persetujuan bersifat per karakter** (`characters_status`), karena satu sheet bisa memuat banyak karakter. Contoh: sheet "Maya & Ren" `partially_approved`: Maya disetujui, Ren belum.
+
+**Hanya pemilik yang menyetujui.** Agent tidak pernah menyetujui sendiri, dan tidak menganggap penetapan tipe (misalnya "logo utama") atau penempatan folder sebagai persetujuan. Setiap persetujuan mencatat `approved_by`, `approved_at`, dan `approval_basis` (kutipan keputusan pemilik).
+
+Persetujuan yang tercatat saat ini:
+
+| Aset | Disetujui | Dasar |
+|------|-----------|-------|
+| Rico & Friends: sheet grup dan Rico solo | Rico, Lila, Bimo, Tika, Piko | pemilik menetapkan kelimanya sebagai karakter resmi |
+| LYLA-Education: sheet Fasha & Kania | Fasha, Kania | keputusan final 4 |
+| The-Last-Letter: sheet Maya & Ren, Full Cast | Maya (tanpa pita) | keputusan final 2; diverifikasi visual |
+
+Menunggu persetujuan: Lyla, Lilo, Aisyah, Mama Aisyah, seluruh Zeno Family, Arsein (Lila, Raka, Naya, Bimo, Tika), Ren dan karakter lain The Last Letter, Lady Aradena, serta **kedua logo Arsein**.
 
 ## 2. Aturan wajib untuk semua skill
 
@@ -44,6 +59,13 @@ Hanya pemilik proyek yang boleh mengubah status menjadi `approved`. Claude/agent
 9. **Laporkan sumbernya.** Setiap hasil menyebut sheet (file + versi) yang dipakai. Jangan menyatakan hasil "sesuai master sheet" tanpa membandingkan.
 10. **QA terhadap sheet.** Tolak output yang menggeser warna, bentuk wajah, mata, atau ciri khas, dan coba ulang maksimal 2 kali sebelum bertanya.
 11. **Hak cipta dan privasi.** Sheet milik pemilik proyek. Jangan dipakai di luar proyeknya atau dibagikan ke layanan pihak ketiga selain generator yang dipakai untuk pekerjaan itu.
+12. **Nama karakter tidak unik antar proyek.** Selalu pakai `Proyek:Nama`. `Arsein-Research:Lila` bukan `Rico-and-Friends:Lila`, dan juga Bimo dan Tika. Dilarang mencari karakter dengan nama polos lintas proyek.
+13. **Character lock wajib.** Setiap prompt untuk karakter menyertakan lock dari `./scripts/check-character-library.sh <Proyek> --character <Nama>` (wajah, rambut, pakaian, warna, proporsi, ciri khas persis seperti sheet) dan melampirkan file referensi yang dicetaknya. Jangan menulis atribut visual yang tidak ada di sheet.
+14. **Acuan kanonik.** Jika sheet berbeda, ikuti `character_locks` di `library.json`. Maya: tanpa ikat rambut/pita; sheet Maya solo (berpita) adalah varian non-kanonik, tidak dijadikan acuan utama tetapi tidak dihapus.
+15. **Universe.** The-Last-Letter dan LYLA-Anime-Universe satu universe: karakter boleh dipakai bersama dan punya hubungan cerita. Sheet tetap di folder proyek asal; proyek lain merujuk file yang sama (tidak menyalin, tidak mendesain ulang). Pertahankan identitas, desain, kesinambungan cerita. Tanpa karakter baru atau perubahan desain tanpa persetujuan pemilik.
+16. **Aturan file.** Jangan mengubah gambar asli; jangan menghapus atau mengganti file master; pertahankan `sha256`, `original_name`, dan `origin`. Skrip memeriksa hash, file hilang, duplikat, file salah folder, dan file tak terdaftar.
+17. **Logo Arsein.** Gunakan **logo utama (kotak/bertumpuk) sebagai default**; **logo alternatif (horizontal)** boleh dipilih bila lebih sesuai dengan komposisi. Overlay file asli di post-produksi; jangan digambar ulang oleh model.
+
 
 ## 3. Struktur dan penamaan
 
@@ -79,11 +101,20 @@ Contoh nama: `rico-and-friends__group__master-sheet__v1.jpg` (hanya contoh forma
 
 Entri ditambahkan hanya setelah file benar-benar ada di folder.
 
+Field tambahan pada entri karakter:
+- `character_ids`: `["Proyek:Nama", ...]` (nama tidak unik antar proyek).
+- `characters_status`: `{"Nama": "approved|identified"}` untuk persetujuan per karakter.
+- `approval_basis`: dasar persetujuan (keputusan pemilik).
+- `origin`: `{"channel", "original_name", "upload_commit"}`, catatan asal file.
+- `canonical` / `canonical_for` / `canonical_note`: menandai sheet acuan kanonik atau varian non-kanonik.
+
+Field tingkat proyek: `official_characters`, `forbidden_characters`, `character_locks`, `universe`, `name_collisions`, `brand_usage`. Tingkat atas: `universes`, `character_lock_template`, `name_collision_rule`.
+
 ## 4b. Aset brand: logo dan visual pendukung (dicatat terpisah dari karakter)
 
 Master karakter dicatat di `assets`. **Logo dan aset brand dicatat di `brand_assets`**, daftar terpisah pada proyek yang sama. Yang satu tidak pernah dihitung sebagai yang lain, dan gate karakter tidak terpengaruh oleh aset brand.
 
-Saat ini diaktifkan untuk **Arsein-Research**, yang menyimpan seluruh identitas visual brand ARSEIN RESEARCH:
+Saat ini diaktifkan untuk **Arsein-Research**, yang menyimpan semua master karakter dan seluruh identitas visual brand ARSEIN RESEARCH:
 
 | `type` | Isi | Subfolder |
 |--------|-----|-----------|
@@ -118,7 +149,8 @@ Aturan aset brand:
 3. **Logo di dalam master character sheet** adalah bagian dari sheet itu, bukan file logo. Jangan di-crop menjadi aset logo.
 4. **Pilih varian sesuai fungsi**, dan jangan menebak: tanyakan pemilik jika tidak jelas logo mana yang cocok untuk sebuah penggunaan.
 5. **Format:** PNG/SVG dengan latar transparan disarankan untuk logo. Upload lewat web GitHub tidak terpengaruh aturan ignore. Untuk `git add` lokal gunakan `-f`.
-6. Gate: `./scripts/check-character-library.sh Arsein-Research --brand` (exit 0 hanya jika ada `logo_primary` berstatus `approved` yang filenya ada).
+6. **Pemakaian saat generate (keputusan pemilik):** logo utama = versi kotak/bertumpuk, **default**. Logo alternatif = versi memanjang/horizontal, boleh dipilih bila lebih sesuai dengan komposisi. Keduanya aset terpisah. Tipe sudah dikonfirmasi pemilik, tetapi **keduanya belum `approved`**.
+7. Gate: `./scripts/check-character-library.sh Arsein-Research --brand` (logo utama) atau `--brand --logo alternate`; exit 0 hanya jika logo berstatus `approved` dan filenya ada.
 
 ## 5. Alur setelah Anda mengunggah gambar
 
@@ -131,12 +163,17 @@ Aturan aset brand:
 ## 6. Cara skill memakai library
 
 ```bash
-./scripts/check-character-library.sh                 # ringkasan semua proyek
-./scripts/check-character-library.sh Rico-and-Friends # gate karakter: exit 0 hanya jika ada master sheet approved yang filenya ada
-./scripts/check-character-library.sh Arsein-Research --brand  # gate brand: exit 0 hanya jika ada logo_primary approved
+./scripts/check-character-library.sh                                          # integritas (exit 1 bila ada masalah)
+./scripts/check-character-library.sh Rico-and-Friends                         # gate proyek
+./scripts/check-character-library.sh Rico-and-Friends --character Rico --character Lila   # gate per karakter + LOCK + referensi
+./scripts/check-character-library.sh LYLA-Anime-Universe --character Maya     # Maya diselesaikan dari The-Last-Letter (universe)
+./scripts/check-character-library.sh Arsein-Research --brand                  # logo utama approved
+./scripts/check-character-library.sh Arsein-Research --brand --logo alternate # logo alternatif approved
 ```
 
-Untuk `pixar-animation-video`: isi `characters[].master_sheet` di `project.json` dengan path file dari library (bukan deskripsi), dan jangan mulai Phase 4+ (berbayar) sebelum gate lulus.
+Gate **gagal (exit 1)** jika karakter tidak ditemukan, belum disetujui, ada di beberapa proyek dalam universe yang sama (ambigu), file hilang, atau hash berubah. Jika gagal: jangan jalankan langkah berbayar; hanya prompt offline berlabel "character unverified".
+
+Untuk `pixar-animation-video`: isi `characters[].master_sheet` dengan path dari library (bukan deskripsi), pakai lock yang dicetak skrip, dan jangan mulai Phase 4+ (berbayar) sebelum gate lulus untuk **setiap** karakter yang dipakai.
 
 ## 7. Catatan teknis
 

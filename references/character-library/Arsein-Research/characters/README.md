@@ -1,11 +1,8 @@
 # Arsein Research — master character sheet
 
-**Status: 1 file terdaftar (`identified`); 0 approved.** 
+**Status: 1 file terdaftar (`identified`, belum `approved`).**
+- `arsein-research__team__master-sheet__v1.jpeg`
 
-Isi: master character sheet karakter Arsein Research. Dicatat di `assets` pada library.json (bagian karakter).
+Nama Lila, Bimo, Tika di sini berbeda dari karakter bernama sama di Rico-and-Friends.
 
-Status resmi/tidaknya ada di [../../library.json](../../library.json), bukan di file ini. Aturan lengkap: [CHARACTER_LIBRARY.md](../../CHARACTER_LIBRARY.md).
-
-- Jangan mengubah, menggambar ulang, mewarnai ulang, atau membuat versi baru dari desain asli.
-- Versi baru dari pemilik = file baru (`v2`); jangan menimpa.
-- Aset hanya resmi jika berstatus `approved` di `library.json`.
+Sumber kebenaran: [library.json](../../library.json). Jangan mengubah, menggambar ulang, mewarnai ulang, atau menimpa file asli; versi baru = file baru (`v2`).
